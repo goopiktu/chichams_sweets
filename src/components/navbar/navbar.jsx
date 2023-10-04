@@ -1,57 +1,33 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import cakeLogo from './navbar_assets/cake_icon.png'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
-function Navbar(){
-        return(
-                <nav class='navbar fixed-top navbar-expand-sm navbar-light bg-light'>
-                        <div class='container'>
-                        <a href='#' class='navbar-brand mb-0 h1'>
-                                <img src={cakeLogo} class='d-inline-block align-top border border-primary rounded-circle' id='profile_image' width='30' height='30'/>
-                        </a>
+import Cake_Icon from '../navbar/navbar_assets/cake_icon.png';
+import './navbar.css'
 
-                        <button
-                        type='button'
-                        data-bs-toggle='collapse'
-                        data-bs-target='#navbarNav'
-                        class='navbar-toggler'
-                        aria-bs-controls='navbarNav'
-                        aria-expanded='false'
-                        aria-label='Toggle navigation'
-                        >
-                                <span class='navbar-toggler-icon'></span>
-                        </button>
+function NavigationBar() {
+  return (
+    <Navbar expand="lg" className="bg-body-tertiary" id='nav_bar'>
+      <Container>
+        <Navbar.Brand href="#aboutus">
+                {/*Brand - TODO: Insert brand image, placeholder was used*/}
+                <img src={Cake_Icon} className="border border-dark rounded-circle" height={30} width={30}/>
+        </Navbar.Brand>
 
-                        <div class='collapse navbar-collapse justify-content-end' id='navbarNav'>
-                                <ul class='navbar-nav ml-auto' id='navbar_options'>
-                                       <li class='nav-item active'>
-                                                <a href='#' class='nav-link active fw-bold'>
-                                                       Home
-                                                </a>
-                                        </li>
-
-                                        <li class='nav-item active'>
-                                                <a href='#' class='nav-link active fw-bold'>
-                                                       Order
-                                                </a>
-                                        </li>
-
-                                        <li class='nav-item active'>
-                                                <a href='#' class='nav-link active fw-bold'>
-                                                       About Us
-                                                </a>
-                                        </li>
-
-                                        <li class='nav-item active'>
-                                                <a href='#' class='nav-link active fw-bold'>
-                                                       Login
-                                                </a>
-                                        </li>
-                                </ul>
-                        </div>
-                </div>
-        </nav>
-        );
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+                <Container>
+                        <Nav className="right-aligned">
+                                <Nav.Link href="#home" className='fw-bold'>Home</Nav.Link>
+                                <Nav.Link href="#order" className='fw-bold'>Order</Nav.Link>
+                                <Nav.Link href="#aboutus" className='fw-bold'>About Us</Nav.Link>
+                                <Nav.Link href="#login" className='fw-bold'>Log in</Nav.Link>
+                        </Nav>
+                </Container>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
-export default Navbar;
+export default NavigationBar;

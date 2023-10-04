@@ -1,0 +1,10 @@
+#card_container{
+        display: flex;
+        justify-content: center;
+}
+
+.menu_card{
+        margin-top: 5rem;
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+}

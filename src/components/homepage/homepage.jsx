@@ -1,13 +1,18 @@
 import React from 'react';
 import Navbar from '../navbar/navbar.jsx';
-import Product_Carousel from '../cake_display/product_carousel.jsx';
+import ProductCarousel from '../cake_display/product_carousel.jsx';
+import Menu from '../menu/menu.jsx';
+
+import {Container} from 'react-bootstrap';
+import './homepage.css';
 
 function Homepage(){
         return(
-                <div>
+                <Container>
                         <Navbar />
-                        <Product_Carousel />
-                </div>
+                        <ProductCarousel/>
+                        <Menu />
+                </Container>
         )
 }
 

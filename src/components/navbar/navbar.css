@@ -1,1 +1,9 @@
+.right-aligned{
+       justify-content: flex-end;
+}
 
+#nav_bar{
+        position: sticky;
+        top: 0;
+        z-index: 200;
+}
