@@ -32,5 +32,5 @@ db.connect();
 
 app.listen(port, function(){
     console.log('Server running at: ');
-    console.log('http://' + '127.0.0.1' + ':' + port);
+    console.log('app listening at port ' + port);
 });
