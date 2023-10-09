@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const url = 'mongodb://127.0.0.1:27017/ordering-system';
+const Order = require('./OrderModel.js');
+
+const url = 'mongodb+srv://chichams:<password>@chichams-sweets.xanauwx.mongodb.net/?retryWrites=true&w=majority';
 
 const options = {
     useUnifiedTopology: true,
