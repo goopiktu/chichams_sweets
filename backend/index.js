@@ -1,6 +1,11 @@
 const express = require('express');
 
-const hbs = require('hbs');
+// const hbs = require('hbs');
+const mongoose = require("mongoose");
+
+require("dotenv").config();
+
+const cors = require("cors");
 
 const fs = require('fs');
 
@@ -10,13 +15,18 @@ const db = require('./models/db.js');
 
 const app = express();
 
-const port = 9090;
+const port = process.env.PORT | 4000;
 
-app.set('view engine', 'hbs');
+// app.set('view engine', 'hbs');
 
-hbs.registerPartials(__dirname + '/views/partials');
+// hbs.registerPartials(__dirname + '/views/partials');
 
-hbs.registerPartial('header', fs.readFileSync(__dirname + '/views/partials/header.hbs', 'utf8'));
+// hbs.registerPartial('header', fs.readFileSync(__dirname + '/views/partials/header.hbs', 'utf8'));
+
+app.use(express.json())
+app.use(cors())
+
+
 
 app.use(express.urlencoded({extended: true}));
 
