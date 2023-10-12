@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Order = require('./OrderModel.js');
 
-const url = 'mongodb+srv://chichams:9KvfdWyPgHC6sGkP@chichams-sweets.xanauwx.mongodb.net/?retryWrites=true&w=majority';
+
 
 const options = {
     useUnifiedTopology: true,
@@ -12,7 +12,7 @@ const options = {
 const database = {
     connect: async function() {
         try {
-            await mongoose.connect(url, options);
+            await mongoose.connect(process.env.MONGO_URI);
             console.log('Connected to: ' + url);
         } catch (error) {
             console.error('Error connecting to database:', error);
