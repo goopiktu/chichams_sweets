@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="order_style.css">
+    <title>Order Form</title>
+</head>
+<body>
+    <form id="order-form" action="/postOrder" method="post">
+        <label for="fname">First Name: </label>
+        <input type="text" id="fname" name="fname">
+
+        <label for="lname">Last Name: </label>
+        <input type="text" id="lname" name="lname">
+
+        <label for="contactNo">Contact No: </label>
+        <input type="text" id="contactNo" name="contactNo">
+
+        <select name="mode" id="mode" name="mode">
+            <option value="Deliver">Deliver</option>
+            <option value="Pick-up">Pick-up</option>
+        </select>
+
+        <lavel for="date">Date:</lavel>
+        <input type="date" id="delivery-date" name="deliveryDate">
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
