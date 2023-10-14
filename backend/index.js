@@ -23,10 +23,8 @@ const port = process.env.PORT | 4000;
 
 // hbs.registerPartial('header', fs.readFileSync(__dirname + '/views/partials/header.hbs', 'utf8'));
 
-app.use(express.json())
-app.use(cors())
-
-
+app.use(express.json());
+app.use(cors());
 
 app.use(express.urlencoded({extended: true}));
 

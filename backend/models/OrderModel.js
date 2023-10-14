@@ -13,16 +13,17 @@ var OrderSchema = new mongoose.Schema({
     contactNo: {
         type: Number,
         required: true
-    }, 
-    dateOrdered: {
-        type: Date,
-        required: true
     },
 
     mode: {
         type: String,
         enum: ['Deliver', 'Pick-up'],
         default: 'Pick-up',
+        required: true
+    }, 
+
+    dateOrdered: {
+        type: Date,
         required: true
     }
 });

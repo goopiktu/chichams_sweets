@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Order = require('./OrderModel.js');
 
-
+const uri = 'mongodb+srv://chichams:9KvfdWyPgHC6sGkP@chichams-sweets.xanauwx.mongodb.net/'
 
 const options = {
     useUnifiedTopology: true,
@@ -12,8 +12,8 @@ const options = {
 const database = {
     connect: async function() {
         try {
-            await mongoose.connect(process.env.MONGO_URI);
-            console.log('Connected to: ' + url);
+            await mongoose.connect(uri, options);
+            console.log('Connected to: ' + uri);
         } catch (error) {
             console.error('Error connecting to database:', error);
         }

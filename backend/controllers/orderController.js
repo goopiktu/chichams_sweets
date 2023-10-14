@@ -8,31 +8,46 @@ const orderController = {
     },
 
     postOrder: async function(req, res){
-        var fname = req.body.fname;
-        var lname = req.body.lname;
-        var contact = req.body.contactNo;
-        var mode = req.body.mode;
-        var date = req.body.deliveryDate;
+        // var fname = req.body.fname;
+        // var lname = req.body.lname;
+        // var contact = req.body.contactNo;
+        // var mode = req.body.mode;
+        // var date = req.body.deliveryDate;
 
-        var order = {
-            fname: fname,
-            lname: lname,
-            contactNo: contact,
-            dateOrdered: date,
-            mode: mode
-        }
+        // var order = {
+        //     fname: fname,
+        //     lname: lname,
+        //     contactNo: contact,
+        //     dateOrdered: date,
+        //     mode: mode
+        // }
 
-        var all_order = await db.findMany(Order, {});
+        // var all_order = await db.findMany(Order, {});
 
+        // try{
+        //     await db.insertOne(Order, order);
+
+        //     console.log(all_order);
+        // } catch(error){
+        //     console.error('Error inserting document: ', error);
+        // }
+
+        // res.redirect('/');
         try{
-            await db.insertOne(Order, order);
+            const { fname, lname, contact, date, mode } = req.body;
+            
+            const orderForm = new Order({ fname, lname, contact, date, mode });
+            
+            await db.insertOne(Order, orderForm);
 
-            console.log(all_order);
+            res.json({ message: 'One document inserted to MongoDB' })
         } catch(error){
-            console.error('Error inserting document: ', error);
+            console.error(error);
+            res.status(500).json({ message: 'Error inserting one document to MongoDB' });
         }
 
         res.redirect('/');
+
     }
 }
 

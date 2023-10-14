@@ -13,9 +13,29 @@ const Form = () => {
         setValue,
     } = useForm();
     
+    // const onSubmit = async (data) => {
+    //     try{
+    //       const response = await fetch('http://localhost:3000/postOrder', {
+    //         method: 'POST',
+    //         headers: {
+    //           'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(data),
+    //       });
+
+    //       if(response.ok){
+    //         console.log('One document inserted to MongoDB');
+    //       } else{
+    //         console.log('Failed to insert one document to MongoDB');
+    //       }
+    //     } catch(error){
+    //       console.error('Error saving data: ', error);
+    //     }
+    // };
+
     const onSubmit = (data) => {
-        console.log(data);
-    };
+      console.log(data);
+    }
 
     const selectedDate = watch('date');
 
@@ -52,10 +72,6 @@ const Form = () => {
               <label></label>
               <button type="submit">Submit</button>
             </div>
-
-
-
-
 
           </form>
         </div>
