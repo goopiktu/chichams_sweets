@@ -98,6 +98,7 @@ const Form = () => {
               <label>First Name:</label>
               <input type="text" name="fname" value={fname} onChange={handleFirstName} />
             </div>
+
             <div className="form-control">
               <label>Last Name:</label>
               <input type="text" name="lname" value={lname} onChange={handleLastName} />
@@ -111,7 +112,7 @@ const Form = () => {
             <select name="mode" onChange={handleMode} defaultValue={"Deliver"}>
                 <option value="Deliver">Deliver</option>
                 <option value="Pick-up">Pick-up</option>
-            </select>
+            </select> 
 
             {/* <div>
                 <label>Select a date:</label>
