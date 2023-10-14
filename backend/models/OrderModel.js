@@ -14,17 +14,19 @@ var OrderSchema = new mongoose.Schema({
         type: Number,
         required: true
     }, 
-    dateOrdered: {
-        type: Date,
-        required: true
-    },
 
     mode: {
         type: String,
         enum: ['Deliver', 'Pick-up'],
         default: 'Pick-up',
         required: true
+    },
+
+    dateOrdered: {
+        type: Date,
+        default: Date.now,
+        required: true
     }
 });
 
-module.exports = mongoose.model('Order', OrderSchema);
+module.exports = mongoose.model('Order', OrderSchema, 'orders');

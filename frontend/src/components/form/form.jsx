@@ -1,50 +1,129 @@
 import React from "react";
-import { useForm } from 'react-hook-form';
-import DatePicker from 'react-date-picker';
-
+import { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Form = () => {
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        watch,
-        setValue,
-    } = useForm();
+    const [fname, setFname] = useState('');
+    const [lname, setLname] = useState('');
+    const [contactNo, setContactNo] = useState('');
+    const [mode, setMode] = useState('Deliver');
+    const [dateOrdered, setDateOrdered] = useState(null);
     
-    const onSubmit = (data) => {
-        console.log(data);
+    // const onSubmit = async (data) => {
+    //     try{
+    //       const response = await fetch('http://localhost:4000/postOrder', {
+    //         method: 'POST',
+    //         headers: {
+    //           'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(data),
+    //       });
+
+    //       if(response.ok){
+    //         console.log('One document inserted to MongoDB');
+    //       } else{
+    //         console.log('Failed to insert one document to MongoDB');
+    //       }
+    //     } catch(error){
+    //       console.error('Error saving data: ', error);
+    //     }
+    // };
+
+    const handleFirstName = (e) => {
+      setFname(e.target.value);
     };
 
-    const selectedDate = watch('date');
+    const handleLastName = (e) => {
+      setLname(e.target.value);
+    };
+
+    const handleContactNo = (e) => {
+      setContactNo(e.target.value);
+    }
+
+    const handleMode = (e) => {
+      setMode(e.target.value);
+    };
+
+    const handleDateOrdered = (date) => {
+      setDateOrdered(date);
+    };
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      const formData = {
+        fname: fname,
+        lname: lname,
+        contactNo: contactNo,
+        mode: mode,
+        dateOrdered: dateOrdered
+      };
+
+      console.log(formData);
+
+      fetch('http://localhost:4000/postOrder', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+        .then((response) => {
+          if (response.ok) {
+            console.log('Successfully inserted one document');
+          } else {
+            console.error('Insert one document failed');
+          }
+        })
+        .catch((error) => {
+          console.error('An error occurred: ', error);
+        });
+    };
+
+    // const handleDateChange = (date) => {
+    //   setValue('dateOrdered', date, {shouldValidate: true});
+    // };
+
+    // const selectedDate = watch('date');
 
     return (
         
         <div className="App">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit} > {/*add method post*/}
             <div className="form-control">
               <label>First Name:</label>
-              <input type="text" name="firstname" {...register("firstname")} />
+              <input type="text" name="fname" value={fname} onChange={handleFirstName} />
             </div>
             <div className="form-control">
               <label>Last Name:</label>
-              <input type="text" name="lastname" {...register("lastname")} />
+              <input type="text" name="lname" value={lname} onChange={handleLastName} />
             </div>  
             <div className="form-control">
               <label>Contact No:</label>
-              <input type="text" name="contactno" {...register("contactno")} />
+              <input type="text" name="contactNo" value={contactNo} onChange={handleContactNo} />
             </div>
            
 
-            <select {...register('mode')} defaultValue={"Deliver"}>
+            <select name="mode" onChange={handleMode} defaultValue={"Deliver"}>
                 <option value="Deliver">Deliver</option>
                 <option value="Pick-up">Pick-up</option>
             </select>
 
-            <div>
+            {/* <div>
                 <label>Select a date:</label>
                 <DatePicker onChange={(date) => setValue('date', date, { shouldValidate: true })} value={selectedDate} clearIcon={null} />
+            </div> */}
+
+            <div>
+              <label>Select a date:</label>
+              <DatePicker 
+                selected={dateOrdered}
+                onChange={handleDateOrdered}
+              />
             </div>
 
 
@@ -52,10 +131,6 @@ const Form = () => {
               <label></label>
               <button type="submit">Submit</button>
             </div>
-
-
-
-
 
           </form>
         </div>
