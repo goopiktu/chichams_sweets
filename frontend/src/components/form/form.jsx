@@ -1,7 +1,5 @@
 import React from "react";
 import { useForm } from 'react-hook-form';
-import DatePicker from 'react-date-picker';
-
 
 const Form = () => {
 
@@ -23,30 +21,42 @@ const Form = () => {
         
         <div className="App">
           <form onSubmit={handleSubmit(onSubmit)}>
+
             <div className="form-control">
-              <label>First Name:</label>
-              <input type="text" name="firstname" {...register("firstname")} />
+              <p>Name</p>
+              <input type="text" name="name" {...register("name")} />
             </div>
+
             <div className="form-control">
-              <label>Last Name:</label>
-              <input type="text" name="lastname" {...register("lastname")} />
-            </div>  
-            <div className="form-control">
-              <label>Contact No:</label>
+              <p>Contact No</p>
               <input type="text" name="contactno" {...register("contactno")} />
             </div>
-           
 
-            <select {...register('mode')} defaultValue={"Deliver"}>
+            <div className="form-control">
+              <p>Facebook Link</p>
+              <input type="text" name="facebook" {...register("facebook")} />
+            </div>  
+            
+            <div className="form-control">
+              <p>Delivery Option</p>
+              <input type="text" name="facebook" {...register("facebook")} />
+            </div>  
+
+            <div className="form-control">
+              <p>Delivery Option</p>
+              <input type="date" name="facebook" {...register("facebook")} />
+            </div>  
+
+            {/* <select {...register('mode')} defaultValue={"Deliver"}>
                 <option value="Deliver">Deliver</option>
                 <option value="Pick-up">Pick-up</option>
-            </select>
+            </select> */}
 
-            <div>
-                <label>Select a date:</label>
-                <DatePicker onChange={(date) => setValue('date', date, { shouldValidate: true })} value={selectedDate} clearIcon={null} />
-            </div>
+            {/* <div className="form-control">
+              <label>Pick Date:</label>
+              <CalendarContainer type="date" name="date" {...register("date")}  />
 
+            </div> */}
 
             <div className="form-control">
               <label></label>
