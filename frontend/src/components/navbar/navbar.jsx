@@ -2,16 +2,18 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-import Cake_Icon from '../navbar/navbar_assets/cake_icon.png';
+import Cake_Icon from '../navbar/navbar_assets/company_logo.png';
 import './navbar.css'
 
 function NavigationBar() {
+
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" id='nav_bar'>
+    <Navbar expand="lg" className="navbar-custom" id='nav_bar'>
       <Container>
-        <Navbar.Brand href="#aboutus">
+        <Navbar.Brand href="#aboutus" className="navbrand-custom">
                 {/*Brand - TODO: Insert brand image, placeholder was used*/}
-                <img src={Cake_Icon} className="border border-dark rounded-circle" height={30} width={30}/>
+                <img src={Cake_Icon} id="brand_icon" className="border border-dark rounded-circle" height={30} width={30}/>
+                Chimcham's Sweet Delights
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
