@@ -8,11 +8,11 @@ import './homepage.css';
 
 function Homepage(){
         return(
-                <Container>
+                <div>
                         <Navbar />
                         <ProductCarousel/>
                         <Menu />
-                </Container>
+                </div>
         )
 }
 
