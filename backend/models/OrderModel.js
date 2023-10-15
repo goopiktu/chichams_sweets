@@ -1,19 +1,20 @@
 var mongoose = require('mongoose');
 
 var OrderSchema = new mongoose.Schema({
-    fname: {
+    name: {
         type: String,
         required: true
     },
-    lname: {
-        type: String,
-        required: true
-    },
-
+   
     contactNo: {
         type: Number,
         required: true
     }, 
+
+    fbLink: {
+        type: String,
+        required: true
+    },
 
     mode: {
         type: String,
@@ -22,11 +23,17 @@ var OrderSchema = new mongoose.Schema({
         required: true
     },
 
+    orderDes: {
+        type: String,
+        required: true
+    },
+
     dateOrdered: {
         type: Date,
         default: Date.now,
-        required: true
-    }
+        required: true  
+    },
+
 });
 
 module.exports = mongoose.model('Order', OrderSchema, 'orders');
