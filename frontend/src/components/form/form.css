@@ -1,3 +1,318 @@
-#order-submit{
-    margin-top: 200px;
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,800');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    width: 360px;
+    height: 550px;
+}
+
+.text-form{
+    width: auto;
+    height: 33px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+
+    color: #000000;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.input-text{
+    box-sizing: border-box;
+
+    position: relative;
+    width: 100%;
+    height: 28px;
+    left: 0px;
+    top: 0px;
+
+    background: #FFFFFF;
+    border: 1px solid #A05496;
+}
+
+.input-field{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 1px;
+
+    width: 359px;
+    height: 62px;
+}
+
+.App{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 20px;
+
+    position: absolute;
+    width: 950px;
+    height: 655px;
+    left: calc(50% - 950px/2);
+    top: 165px;
+}
+
+.submit-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    outline: none;
+    margin-top: -3px;
+
+    width: 359px;
+    height: 75px;
+
+    background: #249D57;
+    border-radius: 5px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+
+    color: white;
+
+
+}
+
+.input-datepicker{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    caret-color: transparent;
+    cursor: default;
+
+    width: 196px;
+    height: 33px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+}
+
+#select-text{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: light;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.product-img{
+    width: 550px;
+    height: 550px;
+
+    background: url(./assets/Rectangle\ 4.jpg);
+
+}
+
+.product-name{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 1px;
+
+    width: 239px;
+    height: 49px;
+}
+
+#product-name{
+    width: 239px;
+    height: 49px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+
+    color: #A05496;
+}
+
+.calendar-class{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    isolation: isolate;
+
+    width: 36px;
+    height: 36px;
+
+    background: #A05496;
+    border-radius: 5px;
+
+    order: 1;
+}
+
+.calendar-icon{
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 8px;
+}
+
+.calendar-vector{
+    position: relative;
+    left: 12.5%;
+    right: 12.5%;
+    top: 4.17%;
+    bottom: 12.5%;
+
+    background: #FFFFFF;
+}
+
+.date-picker{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    width: 242px;
+    height: 36px;
+}
+
+.class-name{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 1px;
+
+    width: 359px;
+    height: 62px;
+}
+
+.delivery-opt{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 1px;
+
+    width: 360px;
+    height: 64px;
+}
+
+.delivery-mode{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    width: 360px;
+    height: 30px;
+}
+
+.mode{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding: 4px;
+    gap: 2px;
+
+    width: 89px;
+    height: 30px;
+
+    background: #A05496;
+    border-radius: 5px;
+    color: white;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.order-text{
+    box-sizing: border-box;
+
+    height: 89px;
+    width: 360px;
+    resize: none;
+
+    background: white;
+    border: 1px solid #A05496;
+}
+
+.product-selection{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+
+    width: 550px;
+    height: 635px;
+}
+
+.product-opt{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+
+    width: 550px;
+    height: 75px;
+}
+
+.options{
+    width: 75px;
+    height: 75px;
+
+    background: url(./assets/Rectangle\ 10.jpg);
+    border-radius: 5px;
+}
+
+.hov1:hover{
+    border: 4px solid #A05496;
+}
+
+.hov2:hover{
+    border: 4px solid #A05496;
+}
+
+.hov3:hover{
+    border: 4px solid #A05496;
+}
+
+.hov4:hover{
+    border: 4px solid #A05496;
+}
+
+.hov5:hover{
+    border: 4px solid #A05496;
+}
+
+.hov6:hover{
+    border: 4px solid #A05496;
 }

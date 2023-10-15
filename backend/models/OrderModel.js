@@ -28,6 +28,10 @@ var OrderSchema = new mongoose.Schema({
         required: true
     },
 
+    address: {
+        type: String
+    },
+
     dateOrdered: {
         type: Date,
         default: Date.now,
