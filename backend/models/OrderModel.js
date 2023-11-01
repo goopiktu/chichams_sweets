@@ -1,21 +1,18 @@
 var mongoose = require('mongoose');
 
 var OrderSchema = new mongoose.Schema({
-    fname: {
+    name: {
         type: String,
         required: true
     },
-    lname: {
-        type: String,
-        required: true
-    },
-
+   
     contactNo: {
         type: Number,
         required: true
     }, 
-    dateOrdered: {
-        type: Date,
+
+    fbLink: {
+        type: String,
         required: true
     },
 
@@ -24,7 +21,23 @@ var OrderSchema = new mongoose.Schema({
         enum: ['Deliver', 'Pick-up'],
         default: 'Pick-up',
         required: true
-    }
+    },
+
+    orderDes: {
+        type: String,
+        required: true
+    },
+
+    address: {
+        type: String
+    },
+
+    dateOrdered: {
+        type: Date,
+        default: Date.now,
+        required: true  
+    },
+
 });
 
-module.exports = mongoose.model('Order', OrderSchema);
+module.exports = mongoose.model('Order', OrderSchema, 'orders');

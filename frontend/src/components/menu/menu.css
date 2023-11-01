@@ -55,6 +55,10 @@
         line-height: 33px;
 }
 
+.order_button:hover{
+        background-color: #A05496;
+}
+
 .button_container{
         text-align: center;
 }

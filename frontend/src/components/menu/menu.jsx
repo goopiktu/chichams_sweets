@@ -7,8 +7,6 @@ import './menu.css';
 
 // Samples
 import Cake1 from '../cake_display/assets/Estrel1.jpg';
-import Cake2 from '../cake_display/assets/Estrel2.jpg';
-import Cake3 from '../cake_display/assets/Estrel3.jpg';
 
 function BasicExample() {
   return (

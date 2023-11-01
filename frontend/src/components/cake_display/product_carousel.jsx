@@ -14,7 +14,7 @@ const ProductCarousel = () => {
             <Carousel>
                 <Carousel.Item interval={3000}>
                     <img
-                        className="d-block w-100"
+                        className="d-block w-100 product_img"
                         src={Cake1}
                         alt="First slide"
                     />
@@ -22,7 +22,7 @@ const ProductCarousel = () => {
 
                 <Carousel.Item interval={3000}>
                     <img
-                        className="d-block w-100"
+                        className="d-block w-100 product_img"
                         src={Cake2}
                         alt="Second slide"
                     />
@@ -30,7 +30,7 @@ const ProductCarousel = () => {
 
                 <Carousel.Item interval={3000}>
                     <img
-                        className="d-block w-100"
+                        className="d-block w-100 product_img"
                         src={Cake3}
                         alt="Third slide"
                     />
@@ -38,7 +38,7 @@ const ProductCarousel = () => {
 
                 <Carousel.Item interval={3000}>
                     <img
-                        className="d-block w-100"
+                        className=" w-100 product_img"
                         src={Cake4}
                         alt="Fourth slide"
                     />
