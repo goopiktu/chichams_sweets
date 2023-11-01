@@ -9,6 +9,9 @@
     gap: 10px;
     width: 360px;
     height: 550px;
+
+    font-family: 'Nunito';
+    font-style: normal;
 }
 
 .text-form{
@@ -39,6 +42,7 @@
 
     background: #FFFFFF;
     border: 1px solid #A05496;
+    outline: none;
 }
 
 .input-field{
@@ -49,7 +53,11 @@
     gap: 1px;
 
     width: 359px;
-    height: 62px;
+    height: auto;
+}
+
+.error{
+    color: red;
 }
 
 .App{
@@ -79,8 +87,10 @@
     width: 359px;
     height: 75px;
 
-    background: #249D57;
+    /* background: #249D57; */
+    background: lightgray;
     border-radius: 5px;
+    border: none;
 
     font-family: 'Nunito';
     font-style: normal;

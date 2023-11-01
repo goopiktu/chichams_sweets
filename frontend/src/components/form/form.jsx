@@ -1,11 +1,12 @@
 import React from "react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Navbar from '../navbar/navbar.jsx';
 import './form.css';
 import 'font-awesome/css/font-awesome.min.css';
 import { subDays } from 'date-fns';
+import $ from 'jquery';
 
 
 const Form = () => {
@@ -17,10 +18,53 @@ const Form = () => {
     const [mode, setMode] = useState('Deliver');
     const [orderDes, setOrderDes] = useState('');
     const [address, setAddress] = useState('');
+    
+    const [errors, setErrors] = useState({});
+
+    var arr_err = {};
 
     const handleName = (e) => {
+      // e.preventDefault();
+      var name = e.target.value;
+
+      console.log(name);
+
+    //   if(name.length === 0){
+    //     setErrors({...errors, name: 'Name Field is Empty!'});
+    //     $('#error-name').text('Name Field is Empty!');
+    //     $('#name-input').css('border', '1px solid red');
+    //     setName('');
+    //     // console.log(errors);
+    //   } 
+
+      
+
+    //   if(name.length > 0){
+    //     const tempErr = {...errors};
+    //     delete tempErr.name;
+    //     setErrors(tempErr);
+
+    //     $('#error-name').text('');
+    //     $('#name-input').css('border', '1px solid #A05496');
+    //     setName(name);
+    //   }
+    // };
+
+    // useEffect(() => {
+    //   if(Object.keys(errors).length > 0) {
+    //     $('.submit-button').prop('disabled', 'true');
+    //     $('.submit-button').css('background', 'lightgray');
+    //     // $('.submit-button').css('cursor', 'default');
+    //   }else {
+    //     $('.submit-button').prop('disabled', 'false');
+    //     $('.submit-button').css('background', '#249D57');
+    //     // $('.submit-button').css('cursor', 'pointer');
+    //   }
+    // }, [errors]);
+
       setName(e.target.value);
-    };
+
+    }
 
     const handleContactNo = (e) => {
       setContactNo(e.target.value);
@@ -149,19 +193,25 @@ const Form = () => {
               <div className="input-field">
                 <div className="text-form">Name</div>
 
-                <input className="input-text" type="text" name="name" value={name} onChange={handleName} />
+                <input className="input-text" id="name-input" type="text" name="name" value={name} onChange={handleName} />
+
+                <div className="error" id="error-name"></div>
               </div>
 
               <div className="input-field">
                 <div className="text-form">Contact Number</div>
 
-                <input className="input-text" type="text" name="contactNo" value={contactNo} onChange={handleContactNo} />
+                <input className="input-text" id="con-input" type="text" name="contactNo" value={contactNo} onChange={handleContactNo} />
+
+                <div className="error" id="error-contact"></div>
               </div>
 
               <div className="input-field">
                 <div className="text-form">Facebook Link</div>
 
-                <input className="input-text" type="text" name="fbLink" value={fbLink} onChange={handlefbLink} />
+                <input className="input-text" id="link-input" type="text" name="fbLink" value={fbLink} onChange={handlefbLink} />
+
+                <div className="error" id="error-link" ></div>
               </div>
 
               <div className="delivery-opt">
