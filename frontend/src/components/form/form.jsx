@@ -20,51 +20,53 @@ const Form = () => {
     const [address, setAddress] = useState('');
     
     const [errors, setErrors] = useState({});
+    const [flag_err, setFlagError] = useState(true);
 
     var arr_err = {};
 
     const handleName = (e) => {
       // e.preventDefault();
       var name = e.target.value;
+      setFlagError(false);
 
       console.log(name);
 
-    //   if(name.length === 0){
-    //     setErrors({...errors, name: 'Name Field is Empty!'});
-    //     $('#error-name').text('Name Field is Empty!');
-    //     $('#name-input').css('border', '1px solid red');
-    //     setName('');
-    //     // console.log(errors);
-    //   } 
+      if(name.length === 0){
+        setErrors({...errors, name: 'Name Field is Empty!'});
+        $('#error-name').text('Name Field is Empty!');
+        $('#name-input').css('border', '1px solid red');
+        setName('');
+        // console.log(errors);
+      } 
 
       
 
-    //   if(name.length > 0){
-    //     const tempErr = {...errors};
-    //     delete tempErr.name;
-    //     setErrors(tempErr);
+      if(name.length > 0){
+        const tempErr = {...errors};
+        delete tempErr.name;
+        setErrors(tempErr);
 
-    //     $('#error-name').text('');
-    //     $('#name-input').css('border', '1px solid #A05496');
-    //     setName(name);
-    //   }
-    // };
+        $('#error-name').text('');
+        $('#name-input').css('border', '1px solid #A05496');
+        setName(name);
+      }
+    };
 
-    // useEffect(() => {
-    //   if(Object.keys(errors).length > 0) {
-    //     $('.submit-button').prop('disabled', 'true');
-    //     $('.submit-button').css('background', 'lightgray');
-    //     // $('.submit-button').css('cursor', 'default');
-    //   }else {
-    //     $('.submit-button').prop('disabled', 'false');
-    //     $('.submit-button').css('background', '#249D57');
-    //     // $('.submit-button').css('cursor', 'pointer');
-    //   }
-    // }, [errors]);
+    useEffect(() => {
+      if(Object.keys(errors).length > 0 || flag_err) {
+        $('.submit-button').prop('disabled', 'true');
+        $('.submit-button').css('background', 'lightgray');
+        $('.submit-button').css('cursor', 'default');
+      } else {
+        $('.submit-button').prop('disabled', 'false');
+        $('.submit-button').css('background', '#249D57');
+        $('.submit-button').css('cursor', 'cursor');
+      }
+    }, [errors]);
 
-      setName(e.target.value);
+      // setName(e.target.value);
 
-    }
+    // }
 
     const handleContactNo = (e) => {
       setContactNo(e.target.value);
