@@ -24,14 +24,20 @@ const Form = () => {
 
     const handleName = (e) => {
       var name = e.target.value;
+      var validName = (/^[A-Za-z]+$/);
+      var condition = validName.test(name);
 
       if(name.length === 0){
         setErrors({...errors, name: 'Name Field is Empty!'});
         $('#error-name').text('Name Field is Empty!');
         $('#name-input').css('border', '1px solid red');
-      } 
+      } else if(!condition){
+        setErrors({...errors, name: 'Name Field is invalid!'});
+        $('#error-name').text('Name must contain letters only.');
+        $('#name-input').css('border', '1px solid red');
+      }
 
-      if(name.length > 0){
+      if(name.length > 0 && condition){
         const tempErr = {...errors};
         delete tempErr.name;
         setErrors(tempErr);
@@ -102,7 +108,20 @@ const Form = () => {
     };
 
     const handleMode = (e) => {
-      setMode(e.target.value);
+      var mode = e.target.value
+
+      if(mode === 'Pick-up'){
+        $('#input-address').prop('disabled', 'true');
+        $('#input-address').css('background', 'lightgray');
+        $('#input-address').css('border', '1px solid lightgray');
+        $('#error-address').text('');
+      } else{
+        $('#input-address').prop('disabled', '');
+        $('#input-address').css('background', 'white');
+        $('#input-address').css('border', '1px solid #A05496');
+      }
+
+      setMode(mode);
     };
 
     const handleDateOrdered = (date) => {
@@ -114,11 +133,28 @@ const Form = () => {
     };
 
     const handleAddress = (e) => {
-      setAddress(e.target.value);
+      var address = e.target.value;
+
+      if(address.length === 0){
+        setErrors({...errors, link: 'Address Field is Empty!'});
+        $('#error-address').text('Address Field is Empty!');
+        $('#input-address').css('border', '1px solid red');
+      } else {
+        const tempErr = {...errors};
+        delete tempErr.link;
+        setErrors(tempErr);
+
+        $('#error-address').text('');
+        $('#input-address').css('border', '1px solid #A05496');
+      }
+
+      setAddress(address);
     }
 
 
     const handleSubmit = (e) => {
+
+      console.log('hello');
       e.preventDefault();
 
       const formData = {
@@ -159,10 +195,12 @@ const Form = () => {
         $('.submit-button').prop('disabled', 'true');
         $('.submit-button').css('background', 'lightgray');
         $('.submit-button').css('cursor', 'default');
-      } else {
-        $('.submit-button').prop('disabled', 'false');
+      } 
+      if(Object.keys(errors).length === 0) {
+        console.log('Hello');
+        $('.submit-button').prop('disabled', '');
         $('.submit-button').css('background', '#249D57');
-        $('.submit-button').css('cursor', 'cursor');
+        $('.submit-button').css('cursor', 'pointer');
       }
     }, [errors]);
 
@@ -253,12 +291,14 @@ const Form = () => {
                 <div className="text-form">Delivery Option</div>
 
                 <div className="delivery-mode">
-                <select className="mode" name="mode" onChange={handleMode} defaultValue={"Deliver"}>
+                  <select className="mode" name="mode" onChange={handleMode} defaultValue={"Deliver"}>
                     <option value="Deliver">Deliver</option>
                     <option value="Pick-up">Pick-up</option>
                   </select>
-                  <input className="input-text" type="text" name="address" value={address} onChange={handleAddress} disabled />
+                  <input className="input-text" id="input-address" type="text" name="address" value={address} onChange={handleAddress} />
                 </div>
+
+                <div className="error" id="error-address"></div>
               </div>
 
               <div className="order-description">
@@ -267,7 +307,7 @@ const Form = () => {
                 <textarea className="order-text" name="orderDes" value={orderDes} onChange={handleOrderDes}></textarea>
               </div>
 
-              <button className="submit-button" type="submit">Place Order</button>
+              <button className="submit-button">Place Order</button>
 
             </form>
           </div>

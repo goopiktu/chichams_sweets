@@ -25,11 +25,14 @@ var OrderSchema = new mongoose.Schema({
 
     orderDes: {
         type: String,
+        default: 'None',
         required: true
     },
 
     address: {
-        type: String
+        type: String,
+        default: 'Pick-Up',
+        required: true
     },
 
     dateOrdered: {

@@ -87,8 +87,8 @@
     width: 359px;
     height: 75px;
 
-    /* background: #249D57; */
-    background: lightgray;
+    background: #249D57;
+    /* background: lightgray; */
     border-radius: 5px;
     border: none;
 
@@ -226,7 +226,7 @@
     gap: 1px;
 
     width: 360px;
-    height: 64px;
+    height: auto;
 }
 
 .delivery-mode{
