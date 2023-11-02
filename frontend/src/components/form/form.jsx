@@ -19,27 +19,17 @@ const Form = () => {
     const [orderDes, setOrderDes] = useState('');
     const [address, setAddress] = useState('');
     
-    const [errors, setErrors] = useState({});
-    const [flag_err, setFlagError] = useState(true);
-
-    var arr_err = {};
+    const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error'});
+    // const [flag_err, setFlagError] = useState(true);
 
     const handleName = (e) => {
-      // e.preventDefault();
       var name = e.target.value;
-      setFlagError(false);
-
-      console.log(name);
 
       if(name.length === 0){
         setErrors({...errors, name: 'Name Field is Empty!'});
         $('#error-name').text('Name Field is Empty!');
         $('#name-input').css('border', '1px solid red');
-        setName('');
-        // console.log(errors);
       } 
-
-      
 
       if(name.length > 0){
         const tempErr = {...errors};
@@ -48,33 +38,68 @@ const Form = () => {
 
         $('#error-name').text('');
         $('#name-input').css('border', '1px solid #A05496');
-        setName(name);
       }
+
+      setName(name);
     };
 
-    useEffect(() => {
-      if(Object.keys(errors).length > 0 || flag_err) {
-        $('.submit-button').prop('disabled', 'true');
-        $('.submit-button').css('background', 'lightgray');
-        $('.submit-button').css('cursor', 'default');
-      } else {
-        $('.submit-button').prop('disabled', 'false');
-        $('.submit-button').css('background', '#249D57');
-        $('.submit-button').css('cursor', 'cursor');
-      }
-    }, [errors]);
-
-      // setName(e.target.value);
-
-    // }
-
     const handleContactNo = (e) => {
-      setContactNo(e.target.value);
-    }
+      var contactNo = e.target.value;
+      var validNum = /((\+[0-9]{2})|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}/;
+      var condition = validNum.test(contactNo);
+
+      if(condition){
+        const tempErr = {...errors};
+        delete tempErr.contact;
+        setErrors(tempErr);
+
+        $('#error-contact').text('');
+        $('#con-input').css('border', '1px solid #A05496');
+      }
+
+      if(!condition){
+        if(contactNo.length === 0){
+          setErrors({...errors, contact: 'Contact Field is Empty!'});
+          $('#error-contact').text('Contact Field is Empty!');
+          $('#con-input').css('border', '1px solid red');
+        } 
+        
+        if(contactNo.length > 0){
+          setErrors({...errors, contact: 'Contact Field is Empty!'});
+          $('#error-contact').text('Please use a valid number.');
+          $('#con-input').css('border', '1px solid red');
+        }
+      } 
+
+      setContactNo(contactNo);
+    };
 
     const handlefbLink = (e) => {
-      setfbLink(e.target.value);
-    }
+      var fbLink = e.target.value;
+      var validLink = /(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?/;
+      var condition = validLink.test(fbLink);
+
+      if(condition){
+        const tempErr = {...errors};
+        delete tempErr.link;
+        setErrors(tempErr);
+
+        $('#error-link').text('');
+        $('#link-input').css('border', '1px solid #A05496');
+      } else{
+        if(fbLink.length === 0) {
+          setErrors({...errors, link: 'Link Field is Empty!'});
+          $('#error-link').text('Link Field is Empty!');
+          $('#link-input').css('border', '1px solid red');
+        } else{
+          setErrors({...errors, link: 'Please use a valid link.'});
+          $('#error-link').text('Please use a valid link.');
+          $('#link-input').css('border', '1px solid red');
+        }
+      }
+
+      setfbLink(fbLink);
+    };
 
     const handleMode = (e) => {
       setMode(e.target.value);
@@ -129,11 +154,19 @@ const Form = () => {
         });
     };
 
-    // const handleDateChange = (date) => {
-    //   setValue('dateOrdered', date, {shouldValidate: true});
-    // };
+    useEffect(() => {
+      if(Object.keys(errors).length > 0) {
+        $('.submit-button').prop('disabled', 'true');
+        $('.submit-button').css('background', 'lightgray');
+        $('.submit-button').css('cursor', 'default');
+      } else {
+        $('.submit-button').prop('disabled', 'false');
+        $('.submit-button').css('background', '#249D57');
+        $('.submit-button').css('cursor', 'cursor');
+      }
+    }, [errors]);
 
-    // const selectedDate = watch('date');
+    console.log(errors);
 
     return (
 
@@ -224,7 +257,7 @@ const Form = () => {
                     <option value="Deliver">Deliver</option>
                     <option value="Pick-up">Pick-up</option>
                   </select>
-                  <input className="input-text" type="text" name="address" value={address} onChange={handleAddress} />
+                  <input className="input-text" type="text" name="address" value={address} onChange={handleAddress} disabled />
                 </div>
               </div>
 
@@ -235,38 +268,6 @@ const Form = () => {
               </div>
 
               <button className="submit-button" type="submit">Place Order</button>
-
-              {/* <div className="form-control">
-                <label className="text-form">Name</label>
-                <input className="input-text" type="text" name="name" value={name} onChange={handleName} />
-              </div>
-
-              <div className="form-control">
-                <label className="text-form">Contact No</label>
-                <input className="input-text" type="text" name="contactNo" value={contactNo} onChange={handleContactNo} />
-              </div>
-
-              <div className="form-control">
-                <label className="text-form">Facebook Link</label>
-                <input className="input-text" type="text" name="fbLink" value={fbLink} onChange={handlefbLink} />
-              </div>
-
-              <div className="form-control">
-                <label className="text-form">Order Description</label>
-                <input className="input-text" type="text" name="orderDes" value={orderDes} onChange={handleOrderDes} />
-              </div>
-
-              <div className="form-control">
-                <label className="text-form">Delivery Option</label>
-                <select className="form-control" id="select-text" name="mode" onChange={handleMode} defaultValue={"Deliver"}>
-                  <option value="Deliver" style={{fontFamily: 'Raleway'}}>Deliver</option>
-                  <option value="Pick-up">Pick-up</option>
-                </select> 
-              </div>
-
-              <div className="form-control">
-                <button type="submit" className="submit-button">Place Order</button>
-              </div> */}
 
             </form>
           </div>
