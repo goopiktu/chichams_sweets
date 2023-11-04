@@ -20,7 +20,6 @@ const Form = () => {
     const [address, setAddress] = useState('');
     
     const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error'});
-    // const [flag_err, setFlagError] = useState(true);
 
     const handleName = (e) => {
       var name = e.target.value;
@@ -231,6 +230,7 @@ const Form = () => {
 
             <form className="order-form" onSubmit={handleSubmit} >
 
+              {/* TODO: Get the Product Name in the Product Schema of the Database. */}
               <div className="product-name">
                 <div id="product-name">
                   Product Name
