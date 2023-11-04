@@ -7,9 +7,13 @@ import './form.css';
 import 'font-awesome/css/font-awesome.min.css';
 import { subDays } from 'date-fns';
 import $ from 'jquery';
+import { useNavigate } from 'react-router-dom';
 
 
 const Form = () => {
+    const navigate = useNavigate();
+    const currentDate = new Date();
+    const initDate = new Date(currentDate);
 
     const [dateOrdered, setDateOrdered] = useState(Date.now);
     const [name, setName] = useState('');
@@ -18,8 +22,10 @@ const Form = () => {
     const [mode, setMode] = useState('Deliver');
     const [orderDes, setOrderDes] = useState('');
     const [address, setAddress] = useState('');
+    const [datePickup, setDatePickup] = useState(initDate.setDate(currentDate.getDate() + 6));
     
     const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error'});
+    const [datect, setDateCount] = useState(0);
 
     const handleName = (e) => {
       var name = e.target.value;
@@ -123,8 +129,46 @@ const Form = () => {
       setMode(mode);
     };
 
+    //remove if not used.
     const handleDateOrdered = (date) => {
       setDateOrdered(date);
+    };
+
+    const handleDatePickup = (date) => {
+      var date = date;
+
+      // try {
+      //   const query = date;
+
+      //   const response = await fetch(`/api/checkDate?param=${query}`);
+
+      //   if(response.ok){
+      //     const returnVal = await response.json();
+      //     const dateCount = returnVal.value;
+
+      //     console.log(dateCount);
+      //   } else {
+      //     console.error('Response status not OK: ', response.status);
+      //   }
+      // } catch(error) {
+      //   console.error('Error fetching data: ', error);
+      // }
+
+      fetch(`http://localhost:4000/checkDate?param=${date}`)
+        .then((response) => response.json())
+        .then((data) => setDateCount(data.count))
+        .catch((err) => {
+          console.error(err);
+        });
+
+      //TODO: Add Date Validation
+
+      console.log(datect);
+
+      //Check in the database whether orders already reach its maximum orders
+
+
+      setDatePickup(date);
     };
 
     const handleOrderDes = (e) => {
@@ -153,7 +197,6 @@ const Form = () => {
 
     const handleSubmit = (e) => {
 
-      console.log('hello');
       e.preventDefault();
 
       const formData = {
@@ -164,30 +207,16 @@ const Form = () => {
         orderDes: orderDes,
         address: address,
         dateOrdered: dateOrdered,
+        datePickup: datePickup
         
       };
 
       console.log(formData);
 
-      fetch('http://localhost:4000/postOrder', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-
-        .then((response) => {
-          if (response.ok) {
-            console.log('Successfully inserted one document');
-          } else {
-            console.error('Insert one document failed');
-          }
-        })
-        .catch((error) => {
-          console.error('An error occurred: ', error);
-        });
+      navigate("/receipt", { state: { formData } });
     };
+
+
 
     useEffect(() => {
       if(Object.keys(errors).length > 0) {
@@ -239,17 +268,17 @@ const Form = () => {
 
               <div className="date-class">
                 <div className="text-form">
-                  Date
+                  Pickup Date
                 </div>
 
                 <div className="date-picker">
 
                   <DatePicker 
                     className="input-datepicker"
-                    selected={dateOrdered}
-                    onChange={handleDateOrdered}
+                    selected={datePickup}
+                    onChange={handleDatePickup}
                     onKeyDown={e => e.preventDefault()}
-                    minDate={subDays(new Date(), -2)}
+                    minDate={subDays(new Date(), -6)}
                   />
 
                   <div className="calendar-class">

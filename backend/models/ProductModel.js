@@ -9,6 +9,11 @@ var ProductSchema = new mongoose.Schema({
     picture: {
         type: Buffer,
         required: true
+    },
+
+    price: {
+        type: Number,
+        required: true
     }
 });
 
