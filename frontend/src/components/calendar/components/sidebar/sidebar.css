@@ -51,8 +51,23 @@
         position: relative;
         text-align: right;
 }
+
+
 .calendar-date{
         position: relative;
         text-align: right;
+}
+
+.disclaimer-div{
+        margin-top: 10px;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 20px;
+        color: red;
+
+        text-align: center;
 }
 

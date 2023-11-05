@@ -16,6 +16,9 @@ function Sidebar({date}){
 
                                 <div className="calendar-date">
                                         {date}
+                                        <div className="disclaimer-div">
+                                                DISCLAIMER: Book your orders 7 days from now.
+                                        </div>
                                 </div>
                         </div>
                </div>
