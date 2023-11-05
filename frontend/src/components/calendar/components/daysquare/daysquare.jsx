@@ -36,6 +36,10 @@ function DaySquare({day, month, year, selectOrderDate}){
                 else{
                         setIsValidDate(true);
                 }
+
+                if(dayOfSquare.getDay() === 0){
+                        setIsValidDate(false);
+                }
         }, [isValidDay, isValidMonth, isValidDate, day, month, year])
 
         return(
