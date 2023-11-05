@@ -5,22 +5,29 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Navbar from '../navbar/navbar.jsx';
 import './form.css';
 import 'font-awesome/css/font-awesome.min.css';
-import { subDays } from 'date-fns';
+import { subDays, addDays } from 'date-fns';
 import $ from 'jquery';
 
+import Calendar from '../calendar/calendar.jsx';
 
 const Form = () => {
 
-    const [dateOrdered, setDateOrdered] = useState(Date.now);
+    const defaultDate = addDays(new Date(), 7);
+
+    const [dateOrdered, setDateOrdered] = useState(defaultDate);
     const [name, setName] = useState('');
     const [contactNo, setContactNo] = useState('');
     const [fbLink, setfbLink] = useState('');
     const [mode, setMode] = useState('Deliver');
     const [orderDes, setOrderDes] = useState('');
     const [address, setAddress] = useState('');
-    
+
     const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error'});
     // const [flag_err, setFlagError] = useState(true);
+
+    const [show, setShow] = useState(false);
+    const [dateText, setDateText] = useState('');
+    const [showNavbar, setShowNavbar] = useState(true);
 
     const handleName = (e) => {
       var name = e.target.value;
@@ -49,6 +56,16 @@ const Form = () => {
       setName(name);
     };
 
+    const handleNavbarRender = () => {
+      setShowNavbar(true);
+      setShow(false);
+    };
+
+    const handleCalendarRender = () => {
+      setShowNavbar(false);
+      setShow(true);
+    };
+
     const handleContactNo = (e) => {
       var contactNo = e.target.value;
       var validNum = /((\+[0-9]{2})|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}/;
@@ -68,14 +85,14 @@ const Form = () => {
           setErrors({...errors, contact: 'Contact Field is Empty!'});
           $('#error-contact').text('Contact Field is Empty!');
           $('#con-input').css('border', '1px solid red');
-        } 
-        
+        }
+
         if(contactNo.length > 0){
           setErrors({...errors, contact: 'Contact Field is Empty!'});
           $('#error-contact').text('Please use a valid number.');
           $('#con-input').css('border', '1px solid red');
         }
-      } 
+      }
 
       setContactNo(contactNo);
     };
@@ -124,9 +141,14 @@ const Form = () => {
       setMode(mode);
     };
 
+    // const handleDateOrdered = (date) => {
+    //   setDateOrdered(date);
+    // };
+
     const handleDateOrdered = (date) => {
       setDateOrdered(date);
-    };
+      console.log('Date selected: ' + dateOrdered);
+    }
 
     const handleOrderDes = (e) => {
       setOrderDes(e.target.value);
@@ -165,7 +187,7 @@ const Form = () => {
         orderDes: orderDes,
         address: address,
         dateOrdered: dateOrdered,
-        
+
       };
 
       console.log(formData);
@@ -195,7 +217,7 @@ const Form = () => {
         $('.submit-button').prop('disabled', 'true');
         $('.submit-button').css('background', 'lightgray');
         $('.submit-button').css('cursor', 'default');
-      } 
+      }
       if(Object.keys(errors).length === 0) {
         console.log('Hello');
         $('.submit-button').prop('disabled', '');
@@ -204,13 +226,24 @@ const Form = () => {
       }
     }, [errors]);
 
+    useEffect(() => {
+      const months_ref = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+      const month = months_ref[new Date(dateOrdered).getMonth()];
+      const year = new Date(dateOrdered).getFullYear();
+      const day = new Date(dateOrdered).getDate();
+      const stringDate = month.concat(" ").concat(day).concat(", ").concat(year);
+
+      setDateText(stringDate);
+    }, [dateOrdered]);
+
     console.log(errors);
 
     return (
 
         <div>
 
-          <Navbar />
+          {/* <Navbar /> */}
 
           <div className="App">
 
@@ -227,7 +260,7 @@ const Form = () => {
               </div>
             </div>
 
-            
+
 
             <form className="order-form" onSubmit={handleSubmit} >
 
@@ -242,25 +275,30 @@ const Form = () => {
                   Date
                 </div>
 
-                <div className="date-picker">
+                <div className="date-info">
+                  <p className="date-text">{dateText}</p>
 
-                  <DatePicker 
-                    className="input-datepicker"
-                    selected={dateOrdered}
-                    onChange={handleDateOrdered}
-                    onKeyDown={e => e.preventDefault()}
-                    minDate={subDays(new Date(), -2)}
-                  />
-
-                  <div className="calendar-class">
+                  <div className="calendar-class" onClick={handleCalendarRender}>
                     <div className="calendar-icon">
                       <div id="calendar-vector">
                         <i className="fa fa-calendar"></i>
                       </div>
                     </div>
                   </div>
-
                 </div>
+
+                {/* <div className="date-picker">
+
+                <p className="date-text">October 00, 0000</p>
+
+                  <div className="calendar-class" onClick={() => setShow(!show)}>
+                    <div className="calendar-icon">
+                      <div id="calendar-vector">
+                        <i className="fa fa-calendar"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div> */}
               </div>
 
               <div className="input-field">
@@ -311,10 +349,11 @@ const Form = () => {
 
             </form>
           </div>
+              {show ? <Calendar handleDateOrdered={handleDateOrdered} setShowNavbar={setShowNavbar} setShow={setShow}/>: null}
+              {showNavbar ? <Navbar />: null}
+
         </div>
-        
-        
-    );    
+    );
 }
 
 export default Form;

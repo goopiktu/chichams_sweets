@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+.calendar-div{
+        width: 1536px;
+        height: 1024px;
+        z-index: 200;
+}
+
+.top-bar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        width: 1313px;
+        height: 88px;
+        left: 223px;
+        top: 0px;
+
+        background: #A05496;
+}
+
+.calendar-dates{
+        position: absolute;
+        width: 1313px;
+        height: 936px;
+        left: 223px;
+        top: 88px;
+
+        background-color: #F5EBF4;
+        border-radius: 5px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+}
+
+.calendar-exit-button{
+        background-color: #DCBCD8 !important;
+        border: none !important;
+        height: 50px;
+        width: 150px;
+
+        color: #A05496;
+        font-family: 'Nunito' !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        font-size: 32px !important;
+        line-height: 44px !important;
+}
