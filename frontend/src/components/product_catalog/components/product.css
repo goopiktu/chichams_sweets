@@ -54,11 +54,11 @@
         width: 90px;
         height: 53px;
 
-        font-family: 'Nunito';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 33px;
+        font-family: 'Nunito' !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        font-size: 24px !important;
+        line-height: 33px !important;
 
         text-align: center;
         color: #FFFFFF;

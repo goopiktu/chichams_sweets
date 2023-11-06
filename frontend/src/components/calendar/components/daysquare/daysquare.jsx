@@ -8,6 +8,7 @@ function DaySquare({day, month, year, selectOrderDate}){
         const [isValidDay, setIsValidDay] = useState(true);
         const [isValidMonth, setIsValidMonth] = useState(true);
         const [isValidDate, setIsValidDate] = useState(true);
+        const [alertMessage, setAlertMessage] = useState('Date is unavailable, pick another date.');
 
         useEffect(() => {
                 const currentDate = new Date();
@@ -16,6 +17,7 @@ function DaySquare({day, month, year, selectOrderDate}){
                 if(dayOfSquare.getMonth() === currentDate.getMonth() &&
                    day <= currentDate.getDate() + 7){
                         setIsValidDay(false);
+                        setAlertMessage("Please order 7 days from the current date.");
                 }
                 else{
                         setIsValidDay(true);
@@ -46,6 +48,7 @@ function DaySquare({day, month, year, selectOrderDate}){
                <div className="day-square" style={{backgroundColor: isValidDate ? 'white' : 'lightgray'}} onClick={(e) => {
                 if(!isValidDate){
                         e.preventDefault();
+                        alert(alertMessage);
                 }else{
                         selectOrderDate(new Date(year, month, day));
                 }

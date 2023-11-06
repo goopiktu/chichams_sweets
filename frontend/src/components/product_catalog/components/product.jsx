@@ -1,4 +1,5 @@
 import './product.css';
+import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 function Product({id, product}){ // props passed from parent component (FILE: product_catalog.jsx)
@@ -21,7 +22,7 @@ function Product({id, product}){ // props passed from parent component (FILE: pr
                         </div>
 
                         {/* Order Button, must redirect to form, unsure how to redirect to form (carry data to identify product maybe?) */}
-                        <Button className="order-button">Order</Button>
+                        <Link to={"/form"}><Button className="order-button">Order</Button></Link>
                 </div>
         );
 }
