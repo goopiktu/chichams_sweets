@@ -21,6 +21,7 @@ const Form = () => {
     const [mode, setMode] = useState('Deliver');
     const [orderDes, setOrderDes] = useState('');
     const [address, setAddress] = useState('');
+    const [image, setImage] = useState('');
 
     const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error'});
     // const [flag_err, setFlagError] = useState(true);
@@ -28,6 +29,12 @@ const Form = () => {
     const [show, setShow] = useState(false);
     const [dateText, setDateText] = useState('');
     const [showNavbar, setShowNavbar] = useState(true);
+
+    const onInputChange=(e)=>{
+      console.log(e.target.files[0]);
+      setImage(e.target.files[0]);
+    }
+
 
     const handleName = (e) => {
       var name = e.target.value;
@@ -344,6 +351,11 @@ const Form = () => {
 
                 <textarea className="order-text" name="orderDes" value={orderDes} onChange={handleOrderDes}></textarea>
               </div>
+
+              <div>
+                <input type="file" accept="image/*" onChange={onInputChange}></input>
+              </div>
+              
 
               <button className="submit-button">Place Order</button>
 

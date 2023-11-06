@@ -41,6 +41,10 @@ var OrderSchema = new mongoose.Schema({
         required: true  
     },
 
+    imageDetails: {
+        image: String
+    }
+
 });
 
 module.exports = mongoose.model('Order', OrderSchema, 'orders');
