@@ -22,7 +22,7 @@ function Product({id, product}){ // props passed from parent component (FILE: pr
                         </div>
 
                         {/* Order Button, must redirect to form, unsure how to redirect to form (carry data to identify product maybe?) */}
-                        <Link to={"/form"}><Button className="order-button">Order</Button></Link>
+                        <Link to={'/form'}><Button className="order-button">Order</Button></Link>
                 </div>
         );
 }

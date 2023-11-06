@@ -21,8 +21,9 @@ function NavigationBar() {
                 <Container>
                         <Nav className="right-aligned">
                                 <Nav.Link href="/" className='custom_navlink'>Home</Nav.Link>
-                                <Nav.Link href="/products" className='custom_navlink'>Order</Nav.Link>
-                                <Nav.Link href="#aboutus" className='custom_navlink'>About Us</Nav.Link>
+                                <Nav.Link href="/products" className='custom_navlink'>Products</Nav.Link>
+                                <Nav.Link href="/aboutus" className='custom_navlink'>About Us</Nav.Link>
+                                <Nav.Link href="#contactus" className='custom_navlink'>Contact Us</Nav.Link>
                                 {/* <Nav.Link href="#login" className='custom_navlink'>Log in</Nav.Link> */}
                         </Nav>
                 </Container>

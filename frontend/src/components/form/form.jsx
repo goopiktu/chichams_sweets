@@ -7,6 +7,7 @@ import './form.css';
 import 'font-awesome/css/font-awesome.min.css';
 import { subDays, addDays } from 'date-fns';
 import $ from 'jquery';
+import { useParams } from 'react-router-dom';
 
 import Calendar from '../calendar/calendar.jsx';
 
@@ -28,6 +29,7 @@ const Form = () => {
     const [show, setShow] = useState(false);
     const [dateText, setDateText] = useState('');
     const [showNavbar, setShowNavbar] = useState(true);
+    const [productName, setProductName] = useState('Product Name');
 
     const handleName = (e) => {
       var name = e.target.value;
