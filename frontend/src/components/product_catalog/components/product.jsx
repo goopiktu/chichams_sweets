@@ -8,7 +8,7 @@ function Product({id, product}){ // props passed from parent component (FILE: pr
                         <div className="image-div">
                                 {/* Image link from object */}
                                 {/* Note: I do not know how images work for mongoDB */}
-                                <img src={product.link}/>
+                                <img src={product.link} height={360} width={360}/>
                         </div>
 
                         <div className="name-div">
