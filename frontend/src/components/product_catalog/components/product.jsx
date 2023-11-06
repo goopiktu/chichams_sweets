@@ -1,8 +1,25 @@
 import './product.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
 
 function Product({id, product}){ // props passed from parent component (FILE: product_catalog.jsx)
+        const [formLink, setFormLink] = useState('');
+
+        const getFormLink = () =>{
+                setFormLink('/form'.concat('/').concat(product.name));
+        }
+
+        const navigate = useNavigate();
+
+        const handleNavigation = () => {
+                navigate(formLink)
+        }
+
+        useEffect(() => {
+                getFormLink();
+        })
+
         return(
                 <div className="product-container">
                         <div className="image-div">
@@ -22,7 +39,7 @@ function Product({id, product}){ // props passed from parent component (FILE: pr
                         </div>
 
                         {/* Order Button, must redirect to form, unsure how to redirect to form (carry data to identify product maybe?) */}
-                        <Link to={'/form'}><Button className="order-button">Order</Button></Link>
+                        <Button onClick={handleNavigation} className="order-button">Order</Button>
                 </div>
         );
 }

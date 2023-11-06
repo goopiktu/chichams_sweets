@@ -14,6 +14,13 @@ import Calendar from '../calendar/calendar.jsx';
 const Form = () => {
 
     const defaultDate = addDays(new Date(), 7);
+    const { itemName } = useParams();
+    const [productName, setProductName] = useState('Product Name');
+
+    useEffect(() => {
+      setProductName(itemName);
+      console.log('PRODUCT: ' + productName);
+    }, [])
 
     const [dateOrdered, setDateOrdered] = useState(defaultDate);
     const [name, setName] = useState('');
@@ -29,7 +36,6 @@ const Form = () => {
     const [show, setShow] = useState(false);
     const [dateText, setDateText] = useState('');
     const [showNavbar, setShowNavbar] = useState(true);
-    const [productName, setProductName] = useState('Product Name');
 
     const handleName = (e) => {
       var name = e.target.value;
@@ -268,7 +274,7 @@ const Form = () => {
 
               <div className="product-name">
                 <div id="product-name">
-                  Product Name
+                  {productName}
                 </div>
               </div>
 

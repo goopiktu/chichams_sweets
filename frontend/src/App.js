@@ -17,6 +17,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Homepage/>} />
         <Route path='/Form' element={<CustomerForm/>} />
+        <Route path='/Form/:itemName' element={<CustomerForm/>} />
         <Route path='/Calendar' element={<PopupCalendar/>}/>
         <Route path='/Products' element={<ProductCatalog/>}/>
         <Route path='/AboutUs' element={<AboutUs/>}/>
