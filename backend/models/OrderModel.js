@@ -41,8 +41,8 @@ var OrderSchema = new mongoose.Schema({
         required: true  
     },
 
-    imageDetails: {
-        image: String
+    image: {
+        type: String
     }
 
 });

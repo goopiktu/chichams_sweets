@@ -31,10 +31,13 @@ const Form = () => {
     const [showNavbar, setShowNavbar] = useState(true);
 
     const onInputChange=(e)=>{
-      console.log(e.target.files[0]);
-      setImage(e.target.files[0]);
+      console.log(e.target.files);
+      const data = new FileReader()
+      data.addEventListener('load', () =>{
+        setImage(data.result)
+      })
+      data.readAsDataURL(e.target.files[0])
     }
-
 
     const handleName = (e) => {
       var name = e.target.value;
@@ -194,7 +197,7 @@ const Form = () => {
         orderDes: orderDes,
         address: address,
         dateOrdered: dateOrdered,
-
+        image: image,
       };
 
       console.log(formData);
