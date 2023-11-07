@@ -363,10 +363,15 @@ const Form = () => {
               <button className="submit-button">Place Order</button>
 
             </form>
+            <div>
+              <img src={image} alt="" />
+            </div>
           </div>
               {show ? <Calendar handleDateOrdered={handleDateOrdered} setShowNavbar={setShowNavbar} setShow={setShow}/>: null}
               {showNavbar ? <Navbar />: null}
 
+            
+              
         </div>
     );
 }
