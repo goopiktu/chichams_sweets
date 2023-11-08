@@ -8,10 +8,14 @@ import 'font-awesome/css/font-awesome.min.css';
 import { subDays, addDays } from 'date-fns';
 import $ from 'jquery';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import Calendar from '../calendar/calendar.jsx';
 
 const Form = () => {
+    const navigate = useNavigate();
+    const currentDate = new Date();
+    const initDate = new Date(currentDate);
 
     const defaultDate = addDays(new Date(), 7);
     const { itemName } = useParams();
@@ -29,9 +33,10 @@ const Form = () => {
     const [mode, setMode] = useState('Deliver');
     const [orderDes, setOrderDes] = useState('');
     const [address, setAddress] = useState('');
+    const [datePickup, setDatePickup] = useState(initDate.setDate(currentDate.getDate() + 6));
 
     const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error'});
-    // const [flag_err, setFlagError] = useState(true);
+    const [datect, setDateCount] = useState(0);
 
     const [show, setShow] = useState(false);
     const [dateText, setDateText] = useState('');
@@ -153,10 +158,48 @@ const Form = () => {
     //   setDateOrdered(date);
     // };
 
+    //remove if not used.
     const handleDateOrdered = (date) => {
       setDateOrdered(date);
       console.log('Date selected: ' + dateOrdered);
     }
+
+    const handleDatePickup = (date) => {
+      var date = date;
+
+      // try {
+      //   const query = date;
+
+      //   const response = await fetch(`/api/checkDate?param=${query}`);
+
+      //   if(response.ok){
+      //     const returnVal = await response.json();
+      //     const dateCount = returnVal.value;
+
+      //     console.log(dateCount);
+      //   } else {
+      //     console.error('Response status not OK: ', response.status);
+      //   }
+      // } catch(error) {
+      //   console.error('Error fetching data: ', error);
+      // }
+
+      fetch(`http://localhost:4000/checkDate?param=${date}`)
+        .then((response) => response.json())
+        .then((data) => setDateCount(data.count))
+        .catch((err) => {
+          console.error(err);
+        });
+
+      //TODO: Add Date Validation
+
+      console.log(datect);
+
+      //Check in the database whether orders already reach its maximum orders
+
+
+      setDatePickup(date);
+    };
 
     const handleOrderDes = (e) => {
       setOrderDes(e.target.value);
@@ -184,41 +227,34 @@ const Form = () => {
 
     const handleSubmit = (e) => {
 
-      console.log('hello');
       e.preventDefault();
 
+      var month = dateOrdered.toLocaleString('default', { month: 'long' });
+      var day = dateOrdered.getUTCDate();
+      var year = dateOrdered.getFullYear().toString();
+
+      console.log(day);
+
+      var fullDate = month + ' ' + day + ', ' + year;
+
       const formData = {
+        productName: productName,
         name: name,
         contactNo: contactNo,
         fbLink: fbLink,
         mode: mode,
         orderDes: orderDes,
         address: address,
-        dateOrdered: dateOrdered,
-
+        dateOrdered: dateOrdered.toLocaleDateString(),
+        datePickup: datePickup
       };
 
       console.log(formData);
 
-      fetch('http://localhost:4000/postOrder', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-
-        .then((response) => {
-          if (response.ok) {
-            console.log('Successfully inserted one document');
-          } else {
-            console.error('Insert one document failed');
-          }
-        })
-        .catch((error) => {
-          console.error('An error occurred: ', error);
-        });
+      navigate("/receipt", { state: { formData } });
     };
+
+
 
     useEffect(() => {
       if(Object.keys(errors).length > 0) {
@@ -272,6 +308,7 @@ const Form = () => {
 
             <form className="order-form" onSubmit={handleSubmit} >
 
+              {/* TODO: Get the Product Name in the Product Schema of the Database. */}
               <div className="product-name">
                 <div id="product-name">
                   {productName}
@@ -280,7 +317,7 @@ const Form = () => {
 
               <div className="date-class">
                 <div className="text-form">
-                  Date
+                  Pickup Date
                 </div>
 
                 <div className="date-info">

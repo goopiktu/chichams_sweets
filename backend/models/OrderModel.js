@@ -31,8 +31,7 @@ var OrderSchema = new mongoose.Schema({
 
     address: {
         type: String,
-        default: 'Pick-Up',
-        required: true
+        default: 'Pick-Up'
     },
 
     dateOrdered: {
@@ -40,6 +39,12 @@ var OrderSchema = new mongoose.Schema({
         default: Date.now,
         required: true  
     },
+
+    datePickup: {
+        type: Date,
+        default: Date.now,
+        // required: true
+    }
 
 });
 
