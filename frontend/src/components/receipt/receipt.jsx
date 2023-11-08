@@ -27,7 +27,8 @@ const Receipt = () => {
             orderDes: c_info.orderDes,
             address: c_info.address,
             dateOrdered: c_info.dateOrdered,
-            datePickup: c_info.datePickup
+            datePickup: c_info.datePickup,
+            image: c_info.image
         }
 
         console.log(orderData);
@@ -103,11 +104,18 @@ const Receipt = () => {
 
                             <div className="info-input">{c_info.orderDes}</div>
                         </div>
-                    </div>
 
+                        
+
+                        
+                    </div>
+                        
                     <button className="submit-button" id="edit-button" onClick={handleEditOrder}>Edit Order</button>
 
                     <button className="submit-button" id="confirm-button" onClick={handleConfirmOrder}>Confirm Order</button>
+                </div>
+                <div>
+                            <img src={c_info.image} alt=""  style={{ width: '300px', height: '200px' }}/>
                 </div>
             </div>
         </div>

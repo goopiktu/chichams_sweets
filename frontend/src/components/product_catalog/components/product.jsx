@@ -35,7 +35,7 @@ function Product({id, product}){ // props passed from parent component (FILE: pr
 
                         <div className="cost-div">
                                 {/* Cost attribut from object */}
-                                {product.price}
+                                ₱{product.price}
                         </div>
 
                         {/* Order Button, must redirect to form, unsure how to redirect to form (carry data to identify product maybe?) */}

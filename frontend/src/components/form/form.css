@@ -135,11 +135,11 @@
     background: url(./assets/Rectangle\ 4.jpg);
 
 }
-
-img{
+ 
+.customerPreviewPic{
     max-width: 550px;
     max-height: 550px;
-}
+} 
 
 
 .product-name{

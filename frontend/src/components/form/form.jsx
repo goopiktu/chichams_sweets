@@ -257,7 +257,7 @@ const Form = () => {
         address: address,
         dateOrdered: dateOrdered.toLocaleDateString(),
         datePickup: datePickup,
-        image:image
+        image: image
       };
 
       console.log(formData);
@@ -409,8 +409,8 @@ const Form = () => {
               <button className="submit-button">Place Order</button>
 
             </form>
-            <div>
-              <img src={image} alt="" />
+            <div className="customerPreviewPic">
+              {image && <img src={image} alt="" style={{ width: '300px', height: '200px' }} />}
             </div>
           </div>
               {show ? <Calendar handleDateOrdered={handleDateOrdered} setShowNavbar={setShowNavbar} setShow={setShow}/>: null}
