@@ -12,7 +12,7 @@ const Receipt = () => {
     const c_info = state && state.formData;
 
     const handleEditOrder = () => {
-        navigate('/form');
+        navigate('/form'.concat('/').concat(c_info.productName));
     }
 
     const handleConfirmOrder = (e) => {
@@ -65,7 +65,7 @@ const Receipt = () => {
                 <div className="order-container">
                     <div className="order-form">
                         <div className="name-receipt">
-                            <div id="product-name">Product Name</div>
+                            <div id="product-name">{c_info.productName}</div>
                         </div>
 
                         <div className="title-receipt">

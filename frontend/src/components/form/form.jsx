@@ -229,16 +229,24 @@ const Form = () => {
 
       e.preventDefault();
 
+      var month = dateOrdered.toLocaleString('default', { month: 'long' });
+      var day = dateOrdered.getUTCDate();
+      var year = dateOrdered.getFullYear().toString();
+
+      console.log(day);
+
+      var fullDate = month + ' ' + day + ', ' + year;
+
       const formData = {
+        productName: productName,
         name: name,
         contactNo: contactNo,
         fbLink: fbLink,
         mode: mode,
         orderDes: orderDes,
         address: address,
-        dateOrdered: dateOrdered,
+        dateOrdered: dateOrdered.toLocaleDateString(),
         datePickup: datePickup
-
       };
 
       console.log(formData);
