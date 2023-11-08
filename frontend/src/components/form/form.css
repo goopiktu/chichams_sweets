@@ -136,6 +136,12 @@
 
 }
 
+img{
+    max-width: 550px;
+    max-height: 550px;
+}
+
+
 .product-name{
     display: flex;
     flex-direction: column;

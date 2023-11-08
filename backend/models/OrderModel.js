@@ -44,6 +44,10 @@ var OrderSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
         // required: true
+    },
+
+    image: {
+        type: String
     }
 
 });

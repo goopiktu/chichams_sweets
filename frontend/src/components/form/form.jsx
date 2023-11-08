@@ -34,6 +34,7 @@ const Form = () => {
     const [orderDes, setOrderDes] = useState('');
     const [address, setAddress] = useState('');
     const [datePickup, setDatePickup] = useState(initDate.setDate(currentDate.getDate() + 6));
+    const [image, setImage] = useState('');
 
     const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error'});
     const [datect, setDateCount] = useState(0);
@@ -41,6 +42,15 @@ const Form = () => {
     const [show, setShow] = useState(false);
     const [dateText, setDateText] = useState('');
     const [showNavbar, setShowNavbar] = useState(true);
+
+    const onInputChange=(e)=>{
+      console.log(e.target.files);
+      const data = new FileReader()
+      data.addEventListener('load', () =>{
+        setImage(data.result)
+      })
+      data.readAsDataURL(e.target.files[0])
+    }
 
     const handleName = (e) => {
       var name = e.target.value;
@@ -246,7 +256,8 @@ const Form = () => {
         orderDes: orderDes,
         address: address,
         dateOrdered: dateOrdered.toLocaleDateString(),
-        datePickup: datePickup
+        datePickup: datePickup,
+        image:image
       };
 
       console.log(formData);
@@ -390,13 +401,23 @@ const Form = () => {
                 <textarea className="order-text" name="orderDes" value={orderDes} onChange={handleOrderDes}></textarea>
               </div>
 
+              <div>
+                <input type="file" accept="image/*" onChange={onInputChange}></input>
+              </div>
+              
+
               <button className="submit-button">Place Order</button>
 
             </form>
+            <div>
+              <img src={image} alt="" />
+            </div>
           </div>
               {show ? <Calendar handleDateOrdered={handleDateOrdered} setShowNavbar={setShowNavbar} setShow={setShow}/>: null}
               {showNavbar ? <Navbar />: null}
 
+            
+              
         </div>
     );
 }
