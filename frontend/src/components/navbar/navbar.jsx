@@ -13,7 +13,8 @@ function NavigationBar() {
         <Navbar.Brand href="#aboutus" id="company_brand">
                 {/*Brand - TODO: Insert brand image, placeholder was used*/}
                 <img src={Cake_Icon} id="company_logo" className="rounded-circle" height={30} width={30}/>
-                Chimcham's Sweet Delight Cakes and Pastries
+                {/* Chimcham's Sweet Delight Cakes and Pastries */}
+                <Nav.Link href="/" className='custom_navlink'>Chimcham's Sweet Delight Cakes and Pastries</Nav.Link>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
