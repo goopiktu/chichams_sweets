@@ -6,6 +6,8 @@ import ProductCatalog from './components/product_catalog/product_catalog.jsx';
 import AboutUs from './components/about_us/about_us.jsx';
 
 // Bootstrap CSS
+import Receipt from './components/receipt/receipt.jsx'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Router Dependencies
@@ -21,6 +23,7 @@ function App() {
         <Route path='/Calendar' element={<PopupCalendar/>}/>
         <Route path='/Products' element={<ProductCatalog/>}/>
         <Route path='/AboutUs' element={<AboutUs/>}/>
+        <Route path='/receipt' element={<Receipt/>} />
       </Routes>
 
     </BrowserRouter>
