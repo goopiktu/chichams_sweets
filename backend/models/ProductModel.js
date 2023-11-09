@@ -6,10 +6,12 @@ var ProductSchema = new mongoose.Schema({
         required: true
     },
 
-    picture: {
-        type: Buffer,
-        required: true
-    },
+    //TODO: Add pictures using Buffer 
+
+    // picture: {
+    //     type: Buffer,
+    //     required: true
+    // },
 
     price: {
         type: Number,

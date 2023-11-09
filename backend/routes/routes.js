@@ -20,4 +20,8 @@ app.post('/postOrder', orderController.postOrder);
 
 app.get('/checkDate', orderController.checkDate);
 
+app.get('/getProduct', orderController.getProducts);
+
+app.post('/postProduct', orderController.postProducts);
+
 module.exports = app;

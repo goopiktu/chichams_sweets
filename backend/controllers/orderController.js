@@ -2,6 +2,8 @@ const db = require('../models/db.js');
 
 const Order = require('../models/OrderModel.js');
 
+const Product = require('../models/ProductModel.js');
+
 const moment = require('moment-timezone');
 
 const orderController = {
@@ -44,6 +46,119 @@ const orderController = {
         //         res.json({count});
         //     }
         // })
+    },
+
+    getProducts: async function(req, res) {
+        fetch('http://localhost:4000/postProduct', {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            }, 
+            body: JSON.stringify('')
+        }).then((response) => {
+            if(response.ok){
+                console.log('Successfully inserted one document');
+            } else {
+                console.log('Insert one document failed');
+            }
+        }).catch((err) => {
+            console.log(err);
+        })
+    },
+
+    postProducts: async function(req, res) {
+        //TODO: Create Products
+        var caramel = new Product({
+            name: 'Caramel Bars',
+            price: 270
+        });
+
+        var brownies = new Product({
+            name: 'Brownies',
+            price: 270
+        });
+
+        var soft_icing = new Product({
+            name: 'Soft Icing Customized Cake',
+            price: 1500
+        });
+
+        var buttercream = new Product({
+            name: 'Buttercream Customized Cake',
+            price: 1500
+        });
+
+        var fondant = new Product ({
+            name: 'Fondant Customized Cake',
+            price: 2500
+        });
+
+        var creamy_caramel = new Product ({
+            name: 'Creamy Caramel Cake',
+            price: 1800
+        });
+
+        var crinkles = new Product ({
+            name: 'Chewy Crinkles',
+            price: 200
+        });
+
+
+        caramel.save()
+            .then((savedProduct) => {
+                res.status(201).json(savedProduct);
+            })
+            .catch((error) => {
+                res.status(500).json({error: 'An error occured'});
+            });
+
+        brownies.save()
+            .then((savedProduct) => {
+                res.status(201).json(savedProduct);
+            })
+            .catch((error) => {
+                res.status(500).json({error: 'An error occured'});
+            });
+
+        soft_icing.save()
+            .then((savedProduct) => {
+                res.status(201).json(savedProduct);
+            })
+            .catch((error) => {
+                res.status(500).json({error: 'An error occured'});
+            });
+
+        buttercream.save()
+            .then((savedProduct) => {
+                res.status(201).json(savedProduct);
+            })
+            .catch((error) => {
+                res.status(500).json({error: 'An error occured'});
+            });
+        
+        fondant.save()
+            .then((savedProduct) => {
+                res.status(201).json(savedProduct);
+            })
+            .catch((error) => {
+                res.status(500).json({error: 'An error occured'});
+            });
+
+        creamy_caramel.save()
+            .then((savedProduct) => {
+                res.status(201).json(savedProduct);
+            })
+            .catch((error) => {
+                res.status(500).json({error: 'An error occured'});
+            });
+
+        crinkles.save()
+            .then((savedProduct) => {
+                res.status(201).json(savedProduct);
+            })
+            .catch((error) => {
+                res.status(500).json({error: 'An error occured'});
+            });
     }
 }
 
