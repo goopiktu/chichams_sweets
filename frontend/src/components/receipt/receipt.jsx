@@ -28,7 +28,7 @@ const Receipt = () => {
             address: c_info.address,
             dateOrdered: c_info.dateOrdered,
             datePickup: c_info.datePickup,
-            image: c_info.image
+            // image: c_info.image
         }
 
         console.log(orderData);

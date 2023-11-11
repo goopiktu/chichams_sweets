@@ -36,7 +36,7 @@ const Form = () => {
     const [datePickup, setDatePickup] = useState(initDate.setDate(currentDate.getDate() + 6));
     const [image, setImage] = useState('');
 
-    const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error'});
+    const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error', date: ''});
     const [datect, setDateCount] = useState(0);
 
     const [show, setShow] = useState(false);
@@ -54,7 +54,7 @@ const Form = () => {
 
     const handleName = (e) => {
       var name = e.target.value;
-      var validName = (/^[A-Za-z]+$/);
+      var validName = (/^[A-Za-z][A-Za-z\s]*$/);
       var condition = validName.test(name);
 
       if(name.length === 0){
@@ -164,52 +164,30 @@ const Form = () => {
       setMode(mode);
     };
 
-    // const handleDateOrdered = (date) => {
-    //   setDateOrdered(date);
-    // };
+    useEffect(() => {
+      console.log('Updated dateCount: ', datect);
+    }, [datect]);
 
-    //remove if not used.
     const handleDateOrdered = (date) => {
       setDateOrdered(date);
-      console.log('Date selected: ' + dateOrdered);
-    }
+      console.log('Date selected: ' + date.toLocaleDateString());
 
-    const handleDatePickup = (date) => {
-      var date = date;
-
-      // try {
-      //   const query = date;
-
-      //   const response = await fetch(`/api/checkDate?param=${query}`);
-
-      //   if(response.ok){
-      //     const returnVal = await response.json();
-      //     const dateCount = returnVal.value;
-
-      //     console.log(dateCount);
-      //   } else {
-      //     console.error('Response status not OK: ', response.status);
-      //   }
-      // } catch(error) {
-      //   console.error('Error fetching data: ', error);
-      // }
-
-      fetch(`http://localhost:4000/checkDate?param=${date}`)
+      fetch(`http://localhost:4000/checkDate?param=${date.toLocaleDateString()}`)
         .then((response) => response.json())
-        .then((data) => setDateCount(data.count))
+        .then((data) => {
+          console.log('Received data from server: ', data);
+          setDateCount(data.count);
+        })
         .catch((err) => {
           console.error(err);
         });
 
-      //TODO: Add Date Validation
-
-      console.log(datect);
-
-      //Check in the database whether orders already reach its maximum orders
-
-
-      setDatePickup(date);
-    };
+      if(datect >= 1){
+        setErrors({...errors, date: 'Date is Fully Booked!'});
+        // $('#error-link').text('Date is Fully Booked!');
+        // $('#link-input').css('border', '1px solid red');
+      }
+    }
 
     const handleOrderDes = (e) => {
       setOrderDes(e.target.value);
@@ -257,7 +235,7 @@ const Form = () => {
         address: address,
         dateOrdered: dateOrdered.toLocaleDateString(),
         datePickup: datePickup,
-        image: image
+        // image: image
       };
 
       console.log(formData);
@@ -292,7 +270,9 @@ const Form = () => {
       setDateText(stringDate);
     }, [dateOrdered]);
 
-    console.log(errors);
+    // console.log(errors);
+
+    // console.log(datect);
 
     return (
 

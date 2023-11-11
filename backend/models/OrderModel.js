@@ -7,7 +7,7 @@ var OrderSchema = new mongoose.Schema({
     },
    
     contactNo: {
-        type: Number,
+        type: String,
         required: true
     }, 
 
@@ -35,8 +35,8 @@ var OrderSchema = new mongoose.Schema({
     },
 
     dateOrdered: {
-        type: Date,
-        default: Date.now,
+        type: String,
+        // default: Date.now,
         required: true  
     },
 
