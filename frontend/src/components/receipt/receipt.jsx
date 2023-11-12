@@ -22,8 +22,10 @@ const Receipt = () => {
         const orderData = {
             name: c_info.name,
             contactNo: c_info.contactNo,
+            email: c_info.email,
             fbLink: c_info.fbLink,
             mode: c_info.mode,
+            dedication: c_info.dedication,
             orderDes: c_info.orderDes,
             address: c_info.address,
             dateOrdered: c_info.dateOrdered,

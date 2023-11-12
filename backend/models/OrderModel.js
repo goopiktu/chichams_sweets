@@ -11,6 +11,11 @@ var OrderSchema = new mongoose.Schema({
         required: true
     }, 
 
+    email: {
+        type: String,
+        required: true
+    },
+
     fbLink: {
         type: String,
         required: true
@@ -21,6 +26,11 @@ var OrderSchema = new mongoose.Schema({
         enum: ['Deliver', 'Pick-up'],
         default: 'Pick-up',
         required: true
+    },
+
+    dedication: {
+        type: String,
+        default: 'None'
     },
 
     orderDes: {

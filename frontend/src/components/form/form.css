@@ -6,9 +6,9 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 10px;
+    gap: 0px;
     width: 360px;
-    height: 550px;
+    height: 688px;
 
     font-family: 'Nunito';
     font-style: normal;
@@ -16,13 +16,13 @@
 
 .text-form{
     width: auto;
-    height: 33px;
+    height: 27px;
 
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 33px;
+    font-size: 20px;
+    line-height: 27px;
 
     color: #000000;
 
@@ -42,6 +42,7 @@
 
     background: #FFFFFF;
     border: 1px solid #A05496;
+    border-radius: 5px;
     outline: none;
 }
 
@@ -57,21 +58,30 @@
 }
 
 .error{
-    color: red;
+    width: auto;
+    height: 16px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #E36363;
 }
 
 .App{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 10px;
+    padding: 0px;
     gap: 20px;
 
     position: absolute;
-    width: 950px;
-    height: 655px;
-    left: calc(50% - 950px/2);
-    top: 165px;
+    width: 983px;
+    height: 689px;
+    left: calc(50% - 983px/2 - 0.5px);
+    top: 180px;
 }
 
 .submit-button{
@@ -82,13 +92,12 @@
     padding: 20px;
     gap: 10px;
     outline: none;
-    margin-top: -3px;
+    margin-top: -18px;
 
     width: 359px;
     height: 75px;
 
     background: #249D57;
-    /* background: lightgray; */
     border-radius: 5px;
     border: none;
 
@@ -99,8 +108,6 @@
     line-height: 33px;
 
     color: white;
-
-
 }
 
 .input-datepicker{
@@ -119,7 +126,7 @@
     font-size: 24px;
     line-height: 33px;
 }
-
+product
 #select-text{
     font-family: 'Raleway';
     font-style: normal;
@@ -129,11 +136,10 @@
 }
 
 .product-img{
-    width: 550px;
-    height: 550px;
-
+    width: 604px;
+    height: 604px;
+    border-radius: 5px;
     background: url(./assets/Rectangle\ 4.jpg);
-
 }
  
 .customerPreviewPic{
@@ -148,20 +154,21 @@
     align-items: flex-start;
     padding: 0px;
     gap: 1px;
+    margin: -2px 0px;
 
-    width: 500px;
-    height: 49px;
+    width: 159px;
+    height: 33px;
 }
 
 #product-name{
-    width: 239px;
-    height: 49px;
+    width: 159px;
+    height: 33px;
 
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 700;
-    font-size: 36px;
-    line-height: 49px;
+    font-size: 24px;
+    line-height: 33px;
 
     color: #A05496;
 }
@@ -229,21 +236,48 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 1px;
+    gap: 4px;
+
+    width: auto;
+    height: 100px;
+}
+
+.delivery-mode{
+    display: flex;
+    flex-direction: column;
+    align-items: none;
+    padding: 0px;
+    gap: 10px;
 
     width: 360px;
     height: auto;
 }
 
-.delivery-mode{
+.delivery-select{
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 10px;
+    gap: 4px;
 
     width: 360px;
-    height: 30px;
+    height: auto;
+}
+
+.dedication-box{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 359px;
+    height: 53px;
+
+}
+.q-icon{
+    width: 20px;
+    height: 20px;
+    /* background: #A05496; */
 }
 
 .mode{
@@ -260,7 +294,17 @@
     background: #A05496;
     border-radius: 5px;
     color: white;
+    
+    outline: none !important; 
 
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.mode option{
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 700;
@@ -277,6 +321,7 @@
 
     background: white;
     border: 1px solid #A05496;
+    border-radius: 5px;
 }
 
 .product-selection{
@@ -286,8 +331,8 @@
     padding: 0px;
     gap: 10px;
 
-    width: 550px;
-    height: 635px;
+    width: 604px;
+    height: 604px;
 }
 
 .product-opt{
@@ -335,25 +380,132 @@
 
 .date-text{
     width: auto;
-    height: 33px;
-    margin: auto;
+    height: 27px;
 
     font-family: 'Nunito';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 33px;
+    font-size: 20px;
+    line-height: 27px;
+    margin-top: auto;
+    margin-bottom: auto;
 
     color: #000000;
+
+}
+
+.date-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+
+    width: auto;
+    height: 27px;
 }
 
 .date-class{
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    margin-bottom: -4px;
+
 }
 
 .date-info{
     display: flex;
     flex-direction: row;
-    column-gap: 10px;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    width: auto;
+    height: 36px;
+
+    position: relative;
+    bottom: 6px;
+}
+
+#error-date{
+    margin-top: -10px;
+}
+
+#req-field{
+    color: #E36363;
+    margin-left: -4px;
+}
+
+.q-mark{
+    border-radius: 5px;
+    background: #FFF;
+    box-shadow: 0px 0px 4px 0px #000; 
+
+    display: inline-flex;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+
+    color: #000;
+    font-family: Nunito;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal; 
+
+    z-index: 1;
+
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    cursor: default;
+}
+
+#q-date:hover + #q-text{
+    opacity: 1;
+}
+
+#q-mode:hover + #q-pickup{
+    opacity: 1;
+}
+
+.img-container{
+    display: flex;
+    width: 59px;
+    height: 32px;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0; 
+
+    border-radius: 5px;
+    background: #A05496; 
+
+    color: #FFF;
+    font-family: Nunito;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+
+    cursor: default;
+
+    z-index: 1;
+}
+
+#img-button{
+    position: relative;
+    cursor: pointer;
+    bottom: 37px;
+    left: 297px;
+}
+
+#img-button input{
+    position: absolute;
+    width: 59px;
+    height: 32px;
+
+    opacity: 0;
 }
