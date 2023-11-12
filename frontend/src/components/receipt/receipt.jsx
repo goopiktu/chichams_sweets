@@ -12,6 +12,22 @@ const Receipt = () => {
     const c_info = state && state.formData;
 
     const handleEditOrder = () => {
+
+        // const orderData = {
+        //     productName: c_info.productName,
+        //     name: c_info.name,
+        //     contactNo: c_info.contactNo,
+        //     email: c_info.email,
+        //     fbLink: c_info.fbLink,
+        //     mode: c_info.mode,
+        //     dedication: c_info.dedication,
+        //     orderDes: c_info.orderDes,
+        //     address: c_info.address,
+        //     dateOrdered: c_info.dateOrdered,
+        //     datePickup: c_info.datePickup,
+        //     // image: c_info.image
+        // }
+
         navigate('/form'.concat('/').concat(c_info.productName));
     }
 
@@ -90,6 +106,12 @@ const Receipt = () => {
                         </div>
 
                         <div className="title-receipt">
+                            <div className="text-receipt">Email</div>
+
+                            <div className="info-input">{c_info.email}</div>
+                        </div>
+
+                        <div className="title-receipt">
                             <div className="text-receipt">Facebook Link</div>
 
                             <div className="info-input">{c_info.fbLink}</div>
@@ -99,17 +121,23 @@ const Receipt = () => {
                             <div className="text-receipt">Delivery Option</div>
 
                             <div className="info-input">{c_info.mode}</div>
+                            <div className="info-input">{c_info.address} </div>
                         </div>
 
-                        <div className="title-receipt" id="desc-receipt">
-                            <div className="text-receipt">Order Description</div>
+                        <div className="title-receipt">
+                            <div className="text-receipt">Dedication</div>
+
+                            <div className="info-input">{c_info.dedication}</div>
+                        </div>
+
+                        <div className="title-receipt">
+                            <div className="text-receipt">Other Notes</div>
 
                             <div className="info-input">{c_info.orderDes}</div>
+
+                            {/* Image Upload Here */}
                         </div>
 
-                        
-
-                        
                     </div>
                         
                     <button className="submit-button" id="edit-button" onClick={handleEditOrder}>Edit Order</button>

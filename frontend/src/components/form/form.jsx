@@ -8,11 +8,14 @@ import 'font-awesome/css/font-awesome.min.css';
 import { subDays, addDays } from 'date-fns';
 import $ from 'jquery';
 import { useParams } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Calendar from '../calendar/calendar.jsx';
 import { Icon } from '@iconify/react';
 
 const Form = () => {
+    // const {state} = useLocation();
+    // const prevData = state && state.orderData;
+
     const navigate = useNavigate();
     const currentDate = new Date();
     const initDate = new Date(currentDate);
@@ -53,6 +56,18 @@ const Form = () => {
       })
       data.readAsDataURL(e.target.files[0])
     }
+
+    // if(prevData !== null && prevData !== undefined){
+    //   setDateOrdered(prevData.dateOrdered);
+    //   setName(prevData.name);
+    //   setContactNo(prevData.contactNo);
+    //   setEmail(prevData.email);
+    //   setfbLink(prevData.fbLink);
+    //   setMode(prevData.mode);
+    //   setAddress(prevData.address);
+    //   setDedication(prevData.dedication);
+    //   setOrderDes(prevData.orderDes);
+    // }
 
     const handleName = (e) => {
       var name = e.target.value;
