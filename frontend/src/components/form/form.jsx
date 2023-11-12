@@ -79,6 +79,7 @@ const Form = () => {
       setName(name);
     };
 
+    //remove if never used.
     const handleNavbarRender = () => {
       setShowNavbar(true);
       setShow(false);
@@ -165,28 +166,36 @@ const Form = () => {
     };
 
     useEffect(() => {
-      console.log('Updated dateCount: ', datect);
-    }, [datect]);
 
-    const handleDateOrdered = (date) => {
-      setDateOrdered(date);
-      console.log('Date selected: ' + date.toLocaleDateString());
-
-      fetch(`http://localhost:4000/checkDate?param=${date.toLocaleDateString()}`)
+      fetch(`http://localhost:4000/checkDate?param=${dateOrdered.toLocaleDateString()}`)
         .then((response) => response.json())
         .then((data) => {
-          console.log('Received data from server: ', data);
           setDateCount(data.count);
+
+          if(datect < 3){
+            const tempErr = {... errors};
+            delete tempErr.date;
+            setErrors(tempErr);
+
+            $('#error-date').text('');
+            $('#date-text').css('color', 'black');
+          }
+
+          if(datect === 3){
+            setErrors({...errors, date: 'Date is Fully Booked!'});
+            
+            $('#error-date').text('Date is Fully Booked!');
+            $('#date-text').css('color', 'red');
+          }
         })
         .catch((err) => {
           console.error(err);
         });
 
-      if(datect >= 1){
-        setErrors({...errors, date: 'Date is Fully Booked!'});
-        // $('#error-link').text('Date is Fully Booked!');
-        // $('#link-input').css('border', '1px solid red');
-      }
+    }, [datect, dateOrdered]);
+
+    const handleDateOrdered = (date) => {
+      setDateOrdered(date);
     }
 
     const handleOrderDes = (e) => {
@@ -270,9 +279,8 @@ const Form = () => {
       setDateText(stringDate);
     }, [dateOrdered]);
 
-    // console.log(errors);
-
     // console.log(datect);
+    console.log(errors);
 
     return (
 
@@ -308,11 +316,11 @@ const Form = () => {
 
               <div className="date-class">
                 <div className="text-form">
-                  Pickup Date
+                  Date
                 </div>
 
                 <div className="date-info">
-                  <p className="date-text">{dateText}</p>
+                  <p className="date-text" id="date-text">{dateText}</p>
 
                   <div className="calendar-class" onClick={handleCalendarRender}>
                     <div className="calendar-icon">
@@ -323,18 +331,7 @@ const Form = () => {
                   </div>
                 </div>
 
-                {/* <div className="date-picker">
-
-                <p className="date-text">October 00, 0000</p>
-
-                  <div className="calendar-class" onClick={() => setShow(!show)}>
-                    <div className="calendar-icon">
-                      <div id="calendar-vector">
-                        <i className="fa fa-calendar"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
+                <div className="error" id="error-date">Date is Fully Booked!</div>
               </div>
 
               <div className="input-field">
@@ -395,9 +392,6 @@ const Form = () => {
           </div>
               {show ? <Calendar handleDateOrdered={handleDateOrdered} setShowNavbar={setShowNavbar} setShow={setShow}/>: null}
               {showNavbar ? <Navbar />: null}
-
-            
-              
         </div>
     );
 }
