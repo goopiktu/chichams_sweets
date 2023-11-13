@@ -135,11 +135,11 @@
     background: url(./assets/Rectangle\ 4.jpg);
 
 }
- 
+
 .customerPreviewPic{
     max-width: 550px;
     max-height: 550px;
-} 
+}
 
 
 .product-name{
@@ -336,7 +336,7 @@
 .date-text{
     width: auto;
     height: 33px;
-    margin: auto;
+    margin: 0;
 
     font-family: 'Nunito';
     font-style: normal;

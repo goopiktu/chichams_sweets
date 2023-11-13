@@ -35,7 +35,8 @@
 
 .custom-navbar{
         background-color: #A05496;
-        height: 75px;
+        width: 100vw;
+        height: 3vw;
 }
 
 .custom_navlink{

@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Navbar from '../navbar/navbar.jsx';
 import './form.css';
@@ -10,7 +9,7 @@ import $ from 'jquery';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-import Calendar from '../calendar/calendar.jsx';
+import Calendar from './calendar/calendar.jsx';
 
 const Form = () => {
     const navigate = useNavigate();
@@ -77,16 +76,6 @@ const Form = () => {
       }
 
       setName(name);
-    };
-
-    const handleNavbarRender = () => {
-      setShowNavbar(true);
-      setShow(false);
-    };
-
-    const handleCalendarRender = () => {
-      setShowNavbar(false);
-      setShow(true);
     };
 
     const handleContactNo = (e) => {
@@ -298,8 +287,6 @@ const Form = () => {
 
         <div>
 
-          {/* <Navbar /> */}
-
           <div className="App">
 
             <div className="product-selection">
@@ -327,35 +314,23 @@ const Form = () => {
               </div>
 
               <div className="date-class">
-                <div className="text-form">
-                  Pickup Date
+                <div className="date-text">
+                  Date
                 </div>
 
-                <div className="date-info">
-                  <p className="date-text">{dateText}</p>
+                <div className="date-picker">
+                  <Calendar/>
 
-                  <div className="calendar-class" onClick={handleCalendarRender}>
+                  <div className="calendar-class">
                     <div className="calendar-icon">
                       <div id="calendar-vector">
-                        <i className="fa fa-calendar"></i>
+                        <i className="fa fa-calendar"> </i>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                {/* <div className="date-picker">
-
-                <p className="date-text">October 00, 0000</p>
-
-                  <div className="calendar-class" onClick={() => setShow(!show)}>
-                    <div className="calendar-icon">
-                      <div id="calendar-vector">
-                        <i className="fa fa-calendar"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
               </div>
+
 
               <div className="input-field">
                 <div className="text-form">Name</div>
@@ -404,7 +379,7 @@ const Form = () => {
               <div>
                 <input type="file" accept="image/*" onChange={onInputChange}></input>
               </div>
-              
+
 
               <button className="submit-button">Place Order</button>
 
@@ -413,11 +388,7 @@ const Form = () => {
               {image && <img src={image} alt="" style={{ width: '300px', height: '200px' }} />}
             </div>
           </div>
-              {show ? <Calendar handleDateOrdered={handleDateOrdered} setShowNavbar={setShowNavbar} setShow={setShow}/>: null}
-              {showNavbar ? <Navbar />: null}
-
-            
-              
+            <Navbar />
         </div>
     );
 }
