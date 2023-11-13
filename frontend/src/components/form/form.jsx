@@ -374,7 +374,7 @@ const Form = () => {
                   <div className="calendar-class">
                     <div className="calendar-icon">
                       <div id="calendar-vector">
-                        <i className="fa fa-calendar" style={{color: 'white'}}></i>
+                        <i className="fa fa-calendar" style={{color: 'white'}} onClick={handleCalendarRender}></i>
                       </div>
                     </div>
                   </div>

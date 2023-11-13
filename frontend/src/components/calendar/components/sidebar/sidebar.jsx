@@ -1,6 +1,6 @@
 import React from 'react';
 import '../sidebar/sidebar.css';
-import CompanyLogo from '../../assets/company_logo.png';
+import CompanyLogo from './assets/company_logo.png';
 
 function Sidebar({date}){
         return(
