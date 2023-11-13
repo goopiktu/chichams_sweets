@@ -1,36 +1,60 @@
-import NavigationBar from "../navbar/navbar";
-import Container from "react-bootstrap/Container";
-
-import Cake1 from "../cake_display/assets/Estrel1.jpg";
-import Cake2 from "../cake_display/assets/Estrel2.jpg";
+import NavBar from "../navbar/navbar.jsx";
+import Footer from "../footer/footer.jsx";
 
 import './about_us.css';
 function AboutUs(){
         return(
-                <div>
-                        <NavigationBar/>
+                <div className="about-us-div">
+                        <NavBar/>
+                        <div className="about-us-header">
+                                About Us
+                        </div>
 
-                        <Container className="media">
-                                <img className="design-image-1" src={Cake1} width={550} height={646}/>
-                                <div className="design-text-1">
-                                        <p>
-                                                Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi urna vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus dictumst at in lectus arcu amet lectus. Consectetur quis morbi at cursus turpis et. Duis facilisis nunc nullam enim quis eu cursus velit aliquet. Justo mattis aliquam pretium non faucibus. Habitant porta sodales risus risus ornare lorem diam.
-                                                Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi urna vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus dictumst at in lectus arcu amet lectus. Consectetur quis morbi at cursus turpis et. Duis facilisis nunc nullam enim quis eu cursus velit aliquet. Justo mattis aliquam pretium non faucibus. Habitant porta sodales risus risus ornare lorem diam.
-                                                Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi urna vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus dictumst at in lectus arcu amet lectus. Consectetur quis morbi at cursus turpis et. Duis facilisis nunc nullam enim quis eu cursus velit aliquet. Justo mattis aliquam pretium non faucibus. Habitant porta sodales risus risus ornare lorem diam.
-                                        </p>
-                                </div>
-                        </Container>
+                        <div className="about-us-divider">
 
-                        <Container className="media">
-                                <div className="design-text-2">
-                                        <p>
-                                                Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi urna vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus dictumst at in lectus arcu amet lectus. Consectetur quis morbi at cursus turpis et. Duis facilisis nunc nullam enim quis eu cursus velit aliquet. Justo mattis aliquam pretium non faucibus. Habitant porta sodales risus risus ornare lorem diam.
-                                                Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi urna vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus dictumst at in lectus arcu amet lectus. Consectetur quis morbi at cursus turpis et. Duis facilisis nunc nullam enim quis eu cursus velit aliquet. Justo mattis aliquam pretium non faucibus. Habitant porta sodales risus risus ornare lorem diam.
-                                                Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi urna vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus dictumst at in lectus arcu amet lectus. Consectetur quis morbi at cursus turpis et. Duis facilisis nunc nullam enim quis eu cursus velit aliquet. Justo mattis aliquam pretium non faucibus. Habitant porta sodales risus risus ornare lorem diam.
-                                        </p>
+                        </div>
+
+                        <div className="about-us-content image-right">
+                                <div className="about-us-text">
+                                        Founded in 2005 by pastry chef Emily Turner, <br></br>
+                                        Sweet Delights Bakery Began as a small storefront with a passion for quality baking.
                                 </div>
-                                <img className="design-image-2" src={Cake2} width={550} height={646}/>
-                        </Container>
+
+                                <div className="about-us-image">
+
+                                </div>
+                        </div>
+
+                        <div className="about-us-content image-left">
+                                <div className="about-us-text">
+                                        Emily's dedication led to a local sensation, <br></br>
+                                        known for signature treats like triple chocolate brownies and flaky croissants.
+                                </div>
+
+                                <div className="about-us-image">
+
+                                </div>
+                        </div>
+
+                        <div className="about-us-banner">
+                                <p className="about-us-banner-text">
+                                        Deeply rooted in the community, <br></br>
+                                        Sweet Delights actively participated in events and fundraisers, become a local favorite.
+                                </p>
+                        </div>
+
+                        <div className="about-us-content image-left">
+                                <div className="about-us-text">
+                                        Responding to demand, Sweet Delights moved to a larger space, <br></br>
+                                        offering an expanded menu with artisanal bread and custom cakes.
+                                </div>
+
+                                <div className="about-us-image">
+
+                                </div>
+                        </div>
+
+                        <Footer/>
                 </div>
         );
 }

@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+.home-div{
+        width: 100vw;
+        height: 100vh;
+}
+
+.carousel-div{
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #DCDCDC;
+}
+
+.homepage-divider{
+        width: 100vw;
+        height: 1vh;
+        background-color: #A05496;
+}
+
+.contact-location-info{
+        /* background-color: aqua; */
+
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+}
+
+.contact-info{
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+}
+
+.contacts{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        height: 100%;
+        width: 50%;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 3vh;
+        line-height: 4vh;
+
+        color: #A05496;
+}
+
+.contact-link{
+        cursor: pointer;
+}
+
+.image-deco{
+        height: 100%;
+        width: 50%;
+}
+
+.link-image-deco{
+        position: relative;
+        right: 20vw;
+        bottom: 15vh;
+        height: 200%;
+        width: 200%;
+        z-index: -1;
+        object-fit: contain;
+}
+
+.location-info{
+        height: 50%;
+
+        background-image: url('./assets/Crinkles_1.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 150vw;
+
+}
+
+.location{
+        height: 100%;
+        width: 50%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        float: right;
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 3vh;
+        line-height: 4vh;
+
+        color: #FFFFFF;
+}
+
+.feedback{
+        width: 100vw;
+        height: 70vh;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding: 5vh 0;
+}
+
+.customer-name{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 3.5vh;
+        line-height: 4vh;
+
+        color: #A05496;
+}
+
+.review{
+        width: 50%;
+
+        margin-left: 15vh;
+        padding: 5vh 0;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 3vh;
+        line-height: 4vh;
+
+        color: #A05496;
+}

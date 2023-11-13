@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Navbar from '../navbar/navbar.jsx';
 import './form.css';
@@ -241,7 +240,7 @@ const Form = () => {
 
           if(datect >= 1){
             setErrors({...errors, date: 'Date is Fully Booked!'});
-            
+
             $('#error-date').text('*Date is Fully Booked!');
             $('#date-text').css('color', 'red');
           }
@@ -337,8 +336,6 @@ const Form = () => {
 
         <div>
 
-          {/* <Navbar /> */}
-
           <div className="App">
             <div className="product-selection">
 
@@ -374,7 +371,7 @@ const Form = () => {
                 <div className="date-info">
                   <p className="date-text" id="date-text">{dateText}</p>
 
-                  <div className="calendar-class" onClick={handleCalendarRender}>
+                  <div className="calendar-class">
                     <div className="calendar-icon">
                       <div id="calendar-vector">
                         <i className="fa fa-calendar" style={{color: 'white'}}></i>
@@ -385,6 +382,7 @@ const Form = () => {
 
                 <div className="error" id="error-date">*This date is fully booked!</div>
               </div>
+
 
               <div className="input-field">
                 <div className="text-form">Name <span id="req-field">*</span></div>
@@ -459,7 +457,7 @@ const Form = () => {
               {/* <div style={{marginTop: '10px'}}>
                 <input type="file" accept="image/*" onChange={onInputChange}></input>
               </div> */}
-              
+
               <button className="submit-button">Place Order</button>
 
             </form>

@@ -1,47 +1,104 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
 
-.media{
-        top: 75px;
-        padding: 10px;
-        gap: 20px;
+.about-us-div{
+        height: 100vh;
+        width: 100vw;
+}
+
+.about-us-header{
+        height: 50vh;
+        width: 100vw;
+
         display: flex;
         align-items: center;
-
-        height: 650px;
-
-        margin-top: 110px;
-}
-
-.design-image-1{
-        width: 50%;
-}
-
-.design-text-1{
-        width: 50%;
-        height: 650px;
+        justify-content: center;
 
         font-family: 'Nunito';
         font-style: normal;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 33px;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 87px;
+        color: #FFFFFF;
 
-        color: #000000;
+        background-color: black;
+
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/Brownies.png');
+
+        background-size: 250% 250%;
+        background-position: center;
 }
 
-.design-image-2{
-        width: 50%;
+.about-us-divider{
+        height: 1.2vh;
+        width: 100vw;
+
+        background-color: #A05496;
 }
 
-.design-text-2{
-        width: 50%;
-        height: 650px;
+.about-us-content{
+        height: 50vh;
+        width: 100vw;
+        display: flex;
+
+        min-height: 20vh;
+}
+
+.about-us-text{
+        height: 100%;
+        flex-grow: 1;
+
+        display: flex;
+        align-items: center;
+        padding: 5vh;
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 3vh;
+        line-height: 4vh;
+}
+
+.about-us-banner{
+        height: 50vh;
+        width: 100vw;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url('./assets/Crinkles_1.png');
+        background-repeat: no-repeat;
+        background-size: 200% 200%;
+        background-position-x: 70%;
+        background-position-y: 65%;
+}
+
+.about-us-banner-text{
+        margin: 5vh;
 
         font-family: 'Nunito';
         font-style: normal;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 33px;
+        font-weight: 700;
+        font-size: 3vh;
+        line-height: 4vh;
+        color: #FFFFFF;
+}
 
-        color: #000000;
+.about-us-image{
+        height: 80%;
+        width: 40%;
+        padding: 0;
+        margin: 5vh;
+        background-color: grey;
+}
+
+.image-right{
+
+        flex-direction: row;
+        background-color: white;
+}
+
+.image-left{
+
+        flex-direction: row-reverse;
+        background-color: gainsboro;
 }
