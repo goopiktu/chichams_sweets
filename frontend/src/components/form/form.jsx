@@ -380,7 +380,7 @@ const Form = () => {
                   </div>
                 </div>
 
-                <div className="error" id="error-date">*This date is fully booked!</div>
+                <div className="error" id="error-date"></div>
               </div>
 
 
