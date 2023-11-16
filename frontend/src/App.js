@@ -6,6 +6,7 @@ import AboutUs from './components/about_us/about_us.jsx';
 import ContactUs from './components/contact_us/contactus.jsx';
 import Calendar from './components/calendar/calendar.jsx';
 import EditForm from './components/form/editForm.jsx';
+import CalendarDatepicker from './components/calendar_datepicker/calendar_datepicker.jsx';
 
 // Bootstrap CSS
 import Receipt from './components/receipt/receipt.jsx'
@@ -28,6 +29,7 @@ function App() {
         <Route path='/receipt' element={<Receipt/>} />
         <Route path='/contactus' element={<ContactUs/>} />
         <Route path='/calendar' element={<Calendar/>} />
+        <Route path='/calendardatepicker' element={<CalendarDatepicker/>} />
       </Routes>
 
     </BrowserRouter>

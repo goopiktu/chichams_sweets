@@ -1,18 +1,50 @@
 import './footer.css';
-import Nav from 'react-bootstrap/Nav';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Footer() {
-        return(
-                <div className="footer">
-                        <div className="text-container">
-                                <div className="title-footer">Chicham's Sweet Delight Cakes and Pastries</div>
+        const [destLink, setDestLink] = useState('');
 
-                                <div className="navlinks-footer">
-                                        <Nav>
-                                                <Nav.Link className="navlinks-text" href="/products">Products</Nav.Link>
-                                                <Nav.Link className="navlinks-text" href="/AboutUs">About Us</Nav.Link>
-                                                <Nav.Link className="navlinks-text" href="/contactus">Contact Us</Nav.Link>
-                                        </Nav>
+        const getDestLink = (event, destString) => {
+                setDestLink('/'.concat(destString));
+        }
+
+        const navigate = useNavigate();
+
+        const handleNavigation = () => {
+                navigate(destLink);
+        }
+
+        const ping = (event, dest) => {
+                console.log(event);
+                console.log("you clicked: " + dest);
+        }
+
+        useEffect(() => {
+                // getDestLink();
+                console.log((destLink))
+                handleNavigation();
+        }, [destLink])
+
+        return(
+                <div className="contact-us-nav-footer">
+                        <div className="contact-us-nav-footer-text">
+                                <div className="contact-us-nav-footer-company-name" onClick={event => getDestLink(event, "")}>
+                                        Chicham's Sweet Delight Cakes and Pastries
+                                </div>
+
+                                <div className="contact-us-nav-footer-nav-options">
+                                        <div className="contact-us-options" onClick={event => getDestLink(event, "contactus")}>
+                                                Contact Us
+                                        </div>
+
+                                        <div className="contact-us-options" onClick={event => getDestLink(event, "aboutus")}>
+                                                About Us
+                                        </div>
+
+                                        <div className="contact-us-options" onClick={event => getDestLink(event, "products")}>
+                                                Products
+                                        </div>
                                 </div>
                         </div>
                 </div>
