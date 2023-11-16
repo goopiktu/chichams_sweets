@@ -30,6 +30,7 @@
         font-size: 2vh;
         line-height: 2vh;
 
+        cursor: pointer;
         color: #A05496;
 }
 
@@ -49,4 +50,8 @@
         line-height: 2vh;
 
         color: #A05496;
+}
+
+.contact-us-options{
+        cursor: pointer;
 }
