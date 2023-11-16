@@ -14,7 +14,7 @@ function Homepage(){
         const navigate = useNavigate();
 
         const navigateToContacts = () =>{
-                navigate('/contactus')
+                navigate('/products')
         }
         return(
                 <div className="home-div">
@@ -29,9 +29,9 @@ function Homepage(){
                         <div className="contact-location-info">
                                 <div className="contact-info">
                                         <div className="contacts">
-                                                <p className="contact-link" onClick={navigateToContacts}>link/link</p>
-                                                <p className="contact-link" onClick={navigateToContacts}>link/link</p>
-                                                <p className="contact-link" onClick={navigateToContacts}>link/link</p>
+                                                <p className="contact-link" onClick={navigateToContacts}>Products</p>
+                                                {/* <p className="contact-link" onClick={navigateToContacts}>link/link</p>
+                                                <p className="contact-link" onClick={navigateToContacts}>link/link</p> */}
                                         </div>
 
                                         <div className="image-deco">

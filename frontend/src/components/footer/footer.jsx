@@ -42,9 +42,9 @@ function Footer() {
                                                 About Us
                                         </div>
 
-                                        <div className="contact-us-options" onClick={event => getDestLink(event, "products")}>
+                                        {/* <div className="contact-us-options" onClick={event => getDestLink(event, "products")}>
                                                 Products
-                                        </div>
+                                        </div> */}
                                 </div>
                         </div>
                 </div>
