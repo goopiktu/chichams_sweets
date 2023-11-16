@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+.calendar-datepicker-div{
+        display: flex;
+        flex-direction: column;
+
+        width: 20vw;
+        height: 6vh;
+}
+
+.date-text-display{
+        display: flex;
+        flex: row;
+        gap: 0.5vw;
+
+        width: 100%;
+        height: 50%;
+}
+
+.date-text{
+        /*"Date" word formatting*/
+        display: flex;
+        align-items: center;
+
+        width: fit-content;
+        height: 100%;
+        margin: 0;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2.5vh;
+        line-height: normal;
+}
+
+.question-mark-circle-div{
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.3vw;
+}
+
+.question-mark-circle{
+        height: 1vw;
+        width: 1vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.5vh;
+        line-height: normal;
+        cursor: default;
+
+        color: #FFFFFF;
+        background-color: #A05496;
+        border-radius: 50%;
+}
+
+.date-picker-div{
+        width: 100%;
+        height: 50%;
+
+        display: flex;
+        flex-direction: row;
+}
+
+.date-container{
+        width: 60%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        margin-right: 0vw;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2.5vh;
+        line-height: normal;
+}
+
+.datepicker-button-div{
+        width: 7%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.datepicker-button{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 5px;
+        background-color: #A05496;
+
+        cursor: pointer;
+}
+
+.calendar-icon{
+        margin: 0;
+        width: 60%;
+        height: 60%;
+}
+
+.order-calendar{
+        margin-top: 1vw;
+}

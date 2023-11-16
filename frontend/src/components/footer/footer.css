@@ -1,8 +1,52 @@
-.footer{
+.contact-us-nav-footer{
         width: 100vw;
-        height: 10vh;
+        height: 15vh;
 
-        margin-top: auto;
-        margin-top: auto;
-        background-color: #A05496;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: rgba(160, 84, 150, 0.05);
+}
+
+.contact-us-nav-footer-text{
+        width: 90%;
+        height: 35%;
+
+        display: flex;
+        flex-direction: row;
+}
+
+.contact-us-nav-footer-company-name{
+        display: flex;
+        align-items: center;
+
+        height: 100%;
+        width: 50%;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2vh;
+        line-height: 2vh;
+
+        color: #A05496;
+}
+
+.contact-us-nav-footer-nav-options{
+        height: 100%;
+        width: 50%;
+
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 1vw;
+        align-items: center;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2vh;
+        line-height: 2vh;
+
+        color: #A05496;
 }

@@ -1,0 +1,21 @@
+.date-help-div{
+        width: 90%;
+        height: 90%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-color: rgba(0, 0, 0, 0.7);
+        border-style: solid;
+        border-radius: 5px;
+        color: #000000;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.3vh;
+        line-height: normal;
+
+        z-index: 100;
+}
