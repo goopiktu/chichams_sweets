@@ -79,7 +79,7 @@ function CalendarDatepicker() {
 
                                 <div className="datepicker-button-div">
                                         <div className="datepicker-button" onClick={() => toggleCalendar()}>
-                                                <FontAwesomeIcon icon={faCalendarDay} className="calendar-icon" style={{color: "#ffffff",}} />
+                                                <FontAwesomeIcon icon={faCalendarDay} className="calendar-icons" style={{color: "#ffffff",}} />
                                         </div>
                                 </div>
                         </div>
