@@ -165,12 +165,12 @@
     gap: 1px;
     margin: -2px 0px;
 
-    width: 159px;
+    width: auto;
     height: 33px;
 }
 
 #product-name{
-    width: 159px;
+    width: auto;
     height: 33px;
 
     font-family: 'Nunito';
