@@ -36,6 +36,24 @@ const orderController = {
 
         res.json({count: count});
     },
+
+    getProducts: async function(req, res){
+        const products = await Product.find();
+
+        console.log(products);
+
+        res.json(products);
+    },
+
+    getImage: async function(req, res){
+        const query = req.params.productName;
+
+        console.log(query);
+
+        const document = await Product.findOne({name: query});
+
+        res.json(document);
+    }
 }
 
 module.exports = orderController;

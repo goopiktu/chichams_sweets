@@ -5,6 +5,7 @@ import ProductCatalog from './components/product_catalog/product_catalog.jsx';
 import AboutUs from './components/about_us/about_us.jsx';
 import ContactUs from './components/contact_us/contactus.jsx';
 import Calendar from './components/calendar/calendar.jsx';
+import EditForm from './components/form/editForm.jsx';
 
 // Bootstrap CSS
 import Receipt from './components/receipt/receipt.jsx'
@@ -21,6 +22,7 @@ function App() {
         <Route path='/' element={<Homepage/>} />
         <Route path='/Form' element={<CustomerForm/>} />
         <Route path='/Form/:itemName' element={<CustomerForm/>} />
+        <Route path='/edit/:itemName' element={<EditForm/>} />
         <Route path='/Products' element={<ProductCatalog/>}/>
         <Route path='/AboutUs' element={<AboutUs/>}/>
         <Route path='/receipt' element={<Receipt/>} />

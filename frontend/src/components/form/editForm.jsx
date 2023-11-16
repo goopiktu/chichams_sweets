@@ -12,11 +12,9 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Calendar from '../calendar/calendar.jsx';
 import { Icon } from '@iconify/react';
 
-// import sample from './1.png';
-
-const Form = () => {
-    // const location = useLocation();
-    // const prevData = location.state?.formData || {};;
+const EditForm = () => {
+    const location = useLocation();
+    const prevData = location.state?.formData || {};
 
     const navigate = useNavigate();
     const currentDate = new Date();
@@ -24,8 +22,11 @@ const Form = () => {
 
     const defaultDate = addDays(new Date(), 7);
     const { itemName } = useParams();
-    const [productName, setProductName] = useState(itemName);
+    const [productName, setProductName] = useState('Product Name');
+    const [newForm, setNewForm] = useState(prevData || {});
     const [productImg, setProductImg] = useState('');
+
+    // console.log(productImg);
 
     useEffect(() => {
       setProductName(itemName);
@@ -41,19 +42,19 @@ const Form = () => {
         .catch((err) => console.log(err));
     }, [])
 
-    const [dateOrdered, setDateOrdered] = useState(defaultDate);
-    const [name, setName] = useState('');
-    const [contactNo, setContactNo] = useState('');
-    const [email, setEmail] = useState('');
-    const [fbLink, setfbLink] = useState('');
-    const [mode, setMode] = useState('Pick-up');
-    const [dedication, setDedication] = useState('');
-    const [orderDes, setOrderDes] = useState('');
-    const [address, setAddress] = useState('');
-    const [datePickup, setDatePickup] = useState(initDate);
+    const [dateOrdered, setDateOrdered] = useState(new Date(newForm.dateOrdered) || defaultDate);
+    const [name, setName] = useState(prevData.name || '');
+    const [contactNo, setContactNo] = useState(prevData.contactNo || '');
+    const [email, setEmail] = useState(prevData.email || '');
+    const [fbLink, setfbLink] = useState(prevData.fbLink || '');
+    const [mode, setMode] = useState(prevData.mode ||'Pick-up');
+    const [dedication, setDedication] = useState(prevData.dedication || '');
+    const [orderDes, setOrderDes] = useState(prevData.orderDes || '');
+    const [address, setAddress] = useState(prevData.address || '');
+    const [datePickup, setDatePickup] = useState(prevData.datePickup || initDate);
     const [image, setImage] = useState('');
 
-    const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error', date: '', email: 'email error'});
+    const [errors, setErrors] = useState({});
     const [datect, setDateCount] = useState(0);
 
     const [show, setShow] = useState(false);
@@ -223,7 +224,7 @@ const Form = () => {
     }, [mode]);
 
     useEffect(() => {
-      fetch(`http://localhost:4000/checkDate?param=${dateOrdered.toLocaleDateString()}`)
+      fetch(`http://localhost:4000/checkDate?param=${dateOrdered.toLocaleString()}`)
         .then((response) => response.json())
         .then((data) => {
           setDateCount(data.count);
@@ -297,9 +298,10 @@ const Form = () => {
         dedication: dedication,
         orderDes: orderDes,
         address: address,
-        dateOrdered: dateOrdered.toLocaleDateString(),
+        dateOrdered: dateOrdered.toLocaleString(),
         datePickup: datePickup,
-        productImg: productImg
+        // productImg: productImg
+        // image: image
       };
 
       console.log(formData);
@@ -338,11 +340,7 @@ const Form = () => {
           <div className="App">
             <div className="product-selection">
 
-              <div className="pimg-container">
-                <img className="product-img" src={`/images/${productImg.img}`} alt="product-picture" />
-              </div>
-
-              
+            <img className="product-img" src={`/images/1.png`} alt="product-picture" />
 
               {/* <div className="product-opt">
                 <div className="options hov1"></div>
@@ -395,11 +393,9 @@ const Form = () => {
               </div>
 
               <div className="input-field">
-                <div className="text-form">Contact Number <span id="req-field">*</span>  </div>
+                <div className="text-form">Contact Number <span id="req-field">*</span> </div>
 
-                {/* <div className=".other-note">(e.g. 09XXXXXXXXX)</div> */}
-
-                <input className="input-text" id="con-input" type="text" name="contactNo" value={contactNo} placeholder="e.g. 09123456789" onChange={handleContactNo} />
+                <input className="input-text" id="con-input" type="text" name="contactNo" value={contactNo} onChange={handleContactNo} />
 
                 <div className="error" id="error-contact"></div>
               </div>
@@ -477,4 +473,4 @@ const Form = () => {
     );
 }
 
-export default Form;
+export default EditForm;

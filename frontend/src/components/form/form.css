@@ -93,6 +93,7 @@
     gap: 10px;
     outline: none;
     margin-top: -18px;
+    margin-bottom: 50px; /* Temporary Fix while fixing Footer */
 
     width: 359px;
     height: 75px;
@@ -126,7 +127,7 @@
     font-size: 24px;
     line-height: 33px;
 }
-product
+
 #select-text{
     font-family: 'Raleway';
     font-style: normal;
@@ -136,10 +137,18 @@ product
 }
 
 .product-img{
+    width: 100%;
+    height: 100%;
+    /* background: url(./assets/1.png); */
+    /* background: url(1.png); */
+    object-fit: cover;
+}
+
+.pimg-container{
     width: 604px;
     height: 604px;
     border-radius: 5px;
-    background: url(./assets/Rectangle\ 4.jpg);
+    overflow: hidden;
 }
 
 .customerPreviewPic{
@@ -508,4 +517,15 @@ product
     height: 32px;
 
     opacity: 0;
+}
+
+.other-note{
+    width: auto;
+    height: 16px;
+
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
 }

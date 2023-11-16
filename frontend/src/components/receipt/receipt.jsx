@@ -1,38 +1,29 @@
 import React from 'react';
 
 import Navbar from '../navbar/navbar.jsx';
+import Footer from '../footer/footer.jsx';
 import './receipt.css';
 
 import { useNavigate, useLocation } from 'react-router-dom';
+import {useState} from 'react';
 
 const Receipt = () => {
     const navigate = useNavigate();
 
-    const {state} = useLocation();
-    const c_info = state && state.formData;
+    const location = useLocation();
+    const c_info = location.state?.formData || {};
+
+    const [formData, setFormData] = useState(c_info || {});
+    const [productImg, setProductImg] = useState(formData.productImg || {});
+
+    console.log(c_info.dateOrdered);
 
     const handleEditOrder = () => {
-
-        // const orderData = {
-        //     productName: c_info.productName,
-        //     name: c_info.name,
-        //     contactNo: c_info.contactNo,
-        //     email: c_info.email,
-        //     fbLink: c_info.fbLink,
-        //     mode: c_info.mode,
-        //     dedication: c_info.dedication,
-        //     orderDes: c_info.orderDes,
-        //     address: c_info.address,
-        //     dateOrdered: c_info.dateOrdered,
-        //     datePickup: c_info.datePickup,
-        //     // image: c_info.image
-        // }
-
-        navigate('/form'.concat('/').concat(c_info.productName));
+        setFormData(c_info);
+        navigate('/edit'.concat('/').concat(c_info.productName), {state:  {formData}});
     }
 
     const handleConfirmOrder = (e) => {
-
         e.preventDefault();
 
         const orderData = {
@@ -78,7 +69,9 @@ const Receipt = () => {
 
             <div className="App">
                 <div className="product-selection">
-                    <div className="product-img"></div>
+                    <div className="pimg-container">
+                        <img className="product-img" src={`/images/1.png`} alt="product-picture" />
+                    </div>
                 </div>
 
                 <div className="order-container">
@@ -90,7 +83,7 @@ const Receipt = () => {
                         <div className="title-receipt">
                             <div className="text-receipt">Date</div>
 
-                            <div className="date-input">{c_info.dateOrdered}</div>
+                            <div className="date-input">{new Date(c_info.dateOrdered).toLocaleDateString()}</div>
                         </div>
 
                         <div className="title-receipt">
@@ -144,9 +137,9 @@ const Receipt = () => {
 
                     <button className="submit-button" id="confirm-button" onClick={handleConfirmOrder}>Confirm Order</button>
                 </div>
-                <div>
+                {/* <div>
                             <img src={c_info.image} alt=""  style={{ width: '300px', height: '200px' }}/>
-                </div>
+                </div> */}
             </div>
         </div>
     );

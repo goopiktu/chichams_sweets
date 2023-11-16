@@ -3,8 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 
-function Product({id, product}){ // props passed from parent component (FILE: product_catalog.jsx)
+function Product({id, product, img}){ // props passed from parent component (FILE: product_catalog.jsx)
         const [formLink, setFormLink] = useState('');
+        const [image, setImage] = useState('1.png');
 
         const getFormLink = () =>{
                 setFormLink('/form'.concat('/').concat(product.name));
@@ -25,7 +26,7 @@ function Product({id, product}){ // props passed from parent component (FILE: pr
                         <div className="image-div">
                                 {/* Image link from object */}
                                 {/* Note: I do not know how images work for mongoDB */}
-                                <img src={product.link} height={360} width={360}/>
+                                <img src={`/images/${product.img}`} height={360} width={360}/>
                         </div>
 
                         <div className="name-div">
