@@ -36,7 +36,7 @@ var OrderSchema = new mongoose.Schema({
     orderDes: {
         type: String,
         default: 'None',
-        required: true
+        // required: true
     },
 
     address: {
