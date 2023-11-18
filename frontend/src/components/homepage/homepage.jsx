@@ -10,62 +10,70 @@ import './homepage.css';
 
 import CakeBear from './assets/Fondant_Cake.png';
 
-function Homepage(){
-        const navigate = useNavigate();
+function Homepage() {
+  const navigate = useNavigate();
 
-        const navigateToContacts = () =>{
-                navigate('/products')
-        }
-        return(
-                <div className="home-div">
-                        <Navbar />
-                        <div className="carousel-div">
-                                <ProductCarousel/>
-                        </div>
+  const navigateToContacts = () => {
+    navigate('/products');
+  };
+  return (
+    <>
+      <Navbar />
 
-                        <div className="homepage-divider">
+      <div className="carousel-div">
+        <ProductCarousel />
+      </div>
+      <div className="header-divider"></div>
 
-                        </div>
-                        <div className="contact-location-info">
-                                <div className="contact-info">
-                                        <div className="contacts">
-                                                <p className="contact-link" onClick={navigateToContacts}>Products</p>
-                                                {/* <p className="contact-link" onClick={navigateToContacts}>link/link</p>
+      <section className="home-section white-bg">
+        a
+      </section>
+
+      <div className="contact-location-info">
+        <div className="contact-info">
+          <div className="contacts">
+            <p className="contact-link" onClick={navigateToContacts}>
+              Products
+            </p>
+            {/* <p className="contact-link" onClick={navigateToContacts}>link/link</p>
                                                 <p className="contact-link" onClick={navigateToContacts}>link/link</p> */}
-                                        </div>
+          </div>
 
-                                        <div className="image-deco">
-                                                <img className="link-image-deco" src={CakeBear}/>
-                                        </div>
-                                </div>
+          <div className="image-deco">
+            <img className="link-image-deco" src={CakeBear} />
+          </div>
+        </div>
 
-                                <div className="location-info">
-                                        <div className="location">
-                                                <p>location location location location</p>
-                                        </div>
-                                </div>
-                        </div>
+        <div className="location-info">
+          <div className="location">
+            <p>location location location location</p>
+          </div>
+        </div>
+      </div>
 
-                        <div className="feedback">
-                                <div className="review">
-                                        <h2 className="customer-name">Name</h2>
-                                        Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
-                                </div>
+      <div className="feedback">
+        <div className="review">
+          <h2 className="customer-name">Name</h2>
+          Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris
+          molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+        </div>
 
-                                <div className="review">
-                                        <h2 className="customer-name">Name</h2>
-                                        Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
-                                </div>
+        <div className="review">
+          <h2 className="customer-name">Name</h2>
+          Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris
+          molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+        </div>
 
-                                <div className="review">
-                                        <h2 className="customer-name">Name</h2>
-                                        Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
-                                </div>
-                        </div>
+        <div className="review">
+          <h2 className="customer-name">Name</h2>
+          Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris
+          molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+        </div>
+      </div>
 
-                        <Footer/>
-                </div>
-        )
+      <Footer />
+    </>
+  );
 }
 
 export default Homepage;

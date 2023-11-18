@@ -1,12 +1,7 @@
-.home-div{
-        width: 100vw;
-        height: 100vh;
-        overflow-x: hidden;
-}
 
 .carousel-div{
         width: 100vw;
-        height: 100vh;
+        height: auto;
 
         display: flex;
         align-items: center;
@@ -14,10 +9,15 @@
         background-color: #DCDCDC;
 }
 
-.homepage-divider{
-        width: 100vw;
-        height: 1vh;
-        background-color: #A05496;
+.home-section {
+    height: 500px;
+    padding: 0 40px 0 40px;
+
+    font-size: 2em;
+    font-family: var(--font-family);
+
+    display: flex;
+    align-items: center;
 }
 
 .contact-location-info{
