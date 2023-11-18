@@ -14,6 +14,20 @@ function Homepage(){
         const navigate = useNavigate();
 
         const navigateToContacts = () =>{
+                //remove after use: {deletes all record in a collection}
+
+                // fetch('http://localhost:4000/deleteOrders')
+                //         .then((response) => {
+                //                 if(response.ok){
+                //                         console.log('Deleting Orders Successful!');
+                //                 } else{
+                //                         console.log('Deleting Orders Failed!');
+                //                 }
+                //         })
+                //         .catch((err) => {
+                //                 console.log('An error occurred: ', err);
+                //         });
+
                 navigate('/products')
         }
         return(

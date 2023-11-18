@@ -16,9 +16,7 @@ const orderController = {
 
         const newOrder = new Order(formData);
 
-        console.log(formData.dateOrdered);
-
-        console.log(newOrder.dateOrdered);
+        console.log(newOrder);
 
         newOrder.save()
             .then((savedOrder) => {
@@ -53,6 +51,14 @@ const orderController = {
         const document = await Product.findOne({name: query});
 
         res.json(document);
+    },
+
+    deleteOrders: async function(req, res){
+        try{
+            await Order.deleteMany({});
+        } catch(err){
+            console.log('Deleting Orders Failed: ', err);
+        }
     }
 }
 

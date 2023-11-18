@@ -27,6 +27,7 @@ const Receipt = () => {
         e.preventDefault();
 
         const orderData = {
+            productName: c_info.productName,
             name: c_info.name,
             contactNo: c_info.contactNo,
             email: c_info.email,

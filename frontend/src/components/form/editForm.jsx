@@ -224,7 +224,7 @@ const EditForm = () => {
     }, [mode]);
 
     useEffect(() => {
-      fetch(`http://localhost:4000/checkDate?param=${dateOrdered.toLocaleString()}`)
+      fetch(`http://localhost:4000/checkDate?param=${dateOrdered.toLocaleDateString()}`)
         .then((response) => response.json())
         .then((data) => {
           setDateCount(data.count);
@@ -298,7 +298,7 @@ const EditForm = () => {
         dedication: dedication,
         orderDes: orderDes,
         address: address,
-        dateOrdered: dateOrdered.toLocaleString(),
+        dateOrdered: dateOrdered.toLocaleDateString(),
         datePickup: datePickup,
         // productImg: productImg
         // image: image

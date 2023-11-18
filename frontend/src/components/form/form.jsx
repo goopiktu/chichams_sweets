@@ -223,6 +223,9 @@ const Form = () => {
     }, [mode]);
 
     useEffect(() => {
+
+      console.log(dateOrdered.toLocaleDateString());
+
       fetch(`http://localhost:4000/checkDate?param=${dateOrdered.toLocaleDateString()}`)
         .then((response) => response.json())
         .then((data) => {
