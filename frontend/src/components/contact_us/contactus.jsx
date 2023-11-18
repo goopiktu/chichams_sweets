@@ -34,7 +34,7 @@ function ContactUs() {
   }, [destLink]);
 
   return (
-    <>
+    <div className="contact-us">
       <NavBar />
 
       <section className="header">Contact Us</section>
@@ -83,8 +83,10 @@ function ContactUs() {
         </section>
       </section>
 
+      <div className="filler"></div>
+
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -1,3 +1,9 @@
+.contact-us {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .header {
     color: var(--white);
     background-color: var(--black); /* temp; remove when background image is final */
@@ -71,4 +77,8 @@
 .contact-us-icon {
     width: 32px;
     height: 32px;
+}
+
+.filler {
+    flex-grow: 1;
 }

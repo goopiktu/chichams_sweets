@@ -1,57 +1,26 @@
-.contact-us-nav-footer{
-        width: 100vw;
-        height: 15vh;
+.footer-container {
+    background-color: var(--accent-main-light);
+    margin-top: auto;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        background-color: rgba(160, 84, 150, 0.05);
+    width: 100%;
+    height: 132px;
 }
 
-.contact-us-nav-footer-text{
-        width: 90%;
-        height: 35%;
+.footer-body {
+    color: var(--accent-main);
+    height: 100%;
+    padding: 40px;;
 
-        display: flex;
-        flex-direction: row;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    font-family: var(--font-family);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.contact-us-nav-footer-company-name{
-        display: flex;
-        align-items: center;
-
-        height: 100%;
-        width: 50%;
-
-        font-family: var(--font-family);
-        font-style: normal;
-        font-weight: 700;
-        font-size: 2vh;
-        line-height: 2vh;
-
-        cursor: pointer;
-        color: #A05496;
-}
-
-.contact-us-nav-footer-nav-options{
-        height: 100%;
-        width: 50%;
-
-        display: flex;
-        flex-direction: row-reverse;
-        gap: 1vw;
-        align-items: center;
-
-        font-family: var(--font-family);
-        font-style: normal;
-        font-weight: 600;
-        font-size: 2vh;
-        line-height: 2vh;
-
-        color: #A05496;
-}
-
-.contact-us-options{
-        cursor: pointer;
+.footer-nav-links {
+    display: flex;
+    gap: 32px;
 }
