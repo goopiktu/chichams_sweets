@@ -24,9 +24,9 @@ const EditForm = () => {
     const { itemName } = useParams();
     const [productName, setProductName] = useState('Product Name');
     const [newForm, setNewForm] = useState(prevData || {});
-    const [productImg, setProductImg] = useState('');
+    const [productImg, setProductImg] = useState(newForm.productImg || {});
 
-    // console.log(productImg);
+    console.log('Object Image: ', newForm.productImg);
 
     useEffect(() => {
       setProductName(itemName);
@@ -300,7 +300,7 @@ const EditForm = () => {
         address: address,
         dateOrdered: dateOrdered.toLocaleDateString(),
         datePickup: datePickup,
-        // productImg: productImg
+        productImg: newForm.productImg
         // image: image
       };
 
@@ -340,7 +340,7 @@ const EditForm = () => {
           <div className="App">
             <div className="product-selection">
 
-            <img className="product-img" src={`/images/1.png`} alt="product-picture" />
+            <img className="product-img" src={`/images/${newForm.productImg.img}`} alt="product-picture" />
 
               {/* <div className="product-opt">
                 <div className="options hov1"></div>

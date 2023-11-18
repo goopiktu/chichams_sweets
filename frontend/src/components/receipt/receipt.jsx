@@ -16,10 +16,9 @@ const Receipt = () => {
     const [formData, setFormData] = useState(c_info || {});
     const [productImg, setProductImg] = useState(formData.productImg || {});
 
-    console.log(c_info.dateOrdered);
-
     const handleEditOrder = () => {
         setFormData(c_info);
+
         navigate('/edit'.concat('/').concat(c_info.productName), {state:  {formData}});
     }
 
@@ -71,7 +70,7 @@ const Receipt = () => {
             <div className="App">
                 <div className="product-selection">
                     <div className="pimg-container">
-                        <img className="product-img" src={`/images/1.png`} alt="product-picture" />
+                        <img className="product-img" src={`/images/${productImg.img}`} alt="product-picture" />
                     </div>
                 </div>
 
