@@ -25,7 +25,7 @@
     width: auto;
     height: 33px;
 
-    font-family: 'Nunito';
+    font-family: var(--font-family);
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -38,7 +38,7 @@
     width: 196px;
     height: 33px;
 
-    font-family: 'Nunito';
+    font-family: var(--font-family);
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -51,7 +51,7 @@
     width: auto;
     height: auto;
 
-    font-family: 'Nunito';
+    font-family: var(--font-family);
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -78,7 +78,7 @@
     /* width: 97px;
     height: 27px; */
 
-    font-family: 'Nunito';
+    font-family: var(--font-family);
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -93,7 +93,7 @@
 #confirm-button{
     height: 43px;
 
-    font-family: 'Nunito';
+    font-family: var(--font-family);
     font-style: normal;
     font-weight: 700;
     font-size: 24px;

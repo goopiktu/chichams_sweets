@@ -8,7 +8,7 @@ import './navbar.css'
 function NavigationBar() {
 
   return (
-    <Navbar expand="lg" className="custom-navbar" id='nav_bar'>
+    <Navbar expand="lg" className="custom-navbar" id='nav_bar' sticky="top">
       <Container id="nav_container">
         <Navbar.Brand href="#aboutus" id="company_brand">
                 {/*Brand - TODO: Insert brand image, placeholder was used*/}
@@ -20,7 +20,7 @@ function NavigationBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
                 <Container>
-                        <Nav className="right-aligned">
+                        <Nav className="nav-options">
                                 <Nav.Link href="/" className='custom_navlink'>Home</Nav.Link>
                                 <Nav.Link href="/products" className='custom_navlink'>Products</Nav.Link>
                                 <Nav.Link href="/aboutus" className='custom_navlink'>About Us</Nav.Link>

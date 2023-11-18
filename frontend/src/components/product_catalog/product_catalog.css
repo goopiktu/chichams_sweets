@@ -2,7 +2,7 @@
         text-align: center;
         margin: 150px 0px;
 
-        font-family: 'Nunito';
+        font-family: var(--font-family);
         font-style: normal;
         font-weight: 700;
         font-size: 40px;

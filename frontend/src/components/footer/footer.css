@@ -24,7 +24,7 @@
         height: 100%;
         width: 50%;
 
-        font-family: 'Nunito';
+        font-family: var(--font-family);
         font-style: normal;
         font-weight: 700;
         font-size: 2vh;
@@ -43,7 +43,7 @@
         gap: 1vw;
         align-items: center;
 
-        font-family: 'Nunito';
+        font-family: var(--font-family);
         font-style: normal;
         font-weight: 600;
         font-size: 2vh;
