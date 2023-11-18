@@ -4,7 +4,7 @@
     flex-direction: column;
 }
 
-.header {
+.contact-us-header {
     color: var(--white);
     background-color: var(--black); /* temp; remove when background image is final */
     height: 419px;

@@ -37,7 +37,7 @@ function ContactUs() {
     <div className="contact-us">
       <NavBar />
 
-      <section className="header">Contact Us</section>
+      <section className="contact-us-header">Contact Us</section>
       <div className="header-divider"></div>
 
       <section className="contact-us-body">

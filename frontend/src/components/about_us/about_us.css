@@ -1,102 +1,48 @@
-.about-us-div{
-        height: 100vh;
-        width: 100vw;
+.about-us-header {
+    color: var(--white);
+    background-color: var(--black); /* temp; remove when background image is final */
+    height: 419px;
+
+    font-size: 64px;
+    font-weight: bold;
+    font-family: var(--font-family);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.about-us-header{
-        height: 50vh;
-        width: 100vw;
+.about-us-section {
+    height: 500px;
+    padding: 0 40px 0 40px;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    font-size: 2em;
+    font-family: var(--font-family);
 
-        font-family: var(--font-family);
-        font-style: normal;
-        font-weight: 700;
-        font-size: 64px;
-        line-height: 87px;
-        color: #FFFFFF;
-
-        background-color: black;
-
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/Brownies.png');
-
-        background-size: 250% 250%;
-        background-position: center;
+    display: flex;
+    align-items: center;
 }
 
-.about-us-divider{
-        height: 1.2vh;
-        width: 100vw;
-
-        background-color: #A05496;
+.gray-bg {
+    background-color: var(--dp1-gray);
 }
 
-.about-us-content{
-        height: 50vh;
-        width: 100vw;
-        display: flex;
-
-        min-height: 20vh;
+.img-bg {
+    color: var(--white);
+    background-color: var(--black); /* change when images are final */
 }
 
-.about-us-text{
-        height: 100%;
-        flex-grow: 1;
+.about-us-content {
+    width: 100%;
 
-        display: flex;
-        align-items: center;
-        padding: 5vh;
-        font-family: var(--font-family);
-        font-style: normal;
-        font-weight: 700;
-        font-size: 3vh;
-        line-height: 4vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.about-us-banner{
-        height: 50vh;
-        width: 100vw;
+.about-us-image {
+    background-color: #C2C2C2;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url('./assets/Crinkles_1.png');
-        background-repeat: no-repeat;
-        background-size: 200% 200%;
-        background-position-x: 70%;
-        background-position-y: 65%;
-}
-
-.about-us-banner-text{
-        margin: 5vh;
-
-        font-family: var(--font-family);
-        font-style: normal;
-        font-weight: 700;
-        font-size: 3vh;
-        line-height: 4vh;
-        color: #FFFFFF;
-}
-
-.about-us-image{
-        height: 80%;
-        width: 40%;
-        padding: 0;
-        margin: 5vh;
-        background-color: grey;
-}
-
-.image-right{
-
-        flex-direction: row;
-        background-color: white;
-}
-
-.image-left{
-
-        flex-direction: row-reverse;
-        background-color: gainsboro;
+    width: 485px;
+    height: 302px;
 }
