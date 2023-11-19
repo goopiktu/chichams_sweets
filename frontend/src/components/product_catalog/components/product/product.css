@@ -4,8 +4,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 10px;
-        gap: 8px;
+        /* padding: 10px;
+        gap: 8px; */
 }
 
 .image-div{
@@ -15,8 +15,8 @@
 }
 
 .name-div{
-        width: 203px;
-        height: 55px;
+        width: 100%;
+        height: fit-content;
 
         font-family: 'Nunito';
         font-style: normal;
@@ -25,10 +25,13 @@
         line-height: 55px;
 
         text-align: center;
-        color: #000000;
+        /* color: #000000; */
 
-        overflow: auto;
-        white-space: nowrap;
+        overflow-wrap: break-word;
+}
+
+.product-image{
+        border-radius: 10px;
 }
 
 .cost-div{

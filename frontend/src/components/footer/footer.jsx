@@ -27,18 +27,18 @@ function Footer() {
         }, [destLink])
 
         return(
-                <div className="contact-us-nav-footer">
-                        <div className="contact-us-nav-footer-text">
-                                <div className="contact-us-nav-footer-company-name" onClick={event => getDestLink(event, "")}>
+                <div className="footer-div">
+                        <div className="footer-text">
+                                <div className="footer-company-name" onClick={event => getDestLink(event, "")}>
                                         Chicham's Sweet Delight Cakes and Pastries
                                 </div>
 
-                                <div className="contact-us-nav-footer-nav-options">
-                                        <div className="contact-us-options" onClick={event => getDestLink(event, "contactus")}>
+                                <div className="footer-nav-options">
+                                        <div className="footer-options" onClick={event => getDestLink(event, "contactus")}>
                                                 Contact Us
                                         </div>
 
-                                        <div className="contact-us-options" onClick={event => getDestLink(event, "aboutus")}>
+                                        <div className="footer-options" onClick={event => getDestLink(event, "aboutus")}>
                                                 About Us
                                         </div>
 

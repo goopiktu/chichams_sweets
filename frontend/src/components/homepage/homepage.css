@@ -4,21 +4,24 @@
         width: 100vw;
         height: 100vh;
         overflow-x: hidden;
+
+        display: flex;
+        flex-direction: column;
 }
 
 .carousel-div{
         width: 100vw;
-        height: 100vh;
+        height: 80vh;
 
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #DCDCDC;
+        background-color: rgba(160, 84, 150, 0.05);
 }
 
 .homepage-divider{
         width: 100vw;
-        height: 1vh;
+        min-height: 0.5vh;
         background-color: #A05496;
 }
 

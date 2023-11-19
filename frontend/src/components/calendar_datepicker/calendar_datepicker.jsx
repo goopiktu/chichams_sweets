@@ -8,12 +8,10 @@ import './calendar_datepicker.css';
 import 'react-calendar/dist/Calendar.css';
 
 // Helper Components
-import DateHelp from './components/date_help/date_help.jsx';
 import OrderCalendar from './components/order_calendar/order_calendar.jsx';
 
-function CalendarDatepicker() {
+function CalendarDatepicker({handleDateOrdered}) {
         const [orderDate, setOrderDate] = useState(new Date());
-        const [showHelp, setShowHelp] = useState(false);
         const [displayDate, setDisplayDate] = useState('');
         const [calendarVisibility, setCalendarVisibility] = useState(false);
 
@@ -28,6 +26,7 @@ function CalendarDatepicker() {
         useEffect(() =>{ // Runs everytime order date is updated
 
                 getDisplayDate();
+                handleDateOrdered(orderDate);
         }, [orderDate]);
 
         // Helper Functions
@@ -36,11 +35,6 @@ function CalendarDatepicker() {
                 const month = date.toLocaleDateString('default', {month: 'long'});
 
                 return month;
-        }
-
-        const getDayOfWeek = () => {
-                const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-                return days[orderDate.getDay()];
         }
 
         const getDisplayDate = () => {
@@ -59,18 +53,6 @@ function CalendarDatepicker() {
 
         return(
                 <div className="calendar-datepicker-div">
-                        <div className="date-text-display">
-                                <div className="date-text">
-                                        Date
-                                </div>
-
-                                <div className="question-mark-circle-div">
-                                        <div className="question-mark-circle" onMouseEnter={() => setShowHelp(true)} onMouseLeave={() => setShowHelp(false)}>
-                                                ?
-                                        </div>
-                                        {showHelp ? <DateHelp/>: null}
-                                </div>
-                        </div>
 
                         <div className="date-picker-div">
                                 <div className="date-container">

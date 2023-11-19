@@ -2,10 +2,10 @@
 
 .calendar-datepicker-div{
         display: flex;
-        flex-direction: column;
+        align-items: center;
 
-        width: 20vw;
-        height: 6vh;
+        width: 100%;
+        height: 2.5vh;
 }
 
 .date-text-display{
@@ -29,7 +29,7 @@
         font-family: 'Nunito';
         font-style: normal;
         font-weight: 700;
-        font-size: 2.5vh;
+        font-size: 1vh;
         line-height: normal;
 }
 
@@ -64,15 +64,15 @@
 }
 
 .date-picker-div{
-        width: 100%;
-        height: 50%;
+        width: 15vw;
+        height: 100%;
 
         display: flex;
         flex-direction: row;
 }
 
 .date-container{
-        width: 60%;
+        width: fit-content;
         height: 100%;
 
         display: flex;
@@ -82,13 +82,13 @@
         font-family: 'Nunito';
         font-style: normal;
         font-weight: 700;
-        font-size: 2.5vh;
+        font-size: 1.2em;
         line-height: normal;
 }
 
 .datepicker-button-div{
-        width: 7%;
-        height: 100%;
+        width: 1.2vw;
+        height: 1.2vw;
 
         display: flex;
         align-items: center;
@@ -116,4 +116,7 @@
 
 .order-calendar{
         margin-top: 1vw;
+        z-index: 100;
 }
+
+
