@@ -3,9 +3,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 
+import PopupDesc from '../popup-desc/popupDesc.jsx';
+
 function Product({id, product, img}){ // props passed from parent component (FILE: product_catalog.jsx)
         const [formLink, setFormLink] = useState('');
-        const [image, setImage] = useState('1.png');
+        const [showDesc, setShowDesc] = useState(false);
+
+        const toggleProductDesc = () => {
+                setShowDesc(!showDesc);
+                console.log(showDesc);
+        }
 
         const getFormLink = () =>{
                 setFormLink('/form'.concat('/').concat(product.name));
@@ -23,10 +30,17 @@ function Product({id, product, img}){ // props passed from parent component (FIL
 
         return(
                 <div className="product-container">
+
                         <div className="image-div">
                                 {/* Image link from object */}
                                 {/* Note: I do not know how images work for mongoDB */}
-                                <img src={`/images/${product.img}`} height={360} width={360}/>
+                                <img
+                                        className="product-image"
+                                        src={`/images/${product.img}`}
+                                        height={360}
+                                        width={360}
+                                        onClick={toggleProductDesc}
+                                />
                         </div>
 
                         <div className="name-div">

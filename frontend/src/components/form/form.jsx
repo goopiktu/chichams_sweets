@@ -11,6 +11,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Calendar from '../calendar/calendar.jsx';
 import { Icon } from '@iconify/react';
+import CalendarDatepicker from '../calendar_datepicker/calendar_datepicker.jsx';
 
 // import sample from './1.png';
 
@@ -94,17 +95,6 @@ const Form = () => {
       }
 
       setName(name);
-    };
-
-    //remove if never used.
-    const handleNavbarRender = () => {
-      setShowNavbar(true);
-      setShow(false);
-    };
-
-    const handleCalendarRender = () => {
-      setShowNavbar(false);
-      setShow(true);
     };
 
     const handleContactNo = (e) => {
@@ -254,6 +244,7 @@ const Form = () => {
 
     const handleDateOrdered = (date) => {
       setDateOrdered(date);
+      console.log('order date updated!');
     }
 
     const handleDedication = (e) => {
@@ -334,15 +325,18 @@ const Form = () => {
     console.log(errors);
 
     return (
-        <div>
-          <div className="App">
+        <div className="form-div">
+          <Navbar/>
+
+          <div className="spacer">
+          <div className="form-data-div">
             <div className="product-selection">
 
               <div className="pimg-container">
                 <img className="product-img" src={`/images/${productImg.img}`} alt="product-picture" />
               </div>
 
-              
+
 
               {/* <div className="product-opt">
                 <div className="options hov1"></div>
@@ -370,7 +364,7 @@ const Form = () => {
                   <div className="q-mark" id="q-text">Orders must be atleast 7 days before the date</div>
                 </div>
 
-                <div className="date-info">
+                {/* <div className="date-info">
                   <p className="date-text" id="date-text">{dateText}</p>
 
                   <div className="calendar-class">
@@ -380,7 +374,9 @@ const Form = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
+
+                <CalendarDatepicker handleDateOrdered={handleDateOrdered}/>
 
                 <div className="error" id="error-date"></div>
               </div>
@@ -469,11 +465,14 @@ const Form = () => {
             <div className="customerPreviewPic">
               {image && <img src={image} alt="" style={{ width: '300px', height: '200px' }} />}
             </div>
+          </div>
+          <div className="spacer">
 
           </div>
-              {show ? <Calendar handleDateOrdered={handleDateOrdered} setShowNavbar={setShowNavbar} setShow={setShow}/>: null}
-              {showNavbar ? <Navbar />: null}
-         </div>
+          </div>
+
+          <Footer/>
+        </div>
     );
 }
 

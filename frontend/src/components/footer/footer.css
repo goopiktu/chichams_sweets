@@ -1,6 +1,6 @@
-.contact-us-nav-footer{
-        width: 100vw;
-        height: 15vh;
+.footer-div{
+        min-width: 100vw;
+        min-height: 15vh;
 
         display: flex;
         align-items: center;
@@ -9,7 +9,7 @@
         background-color: rgba(160, 84, 150, 0.05);
 }
 
-.contact-us-nav-footer-text{
+.footer-text{
         width: 90%;
         height: 35%;
 
@@ -17,7 +17,7 @@
         flex-direction: row;
 }
 
-.contact-us-nav-footer-company-name{
+.footer-company-name{
         display: flex;
         align-items: center;
 
@@ -34,7 +34,7 @@
         color: #A05496;
 }
 
-.contact-us-nav-footer-nav-options{
+.footer-nav-options{
         height: 100%;
         width: 50%;
 
@@ -52,6 +52,6 @@
         color: #A05496;
 }
 
-.contact-us-options{
+.footer-options{
         cursor: pointer;
 }

@@ -26,6 +26,7 @@ function Homepage(){
                         <div className="homepage-divider">
 
                         </div>
+
                         <div className="contact-location-info">
                                 <div className="contact-info">
                                         <div className="contacts">
