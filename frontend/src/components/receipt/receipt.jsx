@@ -19,7 +19,7 @@ const Receipt = () => {
     const handleEditOrder = () => {
         setFormData(c_info);
 
-        navigate('/edit'.concat('/').concat(c_info.productName), {state:  {formData}});
+        navigate('/form'.concat('/').concat(c_info.productName), {state:  {formData}});
     }
 
     const handleConfirmOrder = (e) => {
@@ -132,7 +132,7 @@ const Receipt = () => {
                         </div>
 
                     </div>
-                        
+
                     <button className="submit-button" id="edit-button" onClick={handleEditOrder}>Edit Order</button>
 
                     <button className="submit-button" id="confirm-button" onClick={handleConfirmOrder}>Confirm Order</button>

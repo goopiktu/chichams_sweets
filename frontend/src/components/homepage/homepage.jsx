@@ -2,7 +2,7 @@ import React from 'react';
 
 import Navbar from '../navbar/navbar.jsx';
 import Footer from '../footer/footer.jsx';
-import ProductCarousel from './components/product_carousel.jsx';
+import ProductCarousel from './components/product_carousel/product_carousel.jsx';
 
 import { useNavigate } from 'react-router-dom';
 

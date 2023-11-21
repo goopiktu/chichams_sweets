@@ -16,8 +16,8 @@ import CalendarDatepicker from '../calendar_datepicker/calendar_datepicker.jsx';
 // import sample from './1.png';
 
 const Form = () => {
-    // const location = useLocation();
-    // const prevData = location.state?.formData || {};;
+    const location = useLocation();
+    const prevData = location.state?.formData || {};;
 
     const navigate = useNavigate();
     const currentDate = new Date();
@@ -27,6 +27,8 @@ const Form = () => {
     const { itemName } = useParams();
     const [productName, setProductName] = useState(itemName);
     const [productImg, setProductImg] = useState('');
+
+    const[prevFormData, setPrevFormData] = useState({name: "", contactNo: "", email: "", fbLink: "", mode: "", dedication: "", orderDes: "", address: ""})
 
     useEffect(() => {
       setProductName(itemName);
@@ -56,10 +58,6 @@ const Form = () => {
 
     const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error', date: '', email: 'email error'});
     const [datect, setDateCount] = useState(0);
-
-    const [show, setShow] = useState(false);
-    const [dateText, setDateText] = useState('');
-    const [showNavbar, setShowNavbar] = useState(true);
 
     const onInputChange=(e)=>{
       console.log(e.target.files);
@@ -314,17 +312,6 @@ const Form = () => {
       }
     }, [errors]);
 
-    useEffect(() => {
-      const months_ref = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-      const month = months_ref[new Date(dateOrdered).getMonth()];
-      const year = new Date(dateOrdered).getFullYear();
-      const day = new Date(dateOrdered).getDate();
-      const stringDate = month.concat(" ").concat(day).concat(", ").concat(year);
-
-      setDateText(stringDate);
-    }, [dateOrdered]);
-
     console.log(errors);
 
     return (
@@ -339,16 +326,6 @@ const Form = () => {
                 <img className="product-img" src={`/images/${productImg.img}`} alt="product-picture" />
               </div>
 
-
-
-              {/* <div className="product-opt">
-                <div className="options hov1"></div>
-                <div className="options hov2"></div>
-                <div className="options hov3"></div>
-                <div className="options hov4"></div>
-                <div className="options hov5"></div>
-                <div className="options hov6"></div>
-              </div> */}
             </div>
             <form className="order-form" onSubmit={handleSubmit} >
 
@@ -366,18 +343,6 @@ const Form = () => {
                   <Icon className="q-icon" id="q-date" icon="heroicons:question-mark-circle-20-solid" color='#A05496'/>
                   <div className="q-mark" id="q-text">Orders must be atleast 7 days before the date</div>
                 </div>
-
-                {/* <div className="date-info">
-                  <p className="date-text" id="date-text">{dateText}</p>
-
-                  <div className="calendar-class">
-                    <div className="calendar-icon">
-                      <div id="calendar-vector">
-                        <i className="fa fa-calendar" style={{color: 'white'}} onClick={handleCalendarRender}></i>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
 
                 <CalendarDatepicker handleDateOrdered={handleDateOrdered}/>
 
@@ -406,7 +371,7 @@ const Form = () => {
               <div className="input-field">
                 <div className="text-form">Email <span id="req-field">*</span> </div>
 
-                <input className="input-text" id="email-input" type="text" name="email" value={email} onChange={handleEmail} />
+                <input className="input-text" id="email-input" type="text" name="email" value={email} onChange={handleEmail}/>
 
                 <div className="error" id="error-email"></div>
               </div>
@@ -456,10 +421,6 @@ const Form = () => {
                   <input type="file" accept="image/*" onChange={onInputChange}></input>
                 </div>
               </div>
-
-              {/* <div style={{marginTop: '10px'}}>
-                <input type="file" accept="image/*" onChange={onInputChange}></input>
-              </div> */}
 
               <button className="submit-button">Place Order</button>
 

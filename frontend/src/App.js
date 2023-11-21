@@ -28,8 +28,6 @@ function App() {
         <Route path='/AboutUs' element={<AboutUs/>}/>
         <Route path='/receipt' element={<Receipt/>} />
         <Route path='/contactus' element={<ContactUs/>} />
-        <Route path='/calendar' element={<Calendar/>} />
-        <Route path='/calendardatepicker' element={<CalendarDatepicker/>} />
       </Routes>
 
     </BrowserRouter>

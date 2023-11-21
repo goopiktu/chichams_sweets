@@ -13,7 +13,7 @@
 #company_logo{
         width: 5vh;
         height: 5vh;
-        margin-right: 25px;
+        margin-right: 2vw;
         border: transparent;
 }
 
@@ -22,8 +22,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 0px;
-        gap: 10px;
+        gap: 1.5vw;
 }
 
 .custom-navbar{
