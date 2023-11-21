@@ -21,17 +21,19 @@
         align-items: center;
 }
 
-.carousel-item{
-        display: flex;
-        align-items: center;
-}
-
 .carousel-caption{
         font-family: 'Nunito';
         position: absolute !important;
-        bottom: 18vh !important;
+        bottom: 8.5vh !important;
 }
 
 .carousel-control-icon{
         height: 10vh;
+}
+
+.carousel-img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        max-height: 100vh;
 }

@@ -10,8 +10,8 @@
 }
 
 .carousel-div{
-        width: 100vw;
-        height: 95vh;
+        min-width: 100vw;
+        min-height: 100vh;
 
         display: flex;
         align-items: center;
@@ -81,14 +81,13 @@
         object-fit: contain;
 }
 
-.location-info{
-        height: 50%;
+.homepage-products{
+        min-height: 70vh;
+        min-width: 100vw;
 
-        background-image: url('./assets/Crinkles_1.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 150vw;
+        background-color: rgba(160, 84, 150, 0.05);
 
+        margin-bottom: 10vh;
 }
 
 .location{
@@ -134,7 +133,7 @@
         width: 50%;
 
         margin-left: 15vh;
-        padding: 5vh 0;
+        padding: 2.5vh 0;
 
         font-family: 'Nunito';
         font-style: normal;
@@ -143,4 +142,19 @@
         line-height: 4vh;
 
         color: #A05496;
+}
+
+.feedback-header{
+        width: 50%;
+
+        margin-left: 15vh;
+        padding-top: 5vh;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 5vh;
+        line-height: 4vh;
+
+        color: #000000;
 }
