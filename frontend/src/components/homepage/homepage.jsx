@@ -66,18 +66,18 @@ function Homepage(){
                                 </div>
 
                                 <div className="review">
-                                        <h2 className="customer-name">Sweet Tooth Crusader</h2>
-                                        Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+                                        <h2 className="customer-name">Anonymous</h2>
+                                        Sarap ng carrot cake, sis! Sobrang moist and soft!!! Even the kids like it!
                                 </div>
 
                                 <div className="review">
-                                        <h2 className="customer-name">Name</h2>
-                                        Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+                                        <h2 className="customer-name">Anonymous</h2>
+                                        Ang sarap nagustuhan po ng mga kids. Sobrang moist ng banana bread. Sakto po yung tamis, sara na sarap!
                                 </div>
 
                                 <div className="review">
-                                        <h2 className="customer-name">Name</h2>
-                                        Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+                                        <h2 className="customer-name">Anonymous</h2>
+                                        Thank you po sa cake! Perfect yung pagkakagawa.
                                 </div>
                         </div>
 

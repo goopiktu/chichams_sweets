@@ -37,3 +37,8 @@
         object-fit: cover;
         max-height: 100vh;
 }
+
+.scroll-caption{
+        font-weight: 700;
+        color: black;
+}

@@ -6,7 +6,7 @@
 }
 
 .about-us-header{
-        height: 50vh;
+        height: 60vh;
         width: 100vw;
 
         display: flex;
@@ -22,9 +22,8 @@
 
         background-color: black;
 
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/Brownies.png');
-
-        background-size: 250% 250%;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/01_Top_Banner.jpg');
+        background-size: 100% 100%;
         background-position: center;
 }
 
@@ -58,18 +57,25 @@
 }
 
 .about-us-banner{
-        height: 50vh;
+        height: 60vh;
         width: 100vw;
 
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
+        align-items: center;
+        justify-content: center;
 
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url('./assets/Crinkles_1.png');
-        background-repeat: no-repeat;
-        background-size: 200% 200%;
-        background-position-x: 70%;
-        background-position-y: 65%;
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 87px;
+        color: #FFFFFF;
+
+        background-color: black;
+
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/02_Bottom_Banner.jpg');
+        background-size: 100% 100%;
+        background-position: center;
 }
 
 .about-us-banner-text{
@@ -88,7 +94,6 @@
         width: 40%;
         padding: 0;
         margin: 5vh;
-        background-color: gray;
 }
 
 .image-right{
@@ -101,4 +106,10 @@
 
         flex-direction: row-reverse;
         background-color: #FAF6F9;
+}
+
+.about-us-img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
 }

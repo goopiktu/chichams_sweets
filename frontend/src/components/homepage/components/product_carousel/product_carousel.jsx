@@ -50,7 +50,7 @@ function ProductCarousel() {
                                                 />
 
                                                 <Carousel.Caption>
-                                                        <h3>Scroll down for sweet happiness!</h3>
+                                                        <h3 className="scroll-caption">Scroll down for sweet happiness!</h3>
                                                 </Carousel.Caption>
                                         </Carousel.Item>
                                 )
