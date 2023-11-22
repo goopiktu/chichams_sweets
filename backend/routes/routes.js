@@ -26,4 +26,6 @@ app.get('/getImage/:productName', orderController.getImage);
 
 app.get('/deleteOrders', orderController.deleteOrders);
 
+app.get('/getAllDates', orderController.getAllDates);
+
 module.exports = app;

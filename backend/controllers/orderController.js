@@ -59,7 +59,19 @@ const orderController = {
         } catch(err){
             console.log('Deleting Orders Failed: ', err);
         }
-    }
+    },
+
+    getAllDates: async function(req, res){
+        try{
+            const orders = await Order.find();
+            res.json(orders);
+
+            console.log(orders);
+        }
+        catch(err){
+            console.log('ERROR (getAllDates): ' + err);
+        }
+    },
 }
 
 module.exports = orderController;
