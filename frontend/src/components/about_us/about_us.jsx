@@ -36,14 +36,7 @@ function AboutUs(){
                                 </div>
                         </div>
 
-                        <div className="about-us-banner">
-                                <p className="about-us-banner-text">
-                                        Deeply rooted in the community, <br></br>
-                                        Sweet Delights actively participated in events and fundraisers, become a local favorite.
-                                </p>
-                        </div>
-
-                        <div className="about-us-content image-left">
+                        <div className="about-us-content image-right">
                                 <div className="about-us-text">
                                         Responding to demand, Sweet Delights moved to a larger space, <br></br>
                                         offering an expanded menu with artisanal bread and custom cakes.
@@ -52,6 +45,12 @@ function AboutUs(){
                                 <div className="about-us-image">
 
                                 </div>
+                        </div>
+
+                        <div className="about-us-banner">
+                                <p className="about-us-banner-text">
+
+                                </p>
                         </div>
 
                         <Footer/>

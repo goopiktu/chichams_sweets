@@ -8,28 +8,15 @@ import ProductCatalog from './components/product_catalog/home_product_catalog.js
 import { useNavigate } from 'react-router-dom';
 
 import './homepage.css';
-
-import CakeBear from './assets/Fondant_Cake.png';
+import { Button } from 'react-bootstrap';
+import BallonGirlCake from './assets/balloongirl-nobg.png';
 
 function Homepage(){
         const navigate = useNavigate();
 
-        const navigateToContacts = () =>{
-                //remove after use: {deletes all record in a collection}
+        const navigateToFeatured = () =>{
 
-                // fetch('http://localhost:4000/deleteOrders')
-                //         .then((response) => {
-                //                 if(response.ok){
-                //                         console.log('Deleting Orders Successful!');
-                //                 } else{
-                //                         console.log('Deleting Orders Failed!');
-                //                 }
-                //         })
-                //         .catch((err) => {
-                //                 console.log('An error occurred: ', err);
-                //         });
-
-                navigate('/products')
+                navigate('/form/Fondant Customized Cake')
         }
         return(
                 <div className="home-div">
@@ -42,6 +29,33 @@ function Homepage(){
 
                         </div>
 
+                        <div className="featured-product">
+                                <div className="featured-product-text">
+                                        <div className="featured-bold-text">
+                                                <p>?</p>
+                                        </div>
+
+                                        <div className="featured-bold-text">
+                                                <p>Customized Cake</p>
+                                        </div>
+
+                                        <div className="featured-bottom-text">
+                                                <p>Make your Party Extra Fun with ? Cake</p>
+                                        </div>
+
+                                        <Button className="featured-order-button" onClick={navigateToFeatured}>
+                                                Order Now
+                                        </Button>
+                                </div>
+
+                                <div className="featured-product-img">
+                                        <img
+                                                className="featured-img"
+                                                src={BallonGirlCake}
+                                        />
+                                </div>
+                        </div>
+
                         <div className="homepage-products">
                                 <ProductCatalog/>
                         </div>
@@ -52,7 +66,7 @@ function Homepage(){
                                 </div>
 
                                 <div className="review">
-                                        <h2 className="customer-name">Name</h2>
+                                        <h2 className="customer-name">Sweet Tooth Crusader</h2>
                                         Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
                                 </div>
 

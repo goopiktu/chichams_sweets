@@ -6,40 +6,41 @@
         align-items: center;
 
         margin: 1vw;
+        flex: 1;
 }
 
-.image-div{
-        min-height: 80%;
+.home-image-div{
+        min-height: fit-content;
         min-width: 80%;
         border-radius: 5px;
 
         display: flex;
         justify-content: center;
+        margin-bottom: 2.5%;
 }
 
-.name-div{
-        width: 100%;
-        height: fit-content;
+.home-name-div{
+        max-width: 100%;
+        max-height: 100%;
 
         font-family: 'Nunito';
         font-style: normal;
         font-weight: 700;
-        font-size: 40px;
-        line-height: 55px;
+        font-size: 1em;
+        line-height: 1em;
 
         text-align: center;
-        /* color: #000000; */
 
         overflow-wrap: break-word;
 }
 
-.product-image{
+.home-product-image{
         border-radius: 10px;
-        max-height: 80%;
-        max-width: 80%;
+        max-height: 100%;
+        max-width: 100%;
 }
 
-.cost-div{
+.home-cost-div{
         width: 140px;
         min-height: 27px;
 

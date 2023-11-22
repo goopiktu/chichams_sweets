@@ -82,11 +82,10 @@
 }
 
 .homepage-products{
-        min-height: 70vh;
+        min-height: 90%;
         min-width: 100vw;
 
         background-color: rgba(160, 84, 150, 0.05);
-
         margin-bottom: 10vh;
 }
 
@@ -116,7 +115,7 @@
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        /* padding: 5vh 0; */
+        margin: 0 5%;
 }
 
 .customer-name{
@@ -157,4 +156,68 @@
         line-height: 4vh;
 
         color: #000000;
+}
+
+.featured-product{
+        width: 100vw;
+        min-height: 70vh;
+
+        padding-left: 10vw;
+        padding-right: 10vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+}
+
+.featured-product-text{
+        min-width: 50%;
+        height: 100%;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 5vh;
+        line-height: 4vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+}
+
+.featured-bottom-text{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2vh;
+        line-height: 2vh;
+}
+
+.featured-bold-text{
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 5.5vh;
+        line-height: 3vh;
+}
+
+.featured-order-button{
+        width: fit-content;
+        background-color: #A05496 !important;
+        border: none !important;
+
+        font-family: 'Nunito' !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        font-size: 2vh !important;
+}
+
+.featured-product-img{
+        min-width: 25%;
+        height: 100%;
+}
+
+.featured-img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
 }

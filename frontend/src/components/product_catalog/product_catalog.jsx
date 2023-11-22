@@ -1,6 +1,5 @@
 import Navbar from '../navbar/navbar.jsx';
 import Footer from '../footer/footer.jsx';
-import { Container } from 'react-bootstrap';
 import './product_catalog.css';
 import Product from './components/product/product.jsx';
 import { useState, useEffect } from 'react';
@@ -16,6 +15,7 @@ function ProductCatalog(){
                         .catch(error => console.error('Error fetching data:', error));
         }, []);
 
+
         // Assumed: products are stored as objects in array `products`
         // Function below maps products to id
         const renderProducts = () => {
@@ -28,13 +28,13 @@ function ProductCatalog(){
                 <div className="product-catalog-div">
                         <Navbar/>
 
-                        <Container className="product-container">
-                                <p className="our-products">Our Products</p>
+                        <div className="product-header-div">
+                                Our Products
+                        </div>
 
-                                <Container className="product-list">
-                                        {renderProducts()}
-                                </Container>
-                        </Container>
+                        <div className="product-item-list-div">
+                                {renderProducts()}
+                        </div>
 
                         <Footer/>
                 </div>

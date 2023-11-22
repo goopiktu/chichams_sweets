@@ -10,7 +10,7 @@ function NavigationBar() {
   return (
     <Navbar expand="lg" className="custom-navbar" id='nav_bar'>
       <Container id="nav_container">
-        <Navbar.Brand href="#aboutus" id="company_brand">
+        <Navbar.Brand href="/aboutus" id="company_brand">
                 {/*Brand - TODO: Insert brand image, placeholder was used*/}
                 <img src={Cake_Icon} id="company_logo" className="rounded-circle"/>
                 {/* Chimcham's Sweet Delight Cakes and Pastries */}

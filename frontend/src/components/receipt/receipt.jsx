@@ -5,7 +5,7 @@ import Footer from '../footer/footer.jsx';
 import './receipt.css';
 
 import { useNavigate, useLocation } from 'react-router-dom';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 const Receipt = () => {
     const navigate = useNavigate();
@@ -16,10 +16,16 @@ const Receipt = () => {
     const [formData, setFormData] = useState(c_info || {});
     const [productImg, setProductImg] = useState(formData.productImg || {});
 
+    useEffect(() => {
+        console.log("CINFO is: " + c_info.productImg.img);
+        console.log("formdata is: " + formData.productImg.img);
+    }, [])
+
     const handleEditOrder = () => {
         setFormData(c_info);
 
-        navigate('/form'.concat('/').concat(c_info.productName), {state:  {formData}});
+        // navigate('/form'.concat('/').concat(c_info.productName), {state:  {formData}});
+        navigate('/edit'.concat('/').concat(c_info.productName), {state:  {formData}});
     }
 
     const handleConfirmOrder = (e) => {
@@ -67,7 +73,7 @@ const Receipt = () => {
         <div>
             <Navbar />
 
-            <div className="App">
+            <div className="receipt-div">
                 <div className="product-selection">
                     <div className="pimg-container">
                         <img className="product-img" src={`/images/${productImg.img}`} alt="product-picture" />

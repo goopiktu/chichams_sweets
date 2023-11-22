@@ -19,7 +19,6 @@ function ProductCatalog(){
                         .catch(error => console.error('Error fetching data:', error));
         }, []);
 
-        // Only first 3 products
         const renderProducts = () => {
                 const firstProducts = products.slice(0, 3);
 
@@ -29,19 +28,19 @@ function ProductCatalog(){
         };
         return(
                 <div className="home-product-catalog-div">
-                        <Container className="home-product-catalog-header">
-                                <div className="home-product-title-header">
+                        <div className="home-product-catalog-header">
+                                <div className="home-product-title">
                                         Products
                                 </div>
 
                                 <div className="see-all" onClick={handleNavigation}>
                                         See all
                                 </div>
-                        </Container>
+                        </div>
 
-                        <Container className="home-product-container">
+                        <div className="home-product-catalog">
                                 {renderProducts()}
-                        </Container>
+                        </div>
                 </div>
         );
 }

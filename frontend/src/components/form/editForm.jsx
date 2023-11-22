@@ -11,6 +11,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Calendar from '../calendar/calendar.jsx';
 import { Icon } from '@iconify/react';
+import CalendarDatepicker from '../calendar_datepicker/calendar_datepicker.jsx';
 
 const EditForm = () => {
     const location = useLocation();
@@ -24,9 +25,8 @@ const EditForm = () => {
     const { itemName } = useParams();
     const [productName, setProductName] = useState('Product Name');
     const [newForm, setNewForm] = useState(prevData || {});
-    const [productImg, setProductImg] = useState(newForm.productImg || {});
-
-    console.log('Object Image: ', newForm.productImg);
+    const [dateText, setDateText] = useState('');
+    // console.log('Object Image: ', newForm.productImg);
 
     useEffect(() => {
       setProductName(itemName);
@@ -37,7 +37,7 @@ const EditForm = () => {
         .then((data) => {
           setProductImg(data);
 
-          console.log(data);
+          console.log("PRODUCT IMAGE IN EDIT FORM: " + data);
         })
         .catch((err) => console.log(err));
     }, [])
@@ -53,13 +53,23 @@ const EditForm = () => {
     const [address, setAddress] = useState(prevData.address || '');
     const [datePickup, setDatePickup] = useState(prevData.datePickup || initDate);
     const [image, setImage] = useState('');
+    const [displayImg, setProductImg] = useState(newForm.productImg);
+
+    const [imgURL, setImgURL] = useState('');
 
     const [errors, setErrors] = useState({});
     const [datect, setDateCount] = useState(0);
 
-    const [show, setShow] = useState(false);
-    const [dateText, setDateText] = useState('');
-    const [showNavbar, setShowNavbar] = useState(true);
+    const getImageString = () => {
+      const imgUrlString = "/images/".concat(displayImg.img);
+      setImgURL(imgUrlString);
+    }
+
+    useEffect(() => {
+
+      console.log("#debug_PREVDATA: " + displayImg.img)
+      getImageString();
+    }, [])
 
     const onInputChange=(e)=>{
       console.log(e.target.files);
@@ -95,17 +105,6 @@ const EditForm = () => {
       }
 
       setName(name);
-    };
-
-    //remove if never used.
-    const handleNavbarRender = () => {
-      setShowNavbar(true);
-      setShow(false);
-    };
-
-    const handleCalendarRender = () => {
-      setShowNavbar(false);
-      setShow(true);
     };
 
     const handleContactNo = (e) => {
@@ -336,20 +335,19 @@ const EditForm = () => {
     console.log(errors);
 
     return (
-        <div>
-          <div className="App">
+        <div className="form-div">
+          <Navbar/>
+
+          <div className="spacer">
+          <div className="form-data-div">
             <div className="product-selection">
 
-            <img className="product-img" src={`/images/${newForm.productImg.img}`} alt="product-picture" />
+              <div className="pimg-container">
+                <img className="product-img" src={imgURL} alt={imgURL} />
+                {/* <img className="product-img" src={`/images/6.png`} alt="product-picture" /> */}
+                {console.log}
+              </div>
 
-              {/* <div className="product-opt">
-                <div className="options hov1"></div>
-                <div className="options hov2"></div>
-                <div className="options hov3"></div>
-                <div className="options hov4"></div>
-                <div className="options hov5"></div>
-                <div className="options hov6"></div>
-              </div> */}
             </div>
             <form className="order-form" onSubmit={handleSubmit} >
 
@@ -368,17 +366,7 @@ const EditForm = () => {
                   <div className="q-mark" id="q-text">Orders must be atleast 7 days before the date</div>
                 </div>
 
-                <div className="date-info">
-                  <p className="date-text" id="date-text">{dateText}</p>
-
-                  <div className="calendar-class">
-                    <div className="calendar-icon">
-                      <div id="calendar-vector">
-                        <i className="fa fa-calendar" style={{color: 'white'}} onClick={handleCalendarRender}></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <CalendarDatepicker handleDateOrdered={handleDateOrdered}/>
 
                 <div className="error" id="error-date"></div>
               </div>
@@ -393,9 +381,11 @@ const EditForm = () => {
               </div>
 
               <div className="input-field">
-                <div className="text-form">Contact Number <span id="req-field">*</span> </div>
+                <div className="text-form">Contact Number <span id="req-field">*</span>  </div>
 
-                <input className="input-text" id="con-input" type="text" name="contactNo" value={contactNo} onChange={handleContactNo} />
+                {/* <div className=".other-note">(e.g. 09XXXXXXXXX)</div> */}
+
+                <input className="input-text" id="con-input" type="text" name="contactNo" value={contactNo} placeholder="e.g. 09123456789" onChange={handleContactNo} />
 
                 <div className="error" id="error-contact"></div>
               </div>
@@ -403,7 +393,7 @@ const EditForm = () => {
               <div className="input-field">
                 <div className="text-form">Email <span id="req-field">*</span> </div>
 
-                <input className="input-text" id="email-input" type="text" name="email" value={email} onChange={handleEmail} />
+                <input className="input-text" id="email-input" type="text" name="email" value={email} onChange={handleEmail}/>
 
                 <div className="error" id="error-email"></div>
               </div>
@@ -454,10 +444,6 @@ const EditForm = () => {
                 </div>
               </div>
 
-              {/* <div style={{marginTop: '10px'}}>
-                <input type="file" accept="image/*" onChange={onInputChange}></input>
-              </div> */}
-
               <button className="submit-button">Place Order</button>
 
             </form>
@@ -465,11 +451,14 @@ const EditForm = () => {
             <div className="customerPreviewPic">
               {image && <img src={image} alt="" style={{ width: '300px', height: '200px' }} />}
             </div>
+          </div>
+          <div className="spacer">
 
           </div>
-              {show ? <Calendar handleDateOrdered={handleDateOrdered} setShowNavbar={setShowNavbar} setShow={setShow}/>: null}
-              {showNavbar ? <Navbar />: null}
-         </div>
+          </div>
+
+          <Footer/>
+        </div>
     );
 }
 

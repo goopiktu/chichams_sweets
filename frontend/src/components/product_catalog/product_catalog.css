@@ -1,33 +1,26 @@
-.our-products{
+.product-catalog-div{
+        display: flex;
+        flex-direction: column;
+}
+
+.product-header-div{
         text-align: center;
-        margin: 150px 0px;
+        margin: 20vh 0;
 
         font-family: 'Nunito';
         font-style: normal;
         font-weight: 700;
-        font-size: 40px;
-        line-height: 55px;
+        font-size: 5vh;
+        line-height: 3vh;
 
         color: #000000;
 }
 
-.product-container{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-
-        height: fit-content;
-        width: 15vw;
-}
-
-.product-list{
+.product-item-list-div{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+
         justify-content: center;
-
-        column-gap: 100px;
-        row-gap: 70px;
-
-        margin-bottom: 10vh;
+        margin: 0 10vw;
 }

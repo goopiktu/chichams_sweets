@@ -31,9 +31,7 @@ function Product({id, product, img}){ // props passed from parent component (FIL
         return(
                 <div className="home_product-container">
 
-                        <div className="image-div">
-                                {/* Image link from object */}
-                                {/* Note: I do not know how images work for mongoDB */}
+                        <div className="home-image-div">
                                 <img
                                         className="product-image"
                                         src={`/images/${product.img}`}
@@ -43,17 +41,14 @@ function Product({id, product, img}){ // props passed from parent component (FIL
                                 />
                         </div>
 
-                        <div className="name-div">
-                                {/* Name attribute from object */}
+                        <div className="home-name-div">
                                 {product.name}
                         </div>
 
-                        <div className="cost-div">
-                                {/* Cost attribut from object */}
+                        <div className="home-cost-div">
                                 ₱{product.price}
                         </div>
 
-                        {/* Order Button, must redirect to form, unsure how to redirect to form (carry data to identify product maybe?) */}
                         <Button onClick={handleNavigation} className="order-button">Order</Button>
                 </div>
         );

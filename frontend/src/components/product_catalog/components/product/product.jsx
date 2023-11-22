@@ -26,19 +26,15 @@ function Product({id, product, img}){ // props passed from parent component (FIL
 
         useEffect(() => {
                 getFormLink();
-        })
+        }, [])
 
         return(
                 <div className="product-container">
 
                         <div className="image-div">
-                                {/* Image link from object */}
-                                {/* Note: I do not know how images work for mongoDB */}
                                 <img
                                         className="product-image"
                                         src={`/images/${product.img}`}
-                                        height={360}
-                                        width={360}
                                         onClick={toggleProductDesc}
                                 />
                         </div>
@@ -55,6 +51,8 @@ function Product({id, product, img}){ // props passed from parent component (FIL
 
                         {/* Order Button, must redirect to form, unsure how to redirect to form (carry data to identify product maybe?) */}
                         <Button onClick={handleNavigation} className="order-button">Order</Button>
+
+                        {showDesc ? <PopupDesc productName={product.name}/> : null}
                 </div>
         );
 }
