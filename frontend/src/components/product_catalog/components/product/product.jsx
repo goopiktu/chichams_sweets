@@ -44,9 +44,13 @@ function Product({id, product, img}){ // props passed from parent component (FIL
                                 {product.name}
                         </div>
 
+                        {/* <div className="desc-div">
+
+                        </div> */}
+
                         <div className="cost-div">
                                 {/* Cost attribut from object */}
-                                ₱{product.price}
+                                Starts at ₱{product.price}
                         </div>
 
                         {/* Order Button, must redirect to form, unsure how to redirect to form (carry data to identify product maybe?) */}
