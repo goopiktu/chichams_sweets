@@ -1,0 +1,13 @@
+.product-carousel{
+        height: auto;
+        width: 100%;
+        
+}
+
+.carousel-img{
+        height: auto;
+        width: 100%;
+        
+        /* filter: brightness(65%); */
+        object-fit: cover;
+}

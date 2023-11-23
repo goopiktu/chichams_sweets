@@ -11,79 +11,70 @@ import './homepage.css';
 import { Button } from 'react-bootstrap';
 import BallonGirlCake from './assets/balloongirl-nobg.png';
 
-function Homepage(){
-        const navigate = useNavigate();
+function Homepage() {
+  const navigate = useNavigate();
 
-        const navigateToFeatured = () =>{
+  const navigateToContacts = () => {
+    navigate('/products');
+  };
+  return (
+    <>
+      <Navbar />
 
-                navigate('/form/Fondant Customized Cake')
-        }
-        return(
-                <div className="home-div">
-                        <Navbar />
-                        <div className="carousel-div">
-                                <ProductCarousel/>
-                        </div>
+      <div className="carousel-div">
+        <ProductCarousel />
+      </div>
+      <div className="header-divider"></div>
 
-                        <div className="homepage-divider">
+      <section className="home-section white-bg">
+        a
+      </section>
 
-                        </div>
+      <div className="contact-location-info">
+        <div className="contact-info">
+          <div className="contacts">
+            <p className="contact-link" onClick={navigateToContacts}>
+              Products
+            </p>
+            {/* <p className="contact-link" onClick={navigateToContacts}>link/link</p>
+                                                <p className="contact-link" onClick={navigateToContacts}>link/link</p> */}
+          </div>
 
-                        <div className="featured-product">
-                                <div className="featured-product-text">
-                                        <div className="featured-bold-text">
-                                                <p>?</p>
-                                        </div>
+          <div className="image-deco">
+            <img className="link-image-deco" src={CakeBear} />
+          </div>
+        </div>
 
-                                        <div className="featured-bold-text">
-                                                <p>Customized Cake</p>
-                                        </div>
+        <div className="location-info">
+          <div className="location">
+            <p>location location location location</p>
+          </div>
+        </div>
+      </div>
 
-                                        <div className="featured-bottom-text">
-                                                <p>Make your Party Extra Fun with ? Cake</p>
-                                        </div>
+      <div className="feedback">
+        <div className="review">
+          <h2 className="customer-name">Name</h2>
+          Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris
+          molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+        </div>
 
-                                        <Button className="featured-order-button" onClick={navigateToFeatured}>
-                                                Order Now
-                                        </Button>
-                                </div>
+        <div className="review">
+          <h2 className="customer-name">Name</h2>
+          Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris
+          molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+        </div>
 
-                                <div className="featured-product-img">
-                                        <img
-                                                className="featured-img"
-                                                src={BallonGirlCake}
-                                        />
-                                </div>
-                        </div>
+        <div className="review">
+          <h2 className="customer-name">Name</h2>
+          Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris
+          molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+        </div>
+      </div>
 
-                        <div className="homepage-products">
-                                <ProductCatalog/>
-                        </div>
-
-                        <div className="feedback">
-                                <div className="feedback-header">
-                                        Sweet Recollections
-                                </div>
-
-                                <div className="review">
-                                        <h2 className="customer-name">Anonymous</h2>
-                                        Sarap ng carrot cake, sis! Sobrang moist and soft!!! Even the kids like it!
-                                </div>
-
-                                <div className="review">
-                                        <h2 className="customer-name">Anonymous</h2>
-                                        Ang sarap nagustuhan po ng mga kids. Sobrang moist ng banana bread. Sakto po yung tamis, sara na sarap!
-                                </div>
-
-                                <div className="review">
-                                        <h2 className="customer-name">Anonymous</h2>
-                                        Thank you po sa cake! Perfect yung pagkakagawa.
-                                </div>
-                        </div>
-
-                        <Footer/>
-                </div>
-        )
+      <Footer />
+    </>
+  );
 }
 
 export default Homepage;

@@ -1,46 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
-
-.right-aligned{
-       justify-content: flex-end;
+.custom-navbar {
+    background-color: var(--accent-main);
+    height: 75px;
 }
 
-#nav_bar{
-        position: sticky;
-        top: 0;
-        z-index: 100;
+#company_brand {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: var(--font-family);
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
-#company_logo{
-        width: 5vh;
-        height: 5vh;
-        margin-right: 2vw;
-        border: transparent;
+#company_logo {
+    width: 48px;
+    height: 48px;
 }
 
-#company_brand{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1.5vw;
+.nav-options {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: var(--font-family);
+
+    float: right;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.custom-navbar{
-        background-color: #A05496;
-        width: 100vw;
-        height: 3vw;
-}
-
-.custom_navlink{
-        font-family: 'Nunito' ;
-        font-style: normal !important;
-        font-weight: 700 !important;
-        font-size: 2vh !important;
-        line-height: 3vh !important;
-        color: #ffffff !important;
-}
-
-#nav_container{
-        width: 100vw;
-        height: 3vw;
+.custom_navlink {
+    color: var(--white) !important;
 }

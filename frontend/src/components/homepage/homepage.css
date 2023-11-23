@@ -1,17 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
-
-.home-div{
-        width: 100vw;
-        height: 100vh;
-        overflow-x: hidden;
-
-        display: flex;
-        flex-direction: column;
-}
 
 .carousel-div{
-        min-width: 100vw;
-        min-height: 100vh;
+        width: 100vw;
+        height: auto;
 
         display: flex;
         align-items: center;
@@ -19,10 +9,15 @@
         background-color: rgba(160, 84, 150, 0.05);
 }
 
-.homepage-divider{
-        width: 100vw;
-        min-height: 0.5vh;
-        background-color: #A05496;
+.home-section {
+    height: 500px;
+    padding: 0 40px 0 40px;
+
+    font-size: 2em;
+    font-family: var(--font-family);
+
+    display: flex;
+    align-items: center;
 }
 
 .contact-location-info{
@@ -53,7 +48,7 @@
         height: 100%;
         width: 50%;
 
-        font-family: 'Nunito';
+        font-family: var(--font-family);
         font-style: normal;
         font-weight: 700;
         font-size: 3vh;
@@ -99,7 +94,7 @@
         align-items: center;
 
         float: right;
-        font-family: 'Nunito';
+        font-family: var(--font-family);
         font-style: normal;
         font-weight: 700;
         font-size: 3vh;
@@ -119,7 +114,7 @@
 }
 
 .customer-name{
-        font-family: 'Nunito';
+        font-family: var(--font-family);
         font-style: normal;
         font-weight: 700;
         font-size: 3.5vh;
@@ -134,7 +129,7 @@
         margin-left: 15vh;
         padding: 2.5vh 0;
 
-        font-family: 'Nunito';
+        font-family: var(--font-family);
         font-style: normal;
         font-weight: 600;
         font-size: 3vh;

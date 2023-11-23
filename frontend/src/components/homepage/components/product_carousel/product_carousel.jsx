@@ -11,11 +11,10 @@ import Banner2 from './assets/Banner2.png';
 import { useState } from 'react';
 
 function ProductCarousel() {
-
-        const [index, setIndex] = useState(0);
-        const handleSelect = (selectedIndex, e) => {
-                setIndex(selectedIndex);
-        };
+  const [index, setIndex] = useState(0);
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
 
         const carouselData =[
                 {
