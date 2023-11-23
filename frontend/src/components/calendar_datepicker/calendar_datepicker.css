@@ -27,7 +27,7 @@
         font-family: var(--font-family);
         font-style: normal;
         font-weight: 700;
-        font-size: 1vh;
+        font-size: 1.6rem;
         line-height: normal;
 }
 
@@ -52,7 +52,7 @@
         font-family: var(--font-family);
         font-style: normal;
         font-weight: 700;
-        font-size: 1.5vh;
+        font-size: 1.6rem;
         line-height: normal;
         cursor: default;
 
@@ -80,7 +80,7 @@
         font-family: var(--font-family);
         font-style: normal;
         font-weight: 700;
-        font-size: 1.2em;
+        font-size: 1.6rem;
         line-height: normal;
 }
 
