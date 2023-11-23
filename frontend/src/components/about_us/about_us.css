@@ -1,6 +1,7 @@
 .about-us-header {
     color: var(--white);
-    background-color: var(--black); /* temp; remove when background image is final */
+    background-image: url('./assets/01_Top_Banner.jpg');
+    background-size: 100% 100%;
     height: 419px;
 
     font-size: 64px;
@@ -29,7 +30,8 @@
 
 .img-bg {
     color: var(--white);
-    background-color: var(--black); /* change when images are final */
+    background-image: url('./assets/02_Bottom_Banner.jpg');
+    background-size: 100% 100%;
 }
 
 .about-us-content {
@@ -45,4 +47,32 @@
 
     width: 485px;
     height: 302px;
+}
+
+.about-us-image-1 {
+    background-color: #C2C2C2;
+    background-image: url('./assets/04_About_Us_Photo.jpg');
+    background-size: 100% 100%;
+    width: 485px;
+    height: 302px;
+}
+
+.about-us-image-2 {
+    background-color: #C2C2C2;
+    background-image: url('./assets/05_About_Us_Photo.jpg');
+    background-size: 100% 100%;
+    min-width: 485px;
+    min-height: 302px;
+}
+
+.about-us-image-3 {
+    background-color: #C2C2C2;
+    background-image: url('./assets/06_About_Us_Photo.jpg');
+    background-size: 100% 100%;
+    min-width: 485px;
+    min-height: 302px;
+}
+
+.about-us-text{
+    margin: 0 2em;
 }

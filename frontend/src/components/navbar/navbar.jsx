@@ -8,7 +8,7 @@ import './navbar.css'
 function NavigationBar() {
 
   return (
-    <Navbar expand="lg" className="custom-navbar" id='nav_bar' sticky="top">
+    <Navbar expand="lg" className="custom-navbar fixed-top" id='nav_bar' sticky="top">
       <Container id="nav_container">
         <Navbar.Brand href="/aboutus" id="company_brand">
                 {/*Brand - TODO: Insert brand image, placeholder was used*/}

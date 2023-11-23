@@ -17,45 +17,37 @@ function AboutUs() {
       <section className="about-us-section white-bg">
         <div className="about-us-content">
           <p className="about-us-text">
-            Founded in 2005 by pastry chef Emily Turner, <br></br>
-            Sweet Delights Bakery Began as a small storefront with a passion for
-            quality baking.
+          Jeannie O. Tolentino established Chicham’s Sweet Delight Cakes and Pastries in 2015.
+          She started baking various goods, pastries, and cakes to satisfy customers' taste buds.
           </p>
-          <div className="about-us-image"></div>
+          <div className="about-us-image-1"></div>
         </div>
       </section>
 
       <section className="about-us-section gray-bg">
         <div className="about-us-content">
-          <div className="about-us-image"></div>
+          <div className="about-us-image-2"></div>
 
           <p className="about-us-text">
-            Emily's dedication led to a local sensation, <br></br>
-            known for signature treats like triple chocolate brownies and flaky
-            croissants.
+          Chicham, from then on, started delivering and making customized cakes and pastries that truly satisfy the customers.
+          They started joining bazaars to showcase their products.
           </p>
+        </div>
+      </section>
+
+      <section className="about-us-section white-bg">
+        <div className="about-us-content">
+          <p className="about-us-text">
+          “Make your occasion a day to remember… Because every cake has a story to tell” <br></br>
+          - Jeannie O. Tolentino
+          </p>
+          <div className="about-us-image-3"></div>
         </div>
       </section>
 
       <section className="about-us-section img-bg">
         <div className="about-us-content">
-          <p className="about-us-banner-text">
-            Deeply rooted in the community, <br></br>
-            Sweet Delights actively participated in events and fundraisers,
-            become a local favorite.
-          </p>
-        </div>
-      </section>
 
-      <section className="about-us-section gray-bg">
-        <div className="about-us-content">
-          <div className="about-us-image"></div>
-
-          <div className="about-us-text">
-            Responding to demand, Sweet Delights moved to a larger space,{' '}
-            <br></br>
-            offering an expanded menu with artisanal bread and custom cakes.
-          </div>
         </div>
       </section>
 

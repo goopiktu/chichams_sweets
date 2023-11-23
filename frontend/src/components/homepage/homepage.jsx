@@ -11,15 +11,18 @@ import './homepage.css';
 import { Button } from 'react-bootstrap';
 import BallonGirlCake from './assets/balloongirl-nobg.png';
 
+import CakeBear from './assets/Fondant_Cake.png';
+
 function Homepage() {
   const navigate = useNavigate();
 
-  const navigateToContacts = () => {
-    navigate('/products');
+  const navigateToFeaturedProduct = () => {
+    navigate('/form/Fondant Customized Cake');
   };
   return (
     <>
-      <Navbar />
+    <Navbar />
+    <div className="homepage-div">
 
       <div className="carousel-div">
         <ProductCarousel />
@@ -27,52 +30,48 @@ function Homepage() {
       <div className="header-divider"></div>
 
       <section className="home-section white-bg">
-        a
+        <div className="featured-product-info">
+          <div className="featured-product-name">Fondant <br></br> Customized Cake</div>
+          <div className="featured-product-desc">Make your Party Extra Fun with Fondant Cake</div>
+          <Button className="featured-product-order-button" onClick={navigateToFeaturedProduct}>Order Now</Button>
+        </div>
+
+        <div className="featured-product-image">
+
+        </div>
       </section>
 
-      <div className="contact-location-info">
-        <div className="contact-info">
-          <div className="contacts">
-            <p className="contact-link" onClick={navigateToContacts}>
-              Products
-            </p>
-            {/* <p className="contact-link" onClick={navigateToContacts}>link/link</p>
-                                                <p className="contact-link" onClick={navigateToContacts}>link/link</p> */}
-          </div>
-
-          <div className="image-deco">
-            <img className="link-image-deco" src={CakeBear} />
-          </div>
-        </div>
-
-        <div className="location-info">
-          <div className="location">
-            <p>location location location location</p>
-          </div>
-        </div>
+      <div className="homepage-products">
+        <ProductCatalog/>
       </div>
 
       <div className="feedback">
+        <div className="feedback-header">
+          Sweet Recollections
+        </div>
         <div className="review">
-          <h2 className="customer-name">Name</h2>
-          Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris
-          molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+          <h2 className="customer-name">Anonymous</h2>
+          Sarap ng carrot cake, sis! Sobrang moist and soft!!! Even the kids like it!
         </div>
 
         <div className="review">
-          <h2 className="customer-name">Name</h2>
-          Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris
-          molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+          <h2 className="customer-name">Anonymous</h2>
+          Ang sarap nagustuhan po ng mga kids. Sobrang moist ng banana bread. Sakto po yung tamis, sara na sarap!
         </div>
 
         <div className="review">
-          <h2 className="customer-name">Name</h2>
-          Lorem ipsum dolor sit amet consectetur. Ut aliquam nisi vitae mauris
-          molestie. Ridiculus leo id donec ac. Rhoncus ditumst at
+          <h2 className="customer-name">Anonymous</h2>
+          Thank you po sa cake! Perfect yung pagkakagawa.
+        </div>
+
+        <div className="review">
+          <h2 className="customer-name">Anonymous</h2>
+          Thank you for the cake. We love it, masarap! Even the icing.
         </div>
       </div>
 
       <Footer />
+    </div>
     </>
   );
 }
