@@ -44,6 +44,12 @@ var OrderSchema = new mongoose.Schema({
         // required: true
     },
 
+    orderNum: {
+        type: String,
+        default: '????',
+        required: true,
+    },
+
     address: {
         type: String,
         default: 'Pick-Up'
