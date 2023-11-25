@@ -72,3 +72,8 @@
         background-color: #A05496 !important;
         border: none !important;
 }
+
+.home-product-description{
+        font-size: 2rem;
+        font-weight: 500;
+}

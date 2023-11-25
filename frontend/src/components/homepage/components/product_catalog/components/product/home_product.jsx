@@ -45,6 +45,10 @@ function Product({id, product, img}){ // props passed from parent component (FIL
                                 {product.name}
                         </div>
 
+                        <div className="home-product-description">
+                                {/* Include field for product description to display here */}
+                        </div>
+
                         <div className="home-cost-div">
                                 ₱{product.price}
                         </div>

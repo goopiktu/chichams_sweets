@@ -3,8 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 
-import PopupDesc from '../popup-desc/popupDesc.jsx';
-
 function Product({id, product, img}){ // props passed from parent component (FILE: product_catalog.jsx)
         const [formLink, setFormLink] = useState('');
         const [showDesc, setShowDesc] = useState(false);
@@ -44,9 +42,9 @@ function Product({id, product, img}){ // props passed from parent component (FIL
                                 {product.name}
                         </div>
 
-                        {/* <div className="desc-div">
-
-                        </div> */}
+                        <div className="desc-div">
+                                {/* Product description to be added here, field needed in Product object */}
+                        </div>
 
                         <div className="cost-div">
                                 {/* Cost attribut from object */}
@@ -55,8 +53,6 @@ function Product({id, product, img}){ // props passed from parent component (FIL
 
                         {/* Order Button, must redirect to form, unsure how to redirect to form (carry data to identify product maybe?) */}
                         <Button onClick={handleNavigation} className="order-button">Order</Button>
-
-                        {showDesc ? <PopupDesc productName={product.name}/> : null}
                 </div>
         );
 }
