@@ -29,30 +29,30 @@ const Receipt = () => {
     
 
 
-    const generateOrderID = () => {
-        const date = new Date(c_info.dateOrdered);
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
+    // const generateOrderID = () => {
+    //     const date = new Date(c_info.dateOrdered);
+    //     const year = date.getFullYear();
+    //     const month = String(date.getMonth() + 1).padStart(2, '0');
+    //     const day = String(date.getDate()).padStart(2, '0');
         
        
-        const hexadecimalPhoneNumber = Number(c_info.contactNo).toString(16);
+    //     const hexadecimalPhoneNumber = Number(c_info.contactNo).toString(16);
         
-        const randomString = Math.random().toString(36).substring(2, 6).toUpperCase();
+    //     const randomString = Math.random().toString(36).substring(2, 6).toUpperCase();
 
-        const orderID = `${month}${day}${year}${hexadecimalPhoneNumber.toUpperCase()}${randomString}`;
+    //     const orderID = `${month}${day}${year}${hexadecimalPhoneNumber.toUpperCase()}${randomString}`;
       
-        return orderID;
-    };
+    //     return orderID;
+    // };
     
 
     const handleConfirmOrder = (e) => {
         e.preventDefault();
         
-        const ordernum = generateOrderID();
+        // const ordernum = generateOrderID();
 
         const orderData = {
-            orderNum: ordernum,
+            // orderNum: ordernum,
             productName: c_info.productName,
             name: c_info.name,
             contactNo: c_info.contactNo,
@@ -81,7 +81,7 @@ const Receipt = () => {
             if (response.ok) {
                 console.log('Successfully inserted one document');
                 navigate('/');
-                alert("ORDER NUMBER: " + ordernum);
+                // alert("ORDER NUMBER: " + ordernum);
             } else {
                 console.error('Insert one document failed');
             }
