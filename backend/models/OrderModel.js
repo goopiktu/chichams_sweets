@@ -69,6 +69,13 @@ var OrderSchema = new mongoose.Schema({
 
     image: {
         type: String
+    },
+
+    status: {
+        type: String,
+        enum: ['Pending', 'Accepted', 'Rejected', 'Completed'],
+        default: 'Pending',
+        required: true
     }
 
 });
