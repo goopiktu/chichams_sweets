@@ -64,7 +64,7 @@ const Receipt = () => {
             address: c_info.address,
             dateOrdered: c_info.dateOrdered,
             datePickup: c_info.datePickup,
-            // image: c_info.image
+            img: `/images/${productImg.img}`
         }
 
         console.log(orderData);
