@@ -23,4 +23,9 @@
 .footer-nav-links {
     display: flex;
     gap: 32px;
+    cursor: pointer;
+}
+
+.footer-company-name{
+    cursor: pointer;
 }
