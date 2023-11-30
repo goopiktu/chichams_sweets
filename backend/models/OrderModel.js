@@ -28,7 +28,7 @@ var OrderSchema = new mongoose.Schema({
 
     mode: {
         type: String,
-        enum: ['Deliver', 'Pick-up'],
+        enum: ['Delivery by Grab/Lalamove', 'Pick-up', 'Delivery by Client'],
         default: 'Pick-up',
         required: true
     },
