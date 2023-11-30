@@ -2,7 +2,9 @@ import React from 'react';
 
 import Navbar from '../navbar/navbar.jsx';
 import Footer from '../footer/footer.jsx';
+import ReturnPopup from './alert_popup/alert_button.jsx';
 import './receipt.css';
+import { CSSTransition } from 'react-transition-group';
 
 import { useNavigate, useLocation } from 'react-router-dom';
 import {useState, useEffect} from 'react';
@@ -15,6 +17,8 @@ const Receipt = () => {
 
     const [formData, setFormData] = useState(c_info || {});
     const [productImg, setProductImg] = useState(formData.productImg || {});
+    const [orderNum, setOrderNum] = useState('');
+    const [popup, showPopup] = useState(false);
 
     useEffect(() => {
         console.log("CINFO is: " + c_info.productImg.img);
@@ -29,30 +33,34 @@ const Receipt = () => {
     
 
 
-    // const generateOrderID = () => {
-    //     const date = new Date(c_info.dateOrdered);
-    //     const year = date.getFullYear();
-    //     const month = String(date.getMonth() + 1).padStart(2, '0');
-    //     const day = String(date.getDate()).padStart(2, '0');
+    const generateOrderID = () => {
+        const date = new Date(c_info.dateOrdered);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
         
        
-    //     const hexadecimalPhoneNumber = Number(c_info.contactNo).toString(16);
+        const hexadecimalPhoneNumber = Number(c_info.contactNo).toString(16);
         
-    //     const randomString = Math.random().toString(36).substring(2, 6).toUpperCase();
+        const randomString = Math.random().toString(36).substring(2, 6).toUpperCase();
 
-    //     const orderID = `${month}${day}${year}${hexadecimalPhoneNumber.toUpperCase()}${randomString}`;
+        const orderID = `${month}${day}${year}${hexadecimalPhoneNumber.toUpperCase()}${randomString}`;
       
-    //     return orderID;
-    // };
+        return orderID;
+    };
+
+    const showAlert = (orderNum) => {
+        showPopup(true);
+    }
     
 
     const handleConfirmOrder = (e) => {
         e.preventDefault();
         
-        // const ordernum = generateOrderID();
+        const ordernum = generateOrderID();
 
         const orderData = {
-            // orderNum: ordernum,
+            orderNum: ordernum,
             productName: c_info.productName,
             name: c_info.name,
             contactNo: c_info.contactNo,
@@ -80,8 +88,8 @@ const Receipt = () => {
             .then((response) => {
             if (response.ok) {
                 console.log('Successfully inserted one document');
-                navigate('/');
-                // alert("ORDER NUMBER: " + ordernum);
+                // navigate('/');
+                showAlert(orderData.orderNum);
             } else {
                 console.error('Insert one document failed');
             }
@@ -94,6 +102,8 @@ const Receipt = () => {
     return (
         <div>
             <Navbar />
+
+            {popup && <ReturnPopup className={`popup-fade-in ${popup ? 'show' : ''}`} />}
 
             <div className="receipt-div">
                 <div className="product-selection">

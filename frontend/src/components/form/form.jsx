@@ -230,7 +230,7 @@ const Form = () => {
             $('#date-text').css('color', 'black');
           }
 
-          if(datect >= 1){
+          if(datect >= 3){
             setErrors({...errors, date: 'Date is Fully Booked!'});
 
             $('#error-date').text('*Date is Fully Booked!');

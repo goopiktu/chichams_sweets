@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useEffect } from 'react';
+ 
 import Navbar from '../navbar/navbar.jsx';
 import Footer from '../footer/footer.jsx';
 import ProductCarousel from './components/product_carousel/product_carousel.jsx';
@@ -15,6 +17,18 @@ import CakeBear from './assets/Fondant_Cake.png';
 
 function Homepage() {
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   fetch('http://localhost:4000/deleteOrders')
+  //     .then((response) => {
+  //       if(response.ok){
+  //         console.log('Delete Successful!');
+  //       } else{
+  //         console.log('Error Delete!');
+  //       }
+  //     })
+  //     .catch((err) => console.error(err));
+  // })
 
   const navigateToFeaturedProduct = () => {
     navigate('/form/Fondant Customized Cake');
