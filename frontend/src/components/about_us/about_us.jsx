@@ -4,7 +4,7 @@
 import NavBar from '../navbar/navbar.jsx';
 import Footer from '../footer/footer.jsx';
 
-// CSS file
+// CSS file, background images are found in "assets folder in about_us folder"
 import './about_us.css';
 
 function AboutUs() {

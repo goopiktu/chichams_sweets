@@ -1,13 +1,16 @@
-import React from 'react';
+// Component for Receipt
 
+// Custom Components
 import Navbar from '../navbar/navbar.jsx';
-import Footer from '../footer/footer.jsx';
 import ReturnPopup from './alert_popup/alert_button.jsx';
-import './receipt.css';
-import { CSSTransition } from 'react-transition-group';
 
+// Dependencies
+import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {useState, useEffect} from 'react';
+
+// CSS
+import './receipt.css';
 
 const Receipt = () => {
     const navigate = useNavigate();
@@ -20,43 +23,39 @@ const Receipt = () => {
     const [orderNum, setOrderNum] = useState('');
     const [popup, showPopup] = useState(false);
 
-    useEffect(() => {
-        console.log("CINFO is: " + c_info.productImg.img);
-        console.log("formdata is: " + formData.productImg.img);
-    }, [])
-
+    // Function to handle editing of order
+    // Redirects to edit
     const handleEditOrder = () => {
         setFormData(c_info);
 
         navigate('/edit'.concat('/').concat(c_info.productName), {state:  {formData}});
     }
-    
 
-
+    // Function to handle generating of order ID
     const generateOrderID = () => {
         const date = new Date(c_info.dateOrdered);
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
-        
-       
+
         const hexadecimalPhoneNumber = Number(c_info.contactNo).toString(16);
-        
+
         const randomString = Math.random().toString(36).substring(2, 6).toUpperCase();
 
         const orderID = `${month}${day}${year}${hexadecimalPhoneNumber.toUpperCase()}${randomString}`;
-      
+
         return orderID;
     };
 
+    // Function for displaying
     const showAlert = (orderNum) => {
         showPopup(true);
     }
-    
 
+    // Function for handling of confirm
     const handleConfirmOrder = (e) => {
         e.preventDefault();
-        
+
         const ordernum = generateOrderID();
 
         const orderData = {
@@ -75,8 +74,7 @@ const Receipt = () => {
             img: `/images/${productImg.img}`
         }
 
-        console.log(orderData);
-
+        // Posting of order data
         fetch('http://localhost:4000/postOrder', {
             method: 'POST',
             headers: {
@@ -175,9 +173,6 @@ const Receipt = () => {
 
                     <button className="submit-button" id="confirm-button" onClick={handleConfirmOrder}>Confirm Order</button>
                 </div>
-                {/* <div>
-                            <img src={c_info.image} alt=""  style={{ width: '300px', height: '200px' }}/>
-                </div> */}
             </div>
         </div>
     );

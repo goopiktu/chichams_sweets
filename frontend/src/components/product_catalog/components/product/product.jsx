@@ -1,15 +1,25 @@
-import './product.css';
+// Function that handles rendering of each product
+
+// Custom Components
+
+// Dependencies
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 
-function Product({id, product, img}){ // props passed from parent component (FILE: product_catalog.jsx)
+// CSS
+import './product.css';
+
+// Props:
+// id - product id
+// product - object representing an object
+// img - presence of display
+function Product({id, product, img}){
         const [formLink, setFormLink] = useState('');
         const [showDesc, setShowDesc] = useState(false);
 
         const toggleProductDesc = () => {
                 setShowDesc(!showDesc);
-                console.log(showDesc);
         }
 
         const getFormLink = () =>{
@@ -22,6 +32,7 @@ function Product({id, product, img}){ // props passed from parent component (FIL
                 navigate(formLink)
         }
 
+        // Function to get link to form, runs on component render
         useEffect(() => {
                 getFormLink();
         }, [])

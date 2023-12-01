@@ -33,8 +33,6 @@ function OrderCalendar({orderDate, setOrderDate}) {
         const onChange = (date) => {
                 setDate(date);
                 setOrderDate(date);
-
-                console.log("DEBUG_ORDER_DATE: " + orderDates[1].dateOrdered);
         };
 
         // Helper Functions
@@ -58,14 +56,13 @@ function OrderCalendar({orderDate, setOrderDate}) {
         // Function to find invalid dates (dates with order limit)
         const isFullToday = (calendarDate) => {
                 // TODO: Implement logic (given array of all order dates, if calendarDate has occured atleast n times, return true, else false)
-                // note: n = order limit for a day
 
-                const orderLimit = 3;
+                const orderLimit = 3; // Hard coded value, represents order limit in a day, if orders == orderLimit, date is blocked out
                 const dateArray = orderDates.filter(item => item.dateOrdered === calendarDate.toLocaleDateString());
                 const count = dateArray.length;
 
                 if(count == orderLimit){
-                        console.log(calendarDate + " IS FULL");
+
                         return true;
                 }
 

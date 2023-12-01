@@ -11,7 +11,6 @@ function Product({id, product, img}){ // props passed from parent component (FIL
 
         const toggleProductDesc = () => {
                 setShowDesc(!showDesc);
-                console.log(showDesc);
         }
 
         const getFormLink = () =>{

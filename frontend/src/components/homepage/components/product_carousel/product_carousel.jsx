@@ -1,17 +1,22 @@
+// Carousel component for homepage
+
+// Dependencies
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
+
+// CSS
 import Carousel from 'react-bootstrap/Carousel';
 import './product-carousel.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
-
-// banner images
+// Banner Images
 import Banner1 from './assets/Banner1.png';
 import Banner2 from './assets/Banner2.png';
 
-import { useState } from 'react';
-
 function ProductCarousel() {
   const [index, setIndex] = useState(0);
+
+  // Function to handle selecting in carousel
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
@@ -38,6 +43,8 @@ function ProductCarousel() {
                         nextIcon={<FontAwesomeIcon
                         className="carousel-control-icon"
                         icon={faChevronRight} size='2xl'/>}
+
+                        interval={1000}
                 >
                         {carouselData.map((slide, i) => {
                                 return(

@@ -1,49 +1,52 @@
-import React from "react";
-import { useState, useEffect } from 'react';
-import 'react-datepicker/dist/react-datepicker.css';
+// Custom Components
 import Navbar from '../navbar/navbar.jsx';
 import Footer from '../footer/footer.jsx';
-import './form.css';
+import CalendarDatepicker from '../calendar_datepicker/calendar_datepicker.jsx';
+
+// Dependencies
+import React from "react";
+import { useState, useEffect } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import { subDays, addDays } from 'date-fns';
 import $ from 'jquery';
 import { useParams } from 'react-router-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Calendar from '../calendar/calendar.jsx';
 import { Icon } from '@iconify/react';
-import CalendarDatepicker from '../calendar_datepicker/calendar_datepicker.jsx';
 
-// import sample from './1.png';
+// CSS
+import './form.css';
 
 const Form = () => {
+    // To store data inputted by user for redirecting purposes
     const location = useLocation();
     const prevData = location.state?.formData || {};;
 
     const navigate = useNavigate();
+
+    // Date initializations
     const currentDate = new Date();
     const initDate = new Date(currentDate);
-
     const defaultDate = addDays(new Date(), 7);
+
+    // State variables - Form data
     const { itemName } = useParams();
     const [productName, setProductName] = useState(itemName);
     const [productImg, setProductImg] = useState('');
-
     const[prevFormData, setPrevFormData] = useState({name: "", contactNo: "", email: "", fbLink: "", mode: "", dedication: "", orderDes: "", address: ""})
 
+    // Function to fetch product information, runs on first render of component
     useEffect(() => {
       setProductName(itemName);
-      console.log('PRODUCT: ' + productName);
 
       fetch(`http://localhost:4000/getImage/${productName}`)
         .then((response) => response.json())
         .then((data) => {
           setProductImg(data);
-
-          console.log(data);
         })
         .catch((err) => console.log(err));
     }, [])
 
+    // State variables, forms component
     const [dateOrdered, setDateOrdered] = useState(defaultDate);
     const [name, setName] = useState('');
     const [contactNo, setContactNo] = useState('');
@@ -55,12 +58,11 @@ const Form = () => {
     const [address, setAddress] = useState('');
     const [datePickup, setDatePickup] = useState(initDate);
     const [image, setImage] = useState('');
-
     const [errors, setErrors] = useState({name: 'name error', contact: 'contact error', link: 'link error', date: '', email: 'email error'});
     const [datect, setDateCount] = useState(0);
 
+    // Function to handle changes in input
     const onInputChange=(e)=>{
-      console.log(e.target.files);
       const data = new FileReader()
       data.addEventListener('load', () =>{
         setImage(data.result)
@@ -68,6 +70,7 @@ const Form = () => {
       data.readAsDataURL(e.target.files[0])
     }
 
+    // Function for name processing, to help with error handling
     const handleName = (e) => {
       var name = e.target.value;
       var validName = (/^[A-Za-z][A-Za-z\s]*$/);
@@ -95,6 +98,7 @@ const Form = () => {
       setName(name);
     };
 
+    // Function for contact number processing, to help with error handling
     const handleContactNo = (e) => {
       var contactNo = e.target.value;
       var validNum = /((\+[0-9]{2})|0)[.\- ]?9[0-9]{2}[.\- ]?[0-9]{3}[.\- ]?[0-9]{4}/;
@@ -126,6 +130,7 @@ const Form = () => {
       setContactNo(contactNo);
     };
 
+    // Function for email processing, to help with error handling
     const handleEmail = (e) => {
       var email = e.target.value;
       var validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -157,6 +162,7 @@ const Form = () => {
       setEmail(email);
     };
 
+    // Function for fb link processing, to help with error handling
     const handlefbLink = (e) => {
       var fbLink = e.target.value;
       var validLink = /(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?/;
@@ -184,6 +190,7 @@ const Form = () => {
       setfbLink(fbLink);
     };
 
+    // Function for delivery mode processing, to help with error handling
     const handleMode = (e) => {
       var mode = e.target.value
 
@@ -201,6 +208,7 @@ const Form = () => {
       setMode(mode);
     };
 
+    // Function to handle display based on errors, runs per update of mode state variable
     useEffect(() => {
       if(mode === 'Pick-up'){
         $('#input-address').prop('disabled', 'true');
@@ -210,16 +218,13 @@ const Form = () => {
       }
     }, [mode]);
 
+    // Function that fetches dates from database, is executed per update of date variables from user input
     useEffect(() => {
-
-      console.log(dateOrdered.toLocaleDateString());
 
       fetch(`http://localhost:4000/checkDate?param=${dateOrdered.toLocaleDateString()}`)
         .then((response) => response.json())
         .then((data) => {
           setDateCount(data.count);
-
-          console.log(datect);
 
           if(datect < 3){
             const tempErr = {... errors};
@@ -243,19 +248,23 @@ const Form = () => {
 
     }, [datect, dateOrdered]);
 
+    // Function to set date ordered
     const handleDateOrdered = (date) => {
+
       setDateOrdered(date);
-      console.log('order date updated!');
     }
 
+    // Function to set dedication
     const handleDedication = (e) => {
       setDedication(e.target.value);
     }
 
+    // Function to set order destination
     const handleOrderDes = (e) => {
       setOrderDes(e.target.value);
     };
 
+    // Function to handle address
     const handleAddress = (e) => {
       var address = e.target.value;
 
@@ -275,7 +284,7 @@ const Form = () => {
       setAddress(address);
     }
 
-
+    // Function to handle submitting of data
     const handleSubmit = (e) => {
       e.preventDefault();
 
@@ -294,11 +303,10 @@ const Form = () => {
         productImg: productImg
       };
 
-      console.log(formData);
-
       navigate("/receipt", { state: { formData } });
     };
 
+    // Function that handles updates to error
     useEffect(() => {
       if(Object.keys(errors).length > 0) {
         $('.submit-button').prop('disabled', 'true');
@@ -311,8 +319,6 @@ const Form = () => {
         $('.submit-button').css('cursor', 'pointer');
       }
     }, [errors]);
-
-    console.log(errors);
 
     return (
         <div className="form-div">
@@ -329,7 +335,6 @@ const Form = () => {
             </div>
             <form className="order-form" onSubmit={handleSubmit} >
 
-              {/* TODO: Get the Product Name in the Product Schema of the Database. */}
               <div className="product-name">
                 <div id="product-name">
                   {productName}
@@ -360,8 +365,6 @@ const Form = () => {
 
               <div className="input-field">
                 <div className="text-form">Contact Number <span id="req-field">*</span>  </div>
-
-                {/* <div className=".other-note">(e.g. 09XXXXXXXXX)</div> */}
 
                 <input className="input-text" id="con-input" type="text" name="contactNo" value={contactNo} placeholder="e.g. 09123456789" onChange={handleContactNo} />
 

@@ -1,20 +1,26 @@
+// Function to handle layout of products page
+
+// Custom Components
 import Navbar from '../navbar/navbar.jsx';
 import Footer from '../footer/footer.jsx';
-import './product_catalog.css';
 import Product from './components/product/product.jsx';
+
+// Dependencies
 import { useState, useEffect } from 'react';
+
+// CSS
+import './product_catalog.css';
 
 function ProductCatalog(){
         const [products, setProducts] = useState([]);
 
         useEffect(() => {
 
+                // Function to fetch products
                 fetch('http://localhost:4000/getProducts')
                         .then((response) => response.json())
                         .then((data) => setProducts(data))
                         .catch(error => console.error('Error fetching data:', error));
-
-                console.log('PRODUCTS: ' + products);
         }, []);
 
 

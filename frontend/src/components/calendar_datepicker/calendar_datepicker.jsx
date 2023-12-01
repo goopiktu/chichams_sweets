@@ -1,3 +1,5 @@
+// Component file for form and editForm component, responsible for the calendar datepicker
+
 // Dependencies
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCalendarDay} from '@fortawesome/free-solid-svg-icons';
@@ -44,7 +46,6 @@ function CalendarDatepicker({handleDateOrdered}) {
 
                 const displayDateString = displayDateMonth.concat(' ').concat(displayDateDay).concat(', ').concat(displayDateYear);
                 setDisplayDate(displayDateString);
-                console.log(displayDateString);
         }
 
         const toggleCalendar = () => {

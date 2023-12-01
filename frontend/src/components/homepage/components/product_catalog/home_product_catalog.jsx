@@ -1,8 +1,14 @@
-import './home_product_catalog.css';
+// Product Catalog for Homepage
+
+// Custom Components
 import Product from './components/product/home_product.jsx';
+
+// Dependencies
 import { useState, useEffect } from 'react';
-import Container from 'react-bootstrap/Container'
 import { Link, useNavigate } from 'react-router-dom';
+
+// CSS
+import './home_product_catalog.css';
 
 function ProductCatalog(){
         const [products, setProducts] = useState([]);

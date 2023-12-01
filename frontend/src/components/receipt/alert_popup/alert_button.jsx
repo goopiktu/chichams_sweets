@@ -1,5 +1,12 @@
+// This function is responsible for the alert for notification
+
+// Custom Components
+
+// Dependencies
 import React, { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
+
+// CSS
 import './alert_button.css';
 
 const Alert = () => {

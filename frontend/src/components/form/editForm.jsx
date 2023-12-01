@@ -1,17 +1,23 @@
-import React from "react";
-import { useState, useEffect } from 'react';
-import 'react-datepicker/dist/react-datepicker.css';
+// Function for component representing edit mode of form
+// Functions and variables similar to that of forms component
+
+// Custom Components
 import Navbar from '../navbar/navbar.jsx';
 import Footer from '../footer/footer.jsx';
-import './form.css';
+import CalendarDatepicker from '../calendar_datepicker/calendar_datepicker.jsx';
+
+// Dependencies
+import React from "react";
+import { useState, useEffect } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import { subDays, addDays } from 'date-fns';
 import $ from 'jquery';
 import { useParams } from 'react-router-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Calendar from '../calendar/calendar.jsx';
 import { Icon } from '@iconify/react';
-import CalendarDatepicker from '../calendar_datepicker/calendar_datepicker.jsx';
+
+// CSS
+import './form.css';
 
 const EditForm = () => {
     const location = useLocation();
@@ -26,18 +32,15 @@ const EditForm = () => {
     const [productName, setProductName] = useState('Product Name');
     const [newForm, setNewForm] = useState(prevData || {});
     const [dateText, setDateText] = useState('');
-    // console.log('Object Image: ', newForm.productImg);
 
     useEffect(() => {
       setProductName(itemName);
-      console.log('PRODUCT: ' + productName);
 
       fetch(`http://localhost:4000/getImage/${productName}`)
         .then((response) => response.json())
         .then((data) => {
           setProductImg(data);
 
-          console.log("PRODUCT IMAGE IN EDIT FORM: " + data);
         })
         .catch((err) => console.log(err));
     }, [])
@@ -67,12 +70,10 @@ const EditForm = () => {
 
     useEffect(() => {
 
-      console.log("#debug_PREVDATA: " + displayImg.img)
       getImageString();
     }, [])
 
     const onInputChange=(e)=>{
-      console.log(e.target.files);
       const data = new FileReader()
       data.addEventListener('load', () =>{
         setImage(data.result)
@@ -228,8 +229,6 @@ const EditForm = () => {
         .then((data) => {
           setDateCount(data.count);
 
-          console.log(datect);
-
           if(datect < 3){
             const tempErr = {... errors};
             delete tempErr.date;
@@ -303,8 +302,6 @@ const EditForm = () => {
         // image: image
       };
 
-      console.log(formData);
-
       navigate("/receipt", { state: { formData } });
     };
 
@@ -332,8 +329,6 @@ const EditForm = () => {
       setDateText(stringDate);
     }, [dateOrdered]);
 
-    console.log(errors);
-
     return (
         <div className="form-div">
           <Navbar/>
@@ -344,8 +339,7 @@ const EditForm = () => {
 
               <div className="pimg-container">
                 <img className="product-img" src={imgURL} alt={imgURL} />
-                {/* <img className="product-img" src={`/images/6.png`} alt="product-picture" /> */}
-                {console.log}
+
               </div>
 
             </div>

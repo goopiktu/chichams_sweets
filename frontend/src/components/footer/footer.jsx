@@ -1,6 +1,11 @@
-import './footer.css';
+// Component for Footer that appears on different webpages
+
+// Dependencies
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+// CSS File
+import './footer.css';
 
 function Footer() {
   const [destLink, setDestLink] = useState('');
@@ -15,14 +20,8 @@ function Footer() {
     navigate(destLink);
   };
 
-  const ping = (event, dest) => {
-    console.log(event);
-    console.log('you clicked: ' + dest);
-  };
-
   useEffect(() => {
-    // getDestLink();
-    console.log(destLink);
+
     handleNavigation();
   }, [destLink]);
 
