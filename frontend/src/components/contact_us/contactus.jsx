@@ -10,15 +10,23 @@ function ContactUs() {
   const [contacts, setContacts] = useState([]);
 
   // Function to get contacts, runs on page render
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   fetch('http://localhost:4000/getProducts')
-  //           .then((response) => response.json())
-  //           .then((data) => setProducts(data))
-  //           .catch(error => console.error('Error fetching data:', error));
+    fetch('http://localhost:4000/getContacts')
+            .then((response) => response.json())
+            .then((data) => setContacts(data))
+            .catch(error => console.error('Error fetching data:', error));
 
-  //   console.log('PRODUCTS: ' + products);
-  // }, []);
+    console.log('CONTACTS: ' + contacts);
+  }, []);
+
+  // Assumed: products are stored as objects in array `products`
+        // Function below maps products to id
+        const renderContacts = () => {
+          return contacts.map((contact) => (
+                  <ContactUsItem key={contact._id} product={contact}/> // Check component in file product.jsx
+          ));
+  };
 
   const getDestLink = (event, destString) => {
     setDestLink('/'.concat(destString));
@@ -44,10 +52,7 @@ function ContactUs() {
       <div className="header-divider"></div>
 
       <section className="contact-us-body">
-        <ContactUsItem/>
-        <ContactUsItem/>
-        <ContactUsItem/>
-        <ContactUsItem/>
+        {renderContacts()}
       </section>
 
       <div className="filler"></div>

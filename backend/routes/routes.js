@@ -6,6 +6,8 @@ const controller = require('../controllers/controller.js');
 
 const orderController = require('../controllers/orderController.js');
 
+const contactsController = require('../controllers/contactsController.js');
+
 const app = express();
 
 app.get('/favicon.ico', controller.getFavicon);
@@ -27,5 +29,7 @@ app.get('/getImage/:productName', orderController.getImage);
 app.get('/deleteOrders', orderController.deleteOrders);
 
 app.get('/getAllDates', orderController.getAllDates);
+
+app.get('/getContacts', contactsController.getContacts);
 
 module.exports = app;
