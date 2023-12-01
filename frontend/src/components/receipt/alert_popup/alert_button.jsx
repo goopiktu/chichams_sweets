@@ -9,9 +9,18 @@ import {useNavigate} from 'react-router-dom';
 // CSS
 import './alert_button.css';
 
-const Alert = () => {
+const Alert = ({ orderNum }) => {
 
     const navigate = useNavigate();
+
+    // const [orders, setOrders] = useState('');
+
+    // useEffect(() => {
+    //     fetch('http://localhost:4000/getOrders')
+    //         .then((response) => response.json())
+    //         .then((data) => setOrders(data))
+    //         .catch((err) => console.error(err));
+    // })
 
     return (
         <>
@@ -19,7 +28,7 @@ const Alert = () => {
                 <div className="return-content">
                     Order has been placed! <br/>
                     Wait for the owners to respond if they have confirmed your order. <br/>
-                    Order Number: 000000
+                    Order Number: { orderNum }
                 </div>
 
                 <button className="return-btn" onClick={() => navigate('/')}>

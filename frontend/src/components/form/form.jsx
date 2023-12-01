@@ -419,19 +419,11 @@ const Form = () => {
 
                 <textarea className="order-text" name="orderDes" value={orderDes} onChange={handleOrderDes}></textarea>
 
-                <div className="img-container" id="img-button">
-                  Upload +
-                  <input type="file" accept="image/*" onChange={onInputChange}></input>
-                </div>
               </div>
 
               <button className="submit-button">Place Order</button>
 
             </form>
-
-            <div className="customerPreviewPic">
-              {image && <img src={image} alt="" style={{ width: '300px', height: '200px' }} />}
-            </div>
           </div>
           <div className="spacer">
 
