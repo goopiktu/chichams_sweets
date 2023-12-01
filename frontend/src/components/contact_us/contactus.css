@@ -23,7 +23,8 @@
     padding: 40px;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 48px;
 }
