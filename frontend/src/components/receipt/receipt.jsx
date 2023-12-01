@@ -59,6 +59,8 @@ const Receipt = () => {
         
         const ordernum = generateOrderID();
 
+        setOrderNum(ordernum);
+
         const orderData = {
             orderNum: ordernum,
             productName: c_info.productName,
@@ -103,7 +105,7 @@ const Receipt = () => {
         <div>
             <Navbar />
 
-            {popup && <ReturnPopup className={`popup-fade-in ${popup ? 'show' : ''}`} />}
+            {popup && <ReturnPopup orderNum={ orderNum }/>}
 
             <div className="receipt-div">
                 <div className="product-selection">
