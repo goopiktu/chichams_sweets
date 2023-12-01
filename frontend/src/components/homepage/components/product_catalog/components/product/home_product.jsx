@@ -3,8 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 
-import PopupDesc from '../popup-desc/popupDesc.jsx';
-
 function Product({id, product, img}){ // props passed from parent component (FILE: product_catalog.jsx)
         const [formLink, setFormLink] = useState('');
         const [showDesc, setShowDesc] = useState(false);
