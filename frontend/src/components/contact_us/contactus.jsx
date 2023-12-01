@@ -40,7 +40,6 @@ function ContactUs() {
 
   useEffect(() => {
     // getDestLink();
-    console.log(destLink);
     handleNavigation();
   }, [destLink]);
 

@@ -1,11 +1,12 @@
+/* React Component file for layout of "About Us" page*/
+
+// Custom Components
 import NavBar from '../navbar/navbar.jsx';
 import Footer from '../footer/footer.jsx';
 
-import AboutUs1 from './assets/04_About_Us_Photo.jpg';
-import AboutUs2 from './assets/05_About_Us_Photo.jpg';
-import AboutUs3 from './assets/06_About_Us_Photo.jpg';
-
+// CSS file
 import './about_us.css';
+
 function AboutUs() {
   return (
     <>
@@ -46,9 +47,7 @@ function AboutUs() {
       </section>
 
       <section className="about-us-section img-bg">
-        <div className="about-us-content">
 
-        </div>
       </section>
 
       <Footer />
