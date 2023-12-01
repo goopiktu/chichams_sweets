@@ -47,6 +47,7 @@
     height: 28px;
     left: 0px;
     top: 0px;
+    padding: 10px;
 
     background: #FFFFFF;
     border: 1px solid #A05496;
@@ -64,6 +65,10 @@
     width: 359px;
     height: auto;
 
+    font-size: 1.6rem;
+}
+
+#input-address{
     font-size: 1.6rem;
 }
 
@@ -241,7 +246,7 @@
     gap: 10px;
 
     width: 242px;
-    height: 36px;
+    height: auto;
 }
 
 .class-name{
@@ -263,7 +268,7 @@
     gap: 4px;
 
     width: auto;
-    height: 100px;
+    height: auto;
 }
 
 .delivery-mode{
