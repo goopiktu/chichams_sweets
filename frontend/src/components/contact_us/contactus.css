@@ -8,7 +8,7 @@
     color: var(--white);
     background-image: url('./assets/03_Contact_Us_Banner.jpg');
     background-size: 100% 100%;
-    height: 500px;
+    min-height: 500px;
 
     font-size: 64px;
     font-weight: bold;
@@ -23,7 +23,8 @@
     padding: 40px;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 48px;
 }
