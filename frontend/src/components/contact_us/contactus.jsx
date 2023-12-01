@@ -17,14 +17,14 @@ function ContactUs() {
             .then((data) => setContacts(data))
             .catch(error => console.error('Error fetching data:', error));
 
-    console.log('CONTACTS: ' + contacts);
+    console.log('CONTACTS FETCHED!');
   }, []);
 
-  // Assumed: products are stored as objects in array `products`
-        // Function below maps products to id
+  // Assumed: products are stored as objects in array `contacts`
+  // Function below maps products to id
         const renderContacts = () => {
           return contacts.map((contact) => (
-                  <ContactUsItem key={contact._id} product={contact}/> // Check component in file product.jsx
+                  <ContactUsItem key={contact._id} contact={contact}/> // Check component in file product.jsx
           ));
   };
 

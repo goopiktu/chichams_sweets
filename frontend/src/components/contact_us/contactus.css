@@ -8,7 +8,7 @@
     color: var(--white);
     background-image: url('./assets/03_Contact_Us_Banner.jpg');
     background-size: 100% 100%;
-    min-height: 500px;
+    height: 500px;
 
     font-size: 64px;
     font-weight: bold;
