@@ -112,7 +112,7 @@
     padding: 20px;
     gap: 10px;
     outline: none;
-    margin-top: -18px;
+    margin-top: 10px;
     margin-bottom: 50px; /* Temporary Fix while fixing Footer */
 
     width: 359px;
@@ -351,6 +351,9 @@
     background: white;
     border: 1px solid #A05496;
     border-radius: 5px;
+    padding: 10px;
+
+    font-size: 1.6rem;
 }
 
 .product-selection{
